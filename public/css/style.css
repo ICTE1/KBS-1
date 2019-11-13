@@ -1,0 +1,15 @@
+.login-box {
+    background-color: rgba(31, 80, 77);
+    margin: 10%;
+    padding: 5%;
+}
+.center {
+    text-align: center;
+}
+.cbtn-secundary {
+    background-color: #ffe66d;
+}
+.custom-white {
+    color: #f7fff7;
+    font-weight: bold;
+}
