@@ -3,6 +3,7 @@ session_start(); ?>
     <html>
     <body>
 <?php
+// database conn for ophalen details producten
 
 if(isset($_POST["hiddenVerwijderen"])){ // verwijderdt item uit winkelwagen vanuit form hieronder
 unset($_SESSION["winkelWagen"][$_POST["hiddenVerwijderen"]]);
