@@ -9,7 +9,7 @@ session_start(); ?>
     <h1>WinkelWagen
     </h1>
     <form>
-    <input type='submit' value='ververs'>
+    <input type='submit' class='btn btn-primary' value='ververs'>
     </form>
     
 <?php
@@ -75,11 +75,11 @@ else{
                     aantal:
                     <input type='number' name='aantal'  min='1' value='$aantalLoop'>
                     <input type='hidden' name='hiddenToevoegen' value='$productLoop'>
-                    <input type='submit' value='Update'>
+                    <input type='submit' class='btn btn-primary' value='Update'>
                 </form>
                 <form method='post' style='display: inline;'>
                     <input type='hidden' name='hiddenVerwijderen' value='$productLoop'>
-                    <input type='submit' value='Verwijderen'> 
+                    <input type='submit' class='btn btn-primary' value='Verwijderen'> 
                 </form>
                 <br>
                 Prijs: $prijsLoop EURO
@@ -100,7 +100,7 @@ else{
             </div>
             <div class='card-footer text-right'>
             <form> 
-            <h4>Totaal: $prijsVerzend EURO   <input type='submit' value='betalen'></h4>
+            <h4>Totaal: $prijsVerzend EURO   <input type='submit' class='btn btn-primary' value='betalen'></h4>
             </form>
             </div>
         </div>

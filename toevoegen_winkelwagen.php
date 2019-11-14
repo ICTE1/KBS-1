@@ -26,7 +26,7 @@ if(isset($_SESSION["winkelWagen"][$product])){ /* haalt aantal uit winkelwagen v
 <form method="post">
     <input type="number" name="aantal"  min="1" value="<?php print($aantal);?>">
     <input type="hidden" name="hiddenToevoegen">
-    <input type="submit" value="Update winkelwagen">
+    <input type="submit" class="btn btn-primary" value="Update winkelwagen">
 </form>
 </body>
 </html>
