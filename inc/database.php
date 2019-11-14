@@ -10,8 +10,9 @@ class wwi_db  {
         $pass = $config->world_wide_importers->pass;
         $dbName = $config->world_wide_importers->dbname;
 
+        $this->connectie =  mysqli_connect ( $host, $user , $pass , $dbName);
 
-        if (!$this->connectie =  mysqli_connect ( $host, $user , $pass , $dbName)) {
+        if (mysqli_connect_errno()) {
             echo "Error: Unable to connect to the database." . PHP_EOL;
             echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
             echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
@@ -38,15 +39,15 @@ class wwic_db {
         $pass = $config->world_wide_importers_custom->pass;
         $dbName = $config->world_wide_importers_custom->dbname;
 
-        if (!$this->connectie =  mysqli_connect ( $host, $user , $pass , $dbName)) {
+    
+        $this->connectie =  mysqli_connect ( $host, $user , $pass , $dbName);
+
+        if (mysqli_connect_errno()) {
             echo "Error: Unable to connect to the database." . PHP_EOL;
             echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
             echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
             exit;
         }
-        
-
-
     }
 
     function __destruct(){
