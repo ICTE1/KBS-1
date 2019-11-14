@@ -2,5 +2,5 @@
 require_once "inc/database.php";
 
 
-
-include "views/home.php";
+$view = "views/home.php";
+include "template.php";
