@@ -1,13 +1,20 @@
 .footer {
+    /*this will make the footer move with the user screen or keep it down in the site*/
     position: fixed;
-    height: 200px;
+    /*height of the footer*/
+    height: 150px;
+    /*position on screen*/
     left: 0;
     bottom: 0;
+    /*total with over the user screen*/
     width: 100%;
+    /*(background)color*/
     background-color: #1a535c;
     color: white;
+    /*Place of text*/
     text-align: center;
-    overflow: auto;
+    /*text showing when amaout of text is bigger then the div is*/
+    overflow: hidden;
 }
 
 body {
