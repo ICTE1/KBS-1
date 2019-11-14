@@ -22,6 +22,13 @@ class wwi_db  {
 
     }
 
+    function get_cities (){
+        $result = mysqli_query ($this->connectie , "SELECT * FROM cities LIMIT 10");
+        $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC );
+        mysqli_free_result($result);
+        return $rows;
+    }
+
 
     function __destruct(){
         mysqli_close($this->connectie);
