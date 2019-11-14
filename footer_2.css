@@ -1,0 +1,30 @@
+.footer{
+background-color: #1a535c;
+color: #f7fff7;
+margin:0;
+padding:0;
+width:100%;
+height:22.5vh;
+bottom: 0;
+left: 0;
+position: fixed;
+float:right;
+overflow:auto;    
+}
+
+.footerP{
+color: #f7fff7;
+font-family:FiraSans-Regular, sans-serif;
+font-size:16px;
+margin:0;
+line-height:22.5vh;
+}
+
+.socialMedias{
+float:right;
+}
+
+.facebook{
+width:5vw;
+height:10vh;
+}
