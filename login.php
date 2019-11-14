@@ -8,30 +8,28 @@ $view = "views/login.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "joe is request";
     die();
-// Include config file
-//require_once "config.php";
-//
-//session_start();
-//
+
+session_start();
+
 //// Define variables and initialize with empty values
-//$username = $password = "";
-//$username_err = $password_err = "";
-//
-//// Check if username is empty
-//if (empty(trim($_POST["username"]))) {
-//    $_SESSION["username_err"] = "Please enter username";
+$username = $password = "";
+$username_err = $password_err = "";
+
+// Check if username is empty
+if (empty(trim($_POST["username"]))) {
+    $_SESSION["username_err"] = "Vul een gebruikersnaam in";
 //    header("location: ../login.php");
-//} else {
-//    $username = trim($_POST["username"]);
-//}
-//
-//// Check if password is empty
-//if (empty(trim($_POST["password"]))) {
-//    $_SESSION["password_err"] = "Please enter your password";
+} else {
+    $username = trim($_POST["username"]);
+}
+
+// Check if password is empty
+if (empty(trim($_POST["password"]))) {
+    $_SESSION["password_err"] = "Vul je wachtwoord in";
 //    header("location: ../login.php");
-//} else {
-//    $password = trim($_POST["password"]);
-//}
+} else {
+    $password = trim($_POST["password"]);
+}
 //
 //// Validate credentials
 //if (empty($_POST["username_err"]) && empty($_POST["password_err"])) {

@@ -1,5 +1,7 @@
 .login-box {
-    background-color: rgba(31, 80, 77);
+    /*background-color: rgba(51, 80, 77);*/
+    border-width: 1px;
+    border-style: solid;
     margin: 10%;
     padding: 5%;
 }
