@@ -4,4 +4,12 @@
     border-style: solid;
     border-width: 1px;
     box-shadow: 1px 1px 3px #343a40;
+    height: 150px;
+}
+
+.verlanglijst_card img {
+    max-height: 138px;
+    resize: both;
+    margin-left: -15px;
+
 }
