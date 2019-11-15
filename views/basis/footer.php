@@ -3,7 +3,7 @@
 <html>
 <head>
 
-    <link rel="stylesheet" type="text/css" href="../../public/css/footer_2_style.css" >
+    <link rel="stylesheet" type="text/css" href="../../public/css/footer_style.css" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>

@@ -14,7 +14,7 @@
     <?php
     include "views/basis/header.php";
     include $view;
-    include "views/basis/footer_2.php";
+    include "views/basis/footer.php";
     ?>
 </body>
 </html>
