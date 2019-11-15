@@ -8,7 +8,7 @@
         <div class="col-4"></div>
     </div>
 
-    <!--<div class="row verlanglijst_card">
+    <div class="row verlanglijst_card">
         <div class="col-2">
             <img class="img-fluid productThumbnail" src="public/images/space 2.jpg">
         </div>
@@ -32,6 +32,6 @@
             </form>
 
         </div>
-    </div>-->
+    </div>
 
 </div>
