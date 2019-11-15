@@ -1,0 +1,41 @@
+.bg-light {
+    /*header achtergrondkleur*/
+    background-color: #1a535c!important;
+}
+
+/*home button kleur tekst */
+.loginbutton .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: #f7fff7;
+}
+.loginbutton{
+    color: #f7fff7;
+}
+
+/*categorieën en link kleur tekst*/
+.navbar-light .navbar-nav .nav-link {
+    color: #f7fff7;
+}
+/*search button rest kleur*/
+.btn-outline-success {
+    color: #ffe66d;
+    border-color: #ffe66d;
+}
+
+/*search button on-click kleur*/
+.btn-outline-success {
+    color: #ffe66d;
+    border-color: #ffe66d;
+}
+
+button.btn.btn-outline-success.my-2.my-sm-0 {
+    color: #ffe66d;
+    border-color: #ffe66d;
+    transition-property: background-color;
+
+}
+
+body {
+    font-family: sans-serif;
+}
+
+/*https://stackoverflow.com/questions/602168/in-css-what-is-the-difference-between-and-when-declaring-a-set-of-styles     hier was robin mee bezig*/
