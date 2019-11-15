@@ -10,6 +10,9 @@
 
     <script src="public/vendor/bootstrap/js/bootstrap.min.js"></script>
 
+
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+
     <title>WorldWideImporters Europa</title>
 </head>
 <body>
