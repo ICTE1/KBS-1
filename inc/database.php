@@ -22,6 +22,25 @@ class wwi_db  {
 
     }
 
+    function get_cities(){
+        $result = mysqli_query($this->connectie, "SELECT CityName FROM cities WHERE CityName LIKE '%a%' LIMIT 20");
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
+    function productInfo($product){
+        
+        $query = "SELECT  StockItemName, RecommendedRetailPrice, SearchDetails  FROM stockitems WHERE StockItemID =?;";
+
+        $statement = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($statement, "i", $product);
+        mysqli_stmt_execute($statement);
+        $result = mysqli_stmt_get_result($statement);
+        return mysqli_fetch_array($result,MYSQLI_ASSOC);
+       
+       
+        //$result = mysqli_query($this->connectie, "SELECT  StockItemName, RecommendedRetailPrice, SearchDetails  FROM stockitems WHERE StockItemID = $product");
+        //return mysqli_fetch_all($result, MYSQLI_ASSOC); 
+    }
 
     function __destruct(){
         mysqli_close($this->connectie);

@@ -17,6 +17,13 @@ session_start(); ?>
 
     
 <?php
+include ("./inc/database.php");
+
+$databaseWWI = new wwi_db();
+
+
+
+
 function legeWinkelwagen(){
     print("<h2>Uw winkelwagen is leeg.</h2>");
 }
@@ -43,11 +50,11 @@ else{
 
     
     /* test data
-    $_SESSION["winkelWagen"][1423] = 4;
-    $_SESSION["winkelWagen"][54] = 18;
-    $_SESSION["winkelWagen"][13] = 5;
+    $_SESSION["winkelWagen"][1] = 4;
+    $_SESSION["winkelWagen"][2] = 18;
+    $_SESSION["winkelWagen"][3] = 5;
     $_SESSION["winkelWagen"][8] = 60;
-    $_SESSION["winkelWagen"][98] = 12;
+    $_SESSION["winkelWagen"][19] = 12;
     */
     $prijsTot = 0; // zet start bedrag in voor bestelling
 
@@ -55,17 +62,20 @@ else{
 
     print("<div class='card-collum'  style='padding: 30px;'>"); 
     foreach($_SESSION["winkelWagen"] as $productLoop => $aantalLoop){
-        $prijsLoop = $productLoop*$aantalLoop;
+        
+        $dataLoop = $databaseWWI->productInfo($productLoop);
+        $prijsLoop = $aantalLoop*$dataLoop['RecommendedRetailPrice'];
         $prijsTot = $prijsTot + $prijsLoop;
+        
         print(" 
         <div style='padding: 10px;'>
         <div class='card'>
             <div class='card-header'>
-                $productLoop
+               " . $dataLoop['StockItemName'] . "
             </div>
             
             <div class='card-body'>
-            place holder voor product informatie en foto
+            " . $dataLoop['SearchDetails'] . "
             
             </div>
 
@@ -85,7 +95,12 @@ else{
                         <input type='submit' class='btn btn-primary' value='Verwijderen'> 
                     </form>
                     
-                    <div class='text-right'> Prijs: $prijsLoop EURO </div>
+                    <div class='text-right'>
+                        Prijs per product: " . $dataLoop['RecommendedRetailPrice'] ." EURO
+                        <br>
+                        Prijs totaal: $prijsLoop EURO 
+                    </div>
+                         
                     </div>  
                 </div>   
             </div>
@@ -96,7 +111,8 @@ else{
         }
          $prijsVerzend = $prijsTot + 5;
          $_SESSION["prijsBestelling"] = $prijsVerzend;
-        print("
+        
+         print("
         <div class='card'>
             <div class='card-body text-right'>
             Prijs artikelen: $prijsTot EURO

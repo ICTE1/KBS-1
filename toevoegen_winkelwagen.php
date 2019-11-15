@@ -11,7 +11,7 @@ if(!isset($_SESSION["winkelWagen"])){ $_SESSION["winkelWagen"] = array(); } /* d
 
 
 /* deze variable moet in eindfase er uit zijn*/
-$product = "123";   /* deze variable hoort vanuit de product pagina te worden uitgevraagd. het gaat hier om het prouductID uit de database. */
+$product = "15";   /* deze variable hoort vanuit de product pagina te worden uitgevraagd. het gaat hier om het prouductID uit de database. */
 
 $aantal = 1; /* zet standaard aantal op 1, wordt hier na uitgevraagd wanneer er al een aantal bestaat*/
 
