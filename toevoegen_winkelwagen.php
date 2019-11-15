@@ -1,12 +1,4 @@
 <?php
-session_start(); ?>
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="public/vendor/bootstrap/css/bootstrap.min.css"> <!-- verwijder voor rolout , net als php -->
-</head>
-<body>
-
-<?php
 if(!isset($_SESSION["winkelWagen"])){ $_SESSION["winkelWagen"] = array(); } /* deze variabele is nodig om een winkelwagen te kunnen vullen */
 
 
@@ -26,14 +18,6 @@ if(isset($_SESSION["winkelWagen"][$product])){ /* haalt aantal uit winkelwagen v
 }
    /*hier onder een form om producten toe te voegen aan de winkelwagen */
    ?>
-<div>
-<form method="post" class="form-inline">
-    <input type="number" style="width: 60px;" class='form-control text-right' name="aantal"  min="1" value="<?php print($aantal);?>">
-    <input type="hidden" name="hiddenToevoegen">
-    <input type="submit" class="btn btn-primary" value="Update winkelwagen">
-</form>
-</div>
-</body>
-</html>
+
 
 
