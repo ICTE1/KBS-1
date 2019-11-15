@@ -1,26 +1,7 @@
 <?php
-session_start(); ?>
-    <html>
-    <head>
-    <link rel="stylesheet" type="text/css" href="public/vendor/bootstrap/css/bootstrap.min.css">
-    </head>
-    
-    <body>
-    
-    <div class="container">
-    
-    <h1>WinkelWagen</h1>
-    
-    <form>
-    <input type='submit' class='btn btn-primary' value='ververs'>
-    </form>
-
-    
-<?php
-include ("./inc/database.php");
-
+require_once "inc/database.php";
+$print_func = NULL;
 $databaseWWI = new wwi_db();
-
 
 
 
@@ -28,38 +9,9 @@ function legeWinkelwagen(){
     print("<h2>Uw winkelwagen is leeg.</h2>");
 }
 
-
-if(!isset($_SESSION["winkelWagen"])){ // kijkt of de winkelWagen sessie variabele bestaat en geeft hierdoor dat de winkelwagen leeg is of niet
-    legeWinkelwagen();
-}
-else{ 
-    if(isset($_POST["hiddenVerwijderen"])){ // verwijderdt item uit winkelwagen vanuit form hieronder
-        unset($_SESSION["winkelWagen"][$_POST["hiddenVerwijderen"]]);
-        }
-    
-        if(isset($_POST["hiddenToevoegen"])){ /* zet aantal van het product in de winkelwagen vanuit update winkelwagen form */
-            $_SESSION["winkelWagen"][$_POST["hiddenToevoegen"]] = $_POST["aantal"];
-        }
-
-        if(count($_SESSION["winkelWagen"]) == 0){ // kijkt of er producten in de winkel wagen zit
-            legeWinkelwagen();
-        }
-    else{
-
-    // database conn for ophalen details producten
-
-    
-    /* test data
-    $_SESSION["winkelWagen"][1] = 4;
-    $_SESSION["winkelWagen"][2] = 18;
-    $_SESSION["winkelWagen"][3] = 5;
-    $_SESSION["winkelWagen"][8] = 60;
-    $_SESSION["winkelWagen"][19] = 12;
-    */
-    $prijsTot = 0; // zet start bedrag in voor bestelling
-
-    // V print de winkelwagen met verwijder knop per product en aanpas knoppen, totaal en betaal place holder V
-
+function printWinkelwagen() {// V print de winkelwagen met verwijder knop per product en aanpas knoppen, totaal en betaal place holder V
+global $databaseWWI;
+$prijsTot = 0; // zet start bedrag in voor bestelling
     print("<div class='card-collum'  style='padding: 30px;'>"); 
     foreach($_SESSION["winkelWagen"] as $productLoop => $aantalLoop){
         
@@ -71,7 +23,7 @@ else{
         <div style='padding: 10px;'>
         <div class='card'>
             <div class='card-header'>
-               " . $dataLoop['StockItemName'] . "
+            " . $dataLoop['StockItemName'] . "
             </div>
             
             <div class='card-body'>
@@ -100,7 +52,7 @@ else{
                         <br>
                         Prijs totaal: $prijsLoop EURO 
                     </div>
-                         
+                        
                     </div>  
                 </div>   
             </div>
@@ -109,10 +61,10 @@ else{
         ");
 
         }
-         $prijsVerzend = $prijsTot + 5;
-         $_SESSION["prijsBestelling"] = $prijsVerzend;
+        $prijsVerzend = $prijsTot + 5;
+        $_SESSION["prijsBestelling"] = $prijsVerzend;
         
-         print("
+        print("
         <div class='card'>
             <div class='card-body text-right'>
             Prijs artikelen: $prijsTot EURO
@@ -130,10 +82,32 @@ else{
 
         print("</div>");
     }
+
+
+
+    
+if(!isset($_SESSION["winkelWagen"])){ // kijkt of de winkelWagen sessie variabele bestaat en geeft hierdoor dat de winkelwagen leeg is of niet
+    $print_func = 'legeWinkelwagen';
+    }
+else{ 
+    if(isset($_POST["hiddenVerwijderen"])){ // verwijderdt item uit winkelwagen vanuit form hieronder
+        unset($_SESSION["winkelWagen"][$_POST["hiddenVerwijderen"]]);
+        }
+    
+        if(isset($_POST["hiddenToevoegen"])){ /* zet aantal van het product in de winkelwagen vanuit update winkelwagen form */
+            $_SESSION["winkelWagen"][$_POST["hiddenToevoegen"]] = $_POST["aantal"];
+        }
+
+        if(count($_SESSION["winkelWagen"]) == 0){ // kijkt of er producten in de winkel wagen zit
+            $print_func = 'legeWinkelwagen';
+        }
+    else{
+
+    $print_func = 'printWinkelwagen';
+    
+    }
 }
-?>
-    
-    
-    </div>
-    </body>
-    </html>
+
+$view = 'views/winkelwagen.php';
+
+include 'template.php';
