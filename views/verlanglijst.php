@@ -1,4 +1,5 @@
 <div class="container verlanglijst" style="margin-top: 10px">
+
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4" style="text-align: center">
@@ -17,8 +18,10 @@
         <div class="col-5" style="padding-top: 51px; padding-bottom: 51px;">
             <form class="form-inline" style="vertical-align: center">
                 <div class="btn btn-primary">Winkelwagen</div>
-                <input class="form-control" type="number" value="1" id="example-number-input">
+                <input class="form-control" type="number" value="1" name="aantal">
+                <input type="hidden" name="hiddenToevoegen" value="$product_ID">
             </form>
+            <div class="fa-trash-o"></div>
         </div>
     </div>
 
