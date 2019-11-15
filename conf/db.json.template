@@ -1,0 +1,14 @@
+{
+    "world_wide_importers": {
+        "host": "185.182.56.58",
+        "user": "dylanyv400_wwi",
+        "pass": "",
+        "dbname": "dylanyv400_wwi"
+    },
+    "world_wide_importers_custom": {
+       "host": "185.182.56.58",
+        "user": "dylanyv400_wwi",
+        "pass": "",
+        "dbname": "dylanyv400_wwi"
+    }
+}

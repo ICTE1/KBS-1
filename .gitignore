@@ -1,1 +1,4 @@
-".idea" 
+db.json
+.idea/
+.DS_Store
+
