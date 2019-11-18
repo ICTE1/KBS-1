@@ -1,0 +1,24 @@
+.landing-ad {
+    background-image: url("../images/halloween.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 400px;
+}
+.feelinglucky {
+    background-image: url("../images/feelinglucky.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 400px;
+}
+.transparent-background {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2% 0% 2% 0%;
+
+    max-width: 500px !important;
+}
+.white-text {
+    color: #ffffff;
+}
+.halloween-font {
+    font-family: 'Creepster', cursive;
+}
