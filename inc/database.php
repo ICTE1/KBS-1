@@ -56,7 +56,6 @@ class wwic_db {
             exit;
         }
     }
-    //Hier nog even prepared statement van maken
     /**
      * Checks if username exists in database
      *
@@ -67,7 +66,6 @@ class wwic_db {
      * @return Boolean
      */
     function check_if_user_exists($username) {
-
         $query = "SELECT * FROM user WHERE username = ?";
 
         $stmt = mysqli_prepare($this->connectie, $query);
@@ -81,7 +79,6 @@ class wwic_db {
         if($user === NULL) { return FALSE; } else { return TRUE;}
 
     }
-    //Hier nog even prepared statement van maken
     /**
      * Creates user in database
      *
@@ -93,7 +90,6 @@ class wwic_db {
      * @return none
      */
     function create_user($name, $password) {
-
         $query = "INSERT INTO user (username, password) VALUES (?, ?)";
 
         $stmt = mysqli_prepare($this->connectie, $query);
@@ -102,7 +98,6 @@ class wwic_db {
         mysqli_stmt_execute($stmt);
 
     }
-    //Hier nog even prepared statement van maken
     /**
      * Get user data from database
      *
@@ -113,7 +108,6 @@ class wwic_db {
      * @return rows in an associative array
      */
     function get_user_data($username) {
-
         $query = "SELECT id, username, password FROM user WHERE username = ?";
 
         $stmt = mysqli_prepare($this->connectie, $query);
@@ -124,6 +118,20 @@ class wwic_db {
         $result = mysqli_stmt_get_result($stmt);
 
         return mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+    }
+    /**
+     * Logout the user
+     *
+     * @param none
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Dylan Roubos
+     * @return none
+     */
+    function logout() {
+        $_SESSION["loggedin"] = FALSE;
+        $_SESSION["username"] = NULL;
 
     }
     function __destruct(){

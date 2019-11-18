@@ -1,16 +1,16 @@
 <?php
 require_once "inc/database.php";
-require_once "inc/user.php";
 
 session_start();
+
+if($_SESSION["loggedin"] === TRUE) {
+    header("location: ./index.php");
+}
 
 $view = "views/login.php";
 
 //Check if the method is POST to determine if you should handle the request or send it to the login page.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if($_SESSION["loggedin"] === true) {
-        header("location: ./index.php");
-    }
 
     //Clear error session variables
     $_SESSION["username_err"] = NULL;

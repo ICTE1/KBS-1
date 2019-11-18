@@ -1,6 +1,5 @@
 <?php
 require_once "inc/database.php";
-require_once "inc/user.php";
 
 session_start();
 
