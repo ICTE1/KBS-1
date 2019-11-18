@@ -1,15 +1,4 @@
-<?php
-?>
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="../../public/css/header_style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-
-    </style>
-</head>
-<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <img class="WorldWideImporters" alt="logo" src="../../public/images/wide-world-importers-logo-small.png">
 
@@ -33,19 +22,28 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="loginbutton" href="login.php">login <span class="sr-only">(current)</span></a>
+            <li>
+                <div class="loginbutton">
+                <button type="button" class="btn btn-default">
+                    <a class="btn btn-outline-success my-2 my-sm-0" href="login.php">login <span class="sr-only">(current)</span></a>
+                </button>
+                </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+            <li>
+                <div class="verlanglijst">
+                <button type="button" class="btn btn-default">
+                    <a class="fa fa-heart" href="verlanglijst.php"></a> <--kijken naar de buttonlogo`s, beslissen of we deze willen houden i.v.m. het permanente blauwe logo nu.-->
+                </button>
+                </div>
             </li>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+            <li>
+                <div class="winkelwagen">
+                <button type="button" class="btn btn-default">
+                    <a class="fa fa-shopping-cart" href="winkelwagen.php"></a>
+                </button>
+                </div>
             </li>
         </ul>
-
     </div>
 </nav>
-</body>
-</html>
+

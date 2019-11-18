@@ -7,8 +7,22 @@
 .loginbutton .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
     color: #f7fff7;
 }
+
+/*kleur loginbutton*/
 .loginbutton{
-    color: #f7fff7;
+    background-color: transparent;
+    color: #ffe66d;
+}
+
+.winkelwagen{
+    background-color: transparent;
+    color: #ffe66d;
+}
+
+/*kleur verlanglijstbutton*/
+.verlanglijst {
+    background-color: transparent;
+    color: #ffe66d;
 }
 
 /*categorieën en link kleur tekst*/
