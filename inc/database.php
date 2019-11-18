@@ -130,7 +130,7 @@ class wwic_db {
      * @return none
      */
     function logout() {
-        $_SESSION["loggedin"] = FALSE;
+        $_SESSION["loggedin"] = NULL;
         $_SESSION["username"] = NULL;
 
     }

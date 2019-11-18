@@ -2,8 +2,7 @@
 require_once "inc/database.php";
 
 session_start();
-
-if($_SESSION["loggedin"] === TRUE) {
+if(isset($_SESSION["loggedin"])) {
     header("location: ./index.php");
 }
 
