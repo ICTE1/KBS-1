@@ -42,13 +42,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Get the user data from the db
         $user_data = $wwic->get_user_data($username);
-
         // Check if the user is known
         if (empty($user_data)) {
             $_SESSION["username_err"] = "Gebruiker niet bekend in het systeem";
         } else {
             // Check if the filed password matches the password in the db
-            if (password_verify($password, $user_data["0"]["password"])) {
+            if (password_verify($password, $user_data["password"])) {
 
                 // Store data in session variables
                 $_SESSION["loggedin"] = true;

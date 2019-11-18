@@ -66,12 +66,19 @@ class wwic_db {
      * @author Dylan Roubos
      * @return Boolean
      */
-    function check_if_user_exists($name) {
+    function check_if_user_exists($username) {
 
-        $result = mysqli_query ($this->connectie , "SELECT * FROM user WHERE username = '$name'");
-        $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC );
-        mysqli_free_result($result);
-        if(empty($rows)) { return FALSE; } else { return TRUE;}
+        $query = "SELECT * FROM user WHERE username = ?";
+
+        $stmt = mysqli_prepare($this->connectie, $query);
+
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+        $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+        if($user === NULL) { return FALSE; } else { return TRUE;}
 
     }
     //Hier nog even prepared statement van maken
@@ -87,7 +94,12 @@ class wwic_db {
      */
     function create_user($name, $password) {
 
-         mysqli_query($this->connectie, "INSERT INTO user (username, password) VALUES ('$name', '$password')");
+        $query = "INSERT INTO user (username, password) VALUES (?, ?)";
+
+        $stmt = mysqli_prepare($this->connectie, $query);
+
+        mysqli_stmt_bind_param($stmt, "ss", $name, $password);
+        mysqli_stmt_execute($stmt);
 
     }
     //Hier nog even prepared statement van maken
@@ -101,10 +113,18 @@ class wwic_db {
      * @return rows in an associative array
      */
     function get_user_data($username) {
-        $result = mysqli_query ($this->connectie , "SELECT id, username, password FROM user WHERE username = ('$username')");
-        $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC );
-        mysqli_free_result($result);
-        return $rows;
+
+        $query = "SELECT id, username, password FROM user WHERE username = ?";
+
+        $stmt = mysqli_prepare($this->connectie, $query);
+
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+
+        return mysqli_fetch_array($result, MYSQLI_ASSOC);
+
     }
     function __destruct(){
         mysqli_close($this->connectie);
