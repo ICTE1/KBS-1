@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION["password_err"] = "Vul een wachtwoord in";
     } elseif (strlen(trim($_POST["password"])) < 6) {
         $_SESSION["password_err"] = "Wachtwoord moet minimaal 6 karakters";
+        $password = trim($_POST["password"]);
     } else {
         $password = trim($_POST["password"]);
     }
