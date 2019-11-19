@@ -62,12 +62,14 @@ if($display) {
             </div >
         </div >
         <div class="col-5 verlanglijst_buttons" >
-            <form class="form-inline" style = "float: right" >
-                <input class="form-control" type = "number" value = "1" name = "aantal" >
-                <div class="btn btn-primary" ><i class="fa fa-cart-arrow-down" ></i ></div >
-                <input type = "hidden" name = "hiddenToevoegen" value = "$product_ID" >
-                <div class="btn btn-primary" style = "margin-left: 10px" ><i class="fa fa-trash-o" ></i ></div >
-            </form >
+            <div style = "float: right">
+                <form class="form-inline" id="form_'.$record["StockItemID"].'">
+                    <input class="form-control" type = "number" value = "1" name = "aantal" >
+                    <div class="btn btn-primary" ><i class="fa fa-cart-arrow-down" ></i ></div >
+                    <input type = "hidden" name = "hiddenToevoegen" value = '.$record["StockItemID"].' >
+                    <div class="btn btn-primary" style = "margin-left: 10px" ><i class="fa fa-trash-o"></i ></div >
+                </form>
+            </div>
 
         </div >
     </div >
@@ -84,7 +86,7 @@ if($display) {
     }
     else{
         print('
-            <div style="float: left; margin-top: 10px">
+            <div style="float: left; margin-bottom: 10px">
                  Je verlanglijst staat op privé 
                  <div class="btn btn-primary"><i class="fa fa-share-square-o"></i> delen</div>
             </div>');
