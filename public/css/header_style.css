@@ -39,15 +39,11 @@
 }
 
 body {
-    font-family: sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
-
-/*https://stackoverflow.com/questions/602168/in-css-what-is-the-difference-between-and-when-declaring-a-set-of-styles     hier was robin mee bezig*/
-
 
 /* Search area */
 .search-area{
-    font-family: 'Open Sans', sans-serif;
     width: 20em;
 }
 
