@@ -6,17 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" type="text/css" href="public/vendor/bootstrap/css/bootstrap.min.css">
-
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
-
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="public/css/footer_style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/header_style.css">
 
     <script src="public/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <link rel="stylesheet" type="text/css" href="public/css/footer_style.css">
-    
     <title>WorldWideImporters Europa</title>
 </head>
 <body>
