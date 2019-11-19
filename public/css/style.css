@@ -1,0 +1,36 @@
+.verlanglijst {
+    box-shadow: 1px 1px 3px #343a40;
+}
+
+.verlanglijst_card {
+    padding: 5px;
+    height: 160px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    border-bottom: 1px solid #d1d3d4;
+}
+
+.verlanglijst_card img {
+    max-height: 138px;
+    resize: both;
+    margin-left: 15px;
+    float: left;
+}
+
+.verlanglijst_text {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 5px;
+    height: 100%
+}
+
+.verlanglijst_prijs {
+    position: absolute;
+    bottom: 10px
+}
+
+.verlanglijst_buttons {
+    padding-top: 51px;
+    padding-bottom: 51px;
+    text-align: right;
+}
