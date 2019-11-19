@@ -49,6 +49,8 @@ class wwi_db  {
     }
 
 
+
+
     function __destruct(){
         mysqli_close($this->connectie);
     }
@@ -74,6 +76,25 @@ class wwic_db {
             echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
             exit;
         }
+    }
+
+    function wishlistProducts($wishlist){
+
+        $query = "SELECT product_id FROM wishlist_product WHERE wishlist_id = ? ORDER BY created_at";
+
+        $stmt = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($stmt, "i", $wishlist);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $stock_item_id = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        $wwi = new wwi_db();
+        $products = array();
+        foreach($stock_item_id as $key => $col){
+           $products[] = $wwi->productInfo($col["product_id"]);
+        }
+        return($products);
+
     }
 
     function __destruct(){
