@@ -102,8 +102,17 @@ class wwic_db {
 
     }
 
-    function wishlistName($wishlist){
-        $query = "SELECT name FROM wishlist WHERE wishlist_id = ?";
+    /**
+     * get info of wishlist
+     *
+     * @param wishlist id
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Jelle Wiersma
+     * @return array with records, each value is an array with columns and values per record.
+     */
+    function wishlistInfo($wishlist){
+        $query = "SELECT * FROM wishlist WHERE wishlist_id = ?";
         $stmt = mysqli_prepare($this->connectie, $query);
         mysqli_stmt_bind_param($stmt, "i", $wishlist);
         mysqli_stmt_execute($stmt);
@@ -111,7 +120,15 @@ class wwic_db {
         $name = mysqli_fetch_array($result, MYSQLI_ASSOC);
         return($name);
     }
-
+    /**
+     * get info of products on wishlist
+     *
+     * @param wishlist id
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Jelle Wiersma
+     * @return array with records, each value is an array with columns and values per record.
+     */
     function wishlistProducts($wishlist){
 
         $query = "SELECT product_id FROM wishlist_product WHERE wishlist_id = ? ORDER BY created_at";
@@ -121,7 +138,6 @@ class wwic_db {
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         $stock_item_id = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
         $wwi = new wwi_db();
         $products = array();
         foreach($stock_item_id as $key => $col){
