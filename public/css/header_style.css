@@ -12,6 +12,7 @@
 .loginbutton{
     background-color: transparent;
     color: #ffe66d;
+
 }
 
 .winkelwagen{
@@ -35,7 +36,6 @@
     color: #ffe66d;
     border-color: #ffe66d;
     transition-property: background-color;
-
 }
 
 body {
