@@ -42,10 +42,18 @@ class wwi_db  {
         mysqli_stmt_execute($statement);
         $result = mysqli_stmt_get_result($statement);
         return mysqli_fetch_array($result,MYSQLI_ASSOC);
-       
-       
+
+
         //$result = mysqli_query($this->connectie, "SELECT  StockItemName, RecommendedRetailPrice, SearchDetails  FROM stockitems WHERE StockItemID = $product");
-        //return mysqli_fetch_all($result, MYSQLI_ASSOC); 
+        //return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
+    function get_sales() {
+
+        $result = mysqli_query ($this->connectie , "SELECT StockItemID, StockItemName, UnitPrice, RecommendedRetailPrice FROM stockitems WHERE tags LIKE '%limited%' ORDER BY rand() LIMIT 5");
+        $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC );
+        mysqli_free_result($result);
+        return $rows;
     }
 
 

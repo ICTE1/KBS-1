@@ -22,3 +22,14 @@
 .halloween-font {
     font-family: 'Creepster', cursive;
 }
+.text-header {
+    background-color: #4ecdc4;
+    padding: 1%;
+}
+.margin-top-botom {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.cjumbotron {
+    padding-top: 5rem;
+}
