@@ -77,6 +77,7 @@ class wwic_db {
             exit;
         }
     }
+
     /**
      * Checks if username exists in database
      *
@@ -99,6 +100,16 @@ class wwic_db {
 
         if($user === NULL) { return FALSE; } else { return TRUE;}
 
+    }
+
+    function wishlistName($wishlist){
+        $query = "SELECT name FROM wishlist WHERE wishlist_id = ?";
+        $stmt = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($stmt, "i", $wishlist);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $name = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        return($name);
     }
 
     function wishlistProducts($wishlist){
