@@ -1,6 +1,4 @@
 .footer {
-    /*this will make the footer move with the user screen or keep it down in the site*/
-    position: fixed;
     /*height of the footer*/
     height: 150px;
     /*position on screen*/
