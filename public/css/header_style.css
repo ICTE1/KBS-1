@@ -81,3 +81,7 @@ body {
     background-color: #32b8cc!important;
     box-shadow: none;
 }
+
+.content{
+    min-height: 75vh;
+}

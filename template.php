@@ -14,9 +14,15 @@
 </head>
 <body>
     <?php
-    include "views/basis/header.php";
-    include $view;
-    include "views/basis/footer.php";
+        include "views/basis/header.php";
+    ?>
+        <div class="content">
+        <?php
+            include $view;
+        ?>
+        </div>
+    <?php
+        include "views/basis/footer.php";
     ?>
 </body>
 </html>
