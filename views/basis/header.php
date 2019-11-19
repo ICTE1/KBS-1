@@ -4,17 +4,26 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Categorieën
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Categorieën
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Limited Stock</a>
+                        <a href="#">Halloween Fun</a>
+                        <a href="#">Comfortable</a>
+                        <a href="#">Long Battery Life</a>
+                        <a href="#">So Realistic</a>
+                        <a href="#">Vintage</a>
+                        <a href="#">So Realistic</a>
+                        <a href="#">Radio Control</a>
+                        <a href="#">Realistic Sound</a>
+                        <a href="#">Comedy</a>
+                        <a href="#">USB Powered</a>
+                    </div>
                 </div>
+            </div>
+
             </li>
         </ul>
         <form class="form-inline my-2 search-area">
@@ -31,8 +40,9 @@
             </li>
             <li>
                 <div class="verlanglijst">
-                <button type="button" class="btn btn-default btn-lg">
-                    <a class="fa fa-heart" href="verlanglijst.php"></a> <!--kijken naar de buttonlogo`s, beslissen of we deze willen houden i.v.m. het permanente blauwe logo nu.-->
+
+                <button type="button" class="btn btn-default">
+                    <a class="fa fa-heart" href="verlanglijst.php"></a>
                 </button>
                 </div>
             </li>
