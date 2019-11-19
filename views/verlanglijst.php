@@ -17,7 +17,7 @@ $owner_id = $wishlist["customer_id"];
 $shared = $wishlist["shared"];
 
 //put wishlist products into variable
-$products = $db_custom->wishlistProducts($wishlist);
+$products = $db_custom->wishlistProducts($w);
 
 //test if wishlist is allowed to be displayed
 //owner is logged in, and wants to view his own list -> display
@@ -34,6 +34,7 @@ else{
     print("not allowed to view this list (errorpage hasn't been made yet)");
 }
 if($display) {
+    //print title
     print('
 <div class="container verlanglijst" style="margin-top: 10px">
 
@@ -44,10 +45,9 @@ if($display) {
         </div>
         <div class="col-4"></div>
     </div>');
-
-    foreach($products as $num=>$record){
-        print(
-                '
+    //print product cards
+    foreach ($products as $num => $record) {
+        print('
                 <div class="row verlanglijst_card" >
         <div class="col-2" >
             <img class="img-fluid productThumbnail" src = "public/images/space 2.jpg" >
@@ -55,10 +55,10 @@ if($display) {
         <div class="col-5" >
             <div class="verlanglijst_text" >
                 <p >
-                    <b >'.$record["StockItemName"].'</b ><br >
-                    '.$record["SearchDetails"].'
+                    <b >' . $record["StockItemName"] . '</b ><br >
+                    ' . $record["SearchDetails"] . '
                 </p >
-                <span class="verlanglijst_prijs" ><b >'.$record["RecommendedRetailPrice"].'</b ></span >
+                <span class="verlanglijst_prijs" ><b >' . $record["RecommendedRetailPrice"] . '</b ></span >
             </div >
         </div >
         <div class="col-5 verlanglijst_buttons" >
@@ -75,32 +75,22 @@ if($display) {
         );
     }
 
-//    <!--<div class="row verlanglijst_card" >
-//        <div class="col-2" >
-//            <img class="img-fluid productThumbnail" src = "public/images/space 2.jpg" >
-//        </div >
-//        <div class="col-5" >
-//            <div class="verlanglijst_text" >
-//                <p >
-//                    <b > Productnaam</b ><br >
-//
-//    Lorem ipsum dolor sit amet, consectetur adipiscing elit .
-//    Nam imperdiet tellus ut enim venenatis, eu euismod orci dapibus . Donec tempor .
-//                </p >
-//                <span class="verlanglijst_prijs" ><b > Prijs</b ></span >
-//            </div >
-//        </div >
-//        <div class="col-5 verlanglijst_buttons" >
-//            <form class="form-inline" style = "float: right" >
-//                <input class="form-control" type = "number" value = "1" name = "aantal" >
-//                <div class="btn btn-primary" ><i class="fa fa-cart-arrow-down" ></i ></div >
-//                <input type = "hidden" name = "hiddenToevoegen" value = "$product_ID" >
-//                <div class="btn btn-primary" style = "margin-left: 10px" ><i class="fa fa-trash-o" ></i ></div >
-//            </form >
-//
-//        </div >
-//    </div > -->
-//
-//</div >
+    //print share button
+    print('<div class="row">
+            <div class="col-12">
+                <div style="float: left; margin-top: 10px">');
+    if($shared){
+        print("Deze verlanglijst is openbaar beschikbaar");
+    }
+    else{
+        print('
+            <div style="float: left; margin-top: 10px">
+                 Je verlanglijst staat op privé 
+                 <div class="btn btn-primary"><i class="fa fa-share-square-o"></i> delen</div>
+            </div>');
+    }
+    print('</div>
+        </div>
+    </div>');
 }
 ?>
