@@ -75,7 +75,84 @@ class wwic_db {
             exit;
         }
     }
+    /**
+     * Checks if username exists in database
+     *
+     * @param name - name to check in database
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Dylan Roubos
+     * @return Boolean
+     */
+    function check_if_user_exists($username) {
+        $query = "SELECT * FROM user WHERE username = ?";
 
+        $stmt = mysqli_prepare($this->connectie, $query);
+
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+        $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+        if($user === NULL) { return FALSE; } else { return TRUE;}
+
+    }
+    /**
+     * Creates user in database
+     *
+     * @param name - uses the name to create the user
+     * @param password - hashed password to add to the account
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Dylan Roubos
+     * @return none
+     */
+    function create_user($name, $password) {
+        $query = "INSERT INTO user (username, password) VALUES (?, ?)";
+
+        $stmt = mysqli_prepare($this->connectie, $query);
+
+        mysqli_stmt_bind_param($stmt, "ss", $name, $password);
+        mysqli_stmt_execute($stmt);
+
+    }
+    /**
+     * Get user data from database
+     *
+     * @param username - the name of the user to get the data from
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Dylan Roubos
+     * @return rows in an associative array
+     */
+    function get_user_data($username) {
+        $query = "SELECT id, username, password FROM user WHERE username = ?";
+
+        $stmt = mysqli_prepare($this->connectie, $query);
+
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+
+        return mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+    }
+    /**
+     * Logout the user
+     *
+     * @param none
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Dylan Roubos
+     * @return none
+     */
+    function logout() {
+        $_SESSION["loggedin"] = NULL;
+        $_SESSION["username"] = NULL;
+
+    }
     function __destruct(){
         mysqli_close($this->connectie);
     }
