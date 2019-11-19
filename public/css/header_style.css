@@ -33,14 +33,30 @@
 
 
 .btn-outline-success{
-    color: #ffe66d;
-    border-color: #ffe66d;
-    transition-property: background-color;
+    color: #3ac4da;
+    border-color: #3dc3d8;
+}
+
+.btn-outline-success:hover{
+    transition: all 0.3s;
+    color: #ffffff;
+    border-color: #3dc3d8;
+    background-color: #43c5da;
+}
+
+.fa{
+    color: #3ac4da;
+}
+.fa:hover{
+    color: #298796;
+    border:none;
+
 }
 
 body {
     font-family: 'Open Sans', sans-serif;
 }
+
 
 /* Search area */
 .search-area{
@@ -81,5 +97,13 @@ body {
 }
 
 .content{
-    min-height: 75vh;
+    min-height: 81vh;
+}
+
+.nav-link{
+    font-weight: bold   ;
+}
+
+.nav-link:hover{
+    color: #ffffff!important;
 }

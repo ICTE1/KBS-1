@@ -1,6 +1,6 @@
 .footer {
     /*height of the footer*/
-    height: 150px;
+    height: 6em;
     /*position on screen*/
     left: 0;
     bottom: 0;
@@ -16,9 +16,12 @@
     overflow: hidden;
 }
 
-body {
-    font-family: sans-serif;
-}
-img{
+.footer img{
+    display: inline-block;
     padding-top: 10px;
+    width: 10em;
+}
+
+.footer p {
+    display: inline-block;
 }
