@@ -12,6 +12,7 @@
 .loginbutton{
     background-color: transparent;
     color: #ffe66d;
+
 }
 
 .winkelwagen{
@@ -45,7 +46,6 @@ button.btn.btn-outline-success.my-2.my-sm-0 {
     color: #ffe66d;
     border-color: #ffe66d;
     transition-property: background-color;
-
 }
 
 body {
