@@ -17,9 +17,9 @@
                 </div>
             </li>
         </ul>
-        <form class="form-inline my-2 ">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline my-2 search-area">
+            <input class="form-control" type="search" placeholder="Bananen..." aria-label="Search">
+            <button class="btn" type="submit">Zoeken</button>
         </form>
         <ul class="navbar-nav mr-auto">
             <li>

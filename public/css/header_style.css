@@ -29,19 +29,9 @@
 .navbar-light .navbar-nav .nav-link {
     color: #f7fff7;
 }
-/*search button rest kleur*/
-.btn-outline-success {
-    color: #ffe66d;
-    border-color: #ffe66d;
-}
 
-/*search button on-click kleur*/
-.btn-outline-success {
-    color: #ffe66d;
-    border-color: #ffe66d;
-}
 
-button.btn.btn-outline-success.my-2.my-sm-0 {
+.btn-outline-success{
     color: #ffe66d;
     border-color: #ffe66d;
     transition-property: background-color;
@@ -53,3 +43,41 @@ body {
 }
 
 /*https://stackoverflow.com/questions/602168/in-css-what-is-the-difference-between-and-when-declaring-a-set-of-styles     hier was robin mee bezig*/
+
+
+/* Search area */
+.search-area{
+    font-family: 'Open Sans', sans-serif;
+    width: 20em;
+}
+
+
+.search-area input{
+    position: absolute;
+    padding-right: 6.2em; 
+}
+
+.search-area input:focus{
+    outline: none;
+    border: none ;
+    box-shadow: none;
+    padding-right: 6.3em;
+}
+
+.search-area button[type='submit']  {
+    display: inline;
+    background-color: #2c90a0;
+    color: #ffffff;
+    border:none;
+    border-radius: 0 5px 5px 0;
+    position:relative;
+    z-index: 2;
+    left: 13.3em;
+
+}
+
+.search-area button[type='submit']:hover {
+    transition: background-color 0.3s;
+    background-color: #32b8cc!important;
+    box-shadow: none;
+}
