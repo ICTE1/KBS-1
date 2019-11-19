@@ -35,7 +35,7 @@ class wwi_db  {
 
     function productInfo($product){
         
-        $query = "SELECT  StockItemName, RecommendedRetailPrice, SearchDetails  FROM stockitems WHERE StockItemID =?;";
+        $query = "SELECT StockItemID, StockItemName, RecommendedRetailPrice, SearchDetails  FROM stockitems WHERE StockItemID =?;";
 
         $statement = mysqli_prepare($this->connectie, $query);
         mysqli_stmt_bind_param($statement, "i", $product);
