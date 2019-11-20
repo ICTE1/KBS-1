@@ -21,7 +21,7 @@
                         <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><?= $sales["" . $i .""]["StockItemName"] . " - " . substr($discount, 1, -13) . "%" ?></h5>
-                            <h5 class="card-title"><?= $sales["" . $i .""]["UnitPrice"] . "€"?></h5>
+                            <h5 class="card-title"><?= "€" . $sales["" . $i .""]["UnitPrice"] ?></h5>
                             <a href="#" class="btn btn-primary">Bekijk product</a>
                         </div>
                     </div>
@@ -82,13 +82,13 @@
     <section>
         <div class="container margin-top-botom">
             <div class="row text-center">
-                <?php for($i =0; $i < 4; $i++): ?>
+                <?php $sales = $wwi->get_best_sellers(); for($i =0; $i < 4; $i++): ?>
                     <div class="col-md-3">
                         <div class="card">
                             <img src="..." class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Titel - korting</h5>
-                                <h5 class="card-title">Prijs</h5>
+                                <h5 class="card-title"><?= $sales["" . $i .""]["StockItemName"] ?></h5>
+                                <h5 class="card-title"><?= "€" . $sales["" . $i .""]["RecommendedRetailPrice"] ?></h5>
                                 <a href="#" class="btn btn-primary">Bekijk product</a>
                             </div>
                         </div>
