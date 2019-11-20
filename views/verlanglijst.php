@@ -1,7 +1,7 @@
 <!--TODO:
--owner can unshare own wishlist
 -form for adding to cart functionality
 -delete from wishlist
+-images per product
 -->
 <?php
 //read which wishlist to display
@@ -15,8 +15,15 @@ else {
 //check for share command
 $cmd_shared = 0;
 if(isset($_POST["share"])){
-    $db_custom->shareWishlist($w);
-    $cmd_shared = 1;
+    if($_POST["share"]){
+        $db_custom->shareWishlist($w);
+        $cmd_shared = 1;
+    }
+    else{
+        $db_custom->unshareWishlist($w);
+        $cmd_shared = 2;
+    }
+
 }
 
 //put wishlist info into variables
@@ -37,6 +44,7 @@ $products = $db_custom->wishlistProducts($w);
 //else                                               -> dont display
 if(isset($_SESSION["loggedin"]) && ($_SESSION["user_id"] == $owner_id)){
     $display = TRUE;
+    $owned = TRUE;
 }
 elseif($shared){
     $display = TRUE;
@@ -50,9 +58,14 @@ else{
 //if allowed to display: print html
 if($display) {
     //print shared alert
-    if($cmd_shared){
+    if($cmd_shared == 1){
         print(
             '<div class="alert alert-primary" role="alert"> Verlanglijst is gedeeld!</div>'
+        );
+    }
+    elseif($cmd_shared == 2){
+        print(
+        '<div class="alert alert-primary" role="alert"> Verlanglijst is niet meer gedeeld!</div>'
         );
     }
     //print title
@@ -102,10 +115,16 @@ if($display) {
     print('<div class="row">
             <div class="col-12">
                 <div style="float: left; margin-top: 10px">');
-    if($shared){
-        print("Deze verlanglijst is openbaar beschikbaar");
+    if($owned && $shared){
+        print('<div style="float: left; margin-bottom: 10px">
+            Je verlanglijst is gedeeld
+        <form action="verlanglijst.php?w='.$w.'" method="post" style="display: inline;" id="share">
+                      <input type="hidden" name="share" value=0>
+                      <div class="btn btn-primary" onclick="submitOnClick(\'share\')"><i class="fa fa-times"></i> Niet meer delen</input>
+                 </form>
+            </div>');
     }
-    else{
+    elseif(!$shared){
         print('
             <div style="float: left; margin-bottom: 10px">
                  Je verlanglijst staat op privé 
@@ -114,6 +133,9 @@ if($display) {
                       <div class="btn btn-primary" onclick="submitOnClick(\'share\')"><i class="fa fa-share-square-o"></i> delen</input>
                  </form>
             </div>');
+    }
+    else{
+        print('Je bekijkt een gedeelde verlanglijst');
     }
     print('</div>
         </div>
