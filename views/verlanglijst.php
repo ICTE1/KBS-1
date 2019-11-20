@@ -1,3 +1,8 @@
+<!--TODO:
+-owner can unshare own wishlist
+-form for adding to cart functionality
+-delete from wishlist
+-->
 <?php
 //read which wishlist to display
 if(isset($_GET["w"])){
@@ -5,6 +10,13 @@ if(isset($_GET["w"])){
 }
 else {
     print("witness some errors (errorpage hasn't been made yet):<br>");
+}
+
+//check for share command
+$cmd_shared = 0;
+if(isset($_POST["share"])){
+    $db_custom->shareWishlist($w);
+    $cmd_shared = 1;
 }
 
 //put wishlist info into variables
@@ -33,7 +45,16 @@ else{
     $display = FALSE;
     print("not allowed to view this list (errorpage hasn't been made yet)");
 }
+
+
+//if allowed to display: print html
 if($display) {
+    //print shared alert
+    if($cmd_shared){
+        print(
+            '<div class="alert alert-primary" role="alert"> Verlanglijst is gedeeld!</div>'
+        );
+    }
     //print title
     print('
 <div class="container verlanglijst" style="margin-top: 10px">
@@ -88,7 +109,10 @@ if($display) {
         print('
             <div style="float: left; margin-bottom: 10px">
                  Je verlanglijst staat op privé 
-                 <div class="btn btn-primary"><i class="fa fa-share-square-o"></i> delen</div>
+                 <form action="verlanglijst.php?w='.$w.'" method="post" style="display: inline;" id="share">
+                      <input type="hidden" name="share" value=1>
+                      <div class="btn btn-primary" onclick="submitOnClick(\'share\')"><i class="fa fa-share-square-o"></i> delen</input>
+                 </form>
             </div>');
     }
     print('</div>

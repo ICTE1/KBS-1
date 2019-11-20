@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/header_style.css">
 
     <script src="public/vendor/bootstrap/js/bootstrap.min.js"></script>
-
+    <script src="public/javascript/wishlist.js"></script>
     <title>WorldWideImporters Europa</title>
 </head>
 <body>

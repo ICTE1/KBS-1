@@ -147,6 +147,42 @@ class wwic_db {
 
     }
 
+    /**
+     * set wishlist to shared
+     *
+     * @param wishlist id
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Jelle Wiersma
+     * @return nothing
+     */
+    function shareWishlist($wishlist) {
+
+        $query = "UPDATE wishlist SET shared=1 WHERE wishlist_id = ?";
+
+        $stmt = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($stmt, "i", $wishlist);
+        mysqli_stmt_execute($stmt);
+    }
+
+    /**
+     * set wishlist to not shared
+     *
+     * @param wishlist id
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Jelle Wiersma
+     * @return nothing
+     */
+    function unshareWishlist($wishlist) {
+
+        $query = "UPDATE wishlist SET shared=0 WHERE wishlist_id = ?";
+
+        $stmt = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($stmt, "i", $wishlist);
+        mysqli_stmt_execute($stmt);
+    }
+
 
     /**
      * Creates user in database
