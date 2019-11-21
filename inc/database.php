@@ -35,7 +35,7 @@ class wwi_db  {
 
     function productInfo($product){
         
-        $query = "SELECT  StockItemName, RecommendedRetailPrice, SearchDetails  FROM stockitems WHERE StockItemID =?;";
+        $query = "SELECT StockItemID, StockItemName, RecommendedRetailPrice, SearchDetails  FROM stockitems WHERE StockItemID =?;";
 
         $statement = mysqli_prepare($this->connectie, $query);
         mysqli_stmt_bind_param($statement, "i", $product);
@@ -64,6 +64,8 @@ class wwi_db  {
     }
 
 
+
+
     function __destruct(){
         mysqli_close($this->connectie);
     }
@@ -90,6 +92,7 @@ class wwic_db {
             exit;
         }
     }
+
     /**
      * Checks if username exists in database
      *
@@ -113,6 +116,105 @@ class wwic_db {
         if($user === NULL) { return FALSE; } else { return TRUE;}
 
     }
+
+    /**
+     * get info of wishlist
+     *
+     * @param wishlist id
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Jelle Wiersma
+     * @return array with records, each value is an array with columns and values per record.
+     */
+    function wishlistInfo($wishlist){
+        $query = "SELECT * FROM wishlist WHERE wishlist_id = ?";
+        $stmt = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($stmt, "i", $wishlist);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $name = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        return($name);
+    }
+    /**
+     * get info of products on wishlist
+     *
+     * @param wishlist id
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Jelle Wiersma
+     * @return array with records, each value is an array with columns and values per record.
+     */
+    function wishlistProducts($wishlist){
+
+        $query = "SELECT product_id FROM wishlist_product WHERE wishlist_id = ? ORDER BY created_at";
+
+        $stmt = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($stmt, "i", $wishlist);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $stock_item_id = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $wwi = new wwi_db();
+        $products = array();
+        foreach($stock_item_id as $key => $col){
+            $products[] = $wwi->productInfo($col["product_id"]);
+        }
+        return($products);
+
+    }
+
+    /**
+     * delete product from wishlist
+     *
+     * @param wishlist id
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Jelle Wiersma
+     * @return none
+     */
+    function wishlistDelete($wishlist, $product){
+        $query = "DELETE FROM wishlist_product WHERE wishlist_id = ? AND product_id = ?";
+        $stmt = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($stmt, "ii", $wishlist, $product);
+        mysqli_stmt_execute($stmt);
+    }
+
+    /**
+     * set wishlist to shared
+     *
+     * @param wishlist id
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Jelle Wiersma
+     * @return nothing
+     */
+    function shareWishlist($wishlist) {
+
+        $query = "UPDATE wishlist SET shared=1 WHERE wishlist_id = ?";
+
+        $stmt = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($stmt, "i", $wishlist);
+        mysqli_stmt_execute($stmt);
+    }
+
+    /**
+     * set wishlist to not shared
+     *
+     * @param wishlist id
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Jelle Wiersma
+     * @return nothing
+     */
+    function unshareWishlist($wishlist) {
+
+        $query = "UPDATE wishlist SET shared=0 WHERE wishlist_id = ?";
+
+        $stmt = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($stmt, "i", $wishlist);
+        mysqli_stmt_execute($stmt);
+    }
+
+
     /**
      * Creates user in database
      *
