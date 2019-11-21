@@ -26,7 +26,7 @@
     </div>
 
         <form class="form-inline my-2 search-area">
-            <input class="form-control" type="search" placeholder="Bananen..." aria-label="Search">
+            <input class="form-control" type="search" placeholder="Zoeken...." aria-label="Search">
             <button class="btn" type="submit">Zoeken</button>
         </form>
         <div class="navbar-collapse">
@@ -39,11 +39,11 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link text-center" href="verlanglijst.php<?php  if(isset($_SESSION["user_id"])){$db = new wwic_db; $w = $db->userWishlists($_SESSION["user_id"]); print("?w=".$w["wishlist_id"]);}?>"><i class="fa fa-heart"></i></a>
+                        <a class="nav-link text-center" href="verlanglijst.php<?php  if(isset($_SESSION["user_id"])){$db = new wwic_db; $w = $db->userWishlists($_SESSION["user_id"]); print("?w=".$w["wishlist_id"]);}?>"><i class="fa fa-heart navbarIcon"></i></a>
                 </li>
                 <li class="nav-item">
                         <a class="nav-link" href="winkelwagen.php">
-                            <i class="fa fa-shopping-cart"></i>
+                            <i class="fa fa-shopping-cart navbarIcon"></i>
                         </a>
                 </li>
             </ul>

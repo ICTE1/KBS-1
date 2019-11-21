@@ -20,10 +20,10 @@
     background-color: #43c5da;
 }
 
-.fa{
+.navbarIcon{
     color: #3ac4da;
 }
-.fa:hover{
+.navbarIcon:hover{
     color: #298796;
     border:none;
 }
