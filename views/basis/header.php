@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <img class="WorldWideImporters navbar-brand" alt="logo" src="../../public/images/wide-world-importers-logo-small.png" height="70" width="170">
+    <a href="./index.php"><img class="WorldWideImporters navbar-brand" alt="logo" src="./public/images/wide-world-importers-logo-small.png" height="70" width="170"></a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
