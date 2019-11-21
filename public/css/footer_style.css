@@ -14,6 +14,7 @@
     text-align: center;
     /*text showing when amount of text is bigger then the div is*/
     overflow: hidden;
+    position: absolute;
 }
 
 .footer img{
