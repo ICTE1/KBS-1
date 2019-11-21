@@ -70,3 +70,7 @@
     padding-bottom: 51px;
     text-align: right;
 }
+
+.content{
+    min-height: 81.2vh;
+}
