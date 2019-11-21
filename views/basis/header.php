@@ -15,7 +15,6 @@
                         <a href="#">Long Battery Life</a>
                         <a href="#">So Realistic</a>
                         <a href="#">Vintage</a>
-                        <a href="#">So Realistic</a>
                         <a href="#">Radio Control</a>
                         <a href="#">Realistic Sound</a>
                         <a href="#">Comedy</a>
