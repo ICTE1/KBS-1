@@ -39,7 +39,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link text-center" href="verlanglijst.php"><i class="fa fa-heart"></i></a>
+                        <a class="nav-link text-center" href="verlanglijst.php<?php  if(isset($_SESSION["user_id"])){$db = new wwic_db; $w = $db->userWishlists($_SESSION["user_id"]); print("?w=".$w["wishlist_id"]);}?>"><i class="fa fa-heart"></i></a>
                 </li>
                 <li class="nav-item">
                         <a class="nav-link" href="winkelwagen.php">

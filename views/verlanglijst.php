@@ -8,7 +8,7 @@ if(isset($_GET["w"])){
     $w = $_GET["w"];
 }
 else {
-    print("witness some errors (errorpage hasn't been made yet):<br>");
+    header('Location: login.php');
 }
 
 //check for action commands
@@ -104,7 +104,7 @@ if($display) {
                     <input class="form-control" type = "number" value = "1" name = "aantal" >
                     <div class="btn btn-primary" ><i class="fa fa-cart-arrow-down" ></i ></div >
                     <input type = "hidden" name = "Product" value = '.$record["StockItemID"].' >
-                    '); if($owned){print('<div class="btn btn-primary" style = "margin-left: 10px" onclick="submitToPage(\'form_'.$record["StockItemID"].'\', \'/KBS-1/verlanglijst.php?w='.$w.'\');"><i class="fa fa-trash-o"></i ></div >');}
+                    '); if($owned){print('<div class="btn btn-primary" style = "margin-left: 10px" onclick="submitToPage(\'form_'.$record["StockItemID"].'\', \'verlanglijst.php?w='.$w.'\');"><i class="fa fa-trash-o"></i ></div >');}
                 print('</form>
             </div>
 
