@@ -9,7 +9,6 @@
 
     <section class="text-header">
             <h1 class=" text-center">Aanbiedingen</h1>
-        </div>
     </section>
 
     <section>
