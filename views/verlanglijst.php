@@ -141,6 +141,7 @@ if($display) {
     }
     print('</div>
         </div>
-    </div>');
+    </div>
+    </div></div>');
 }
 ?>
