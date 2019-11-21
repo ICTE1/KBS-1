@@ -2,8 +2,8 @@
 
     <section class="text-center landing-ad cjumbotron">
         <div class="container transparent-background">
-            <h1 class="white-text halloween-font">Tijd voor halloween</h1>
-            <p><a href="#" class="btn btn-light my-2 halloween-font">Ga naar de aanbieding</a></p>
+            <h1 class="white-text halloween-font big-header">Tijd voor halloween</h1>
+            <p><a href="#" class="btn btn-light my-2 halloween-font custom-button-big">Ga naar de aanbieding</a></p>
         </div>
     </section>
 
@@ -17,9 +17,16 @@
                 <?php $sales = $wwi->get_sales(); for($i =0; $i < 4; $i++): $discount =  ($sales["" . $i .""]["UnitPrice"] - $sales["" . $i .""]["RecommendedRetailPrice"]) / $sales["" . $i .""]["RecommendedRetailPrice"] * 100; ?>
                 <div class="col-md-3">
                     <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
+                        <img src="public/images/space 2.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $sales["" . $i .""]["StockItemName"] . " - " . substr($discount, 1, -13) . "%" ?></h5>
+                            <h5 class="card-title">
+                                                    <?php if(strlen($sales["" . $i .""]["StockItemName"]) >= 35) {
+                                                    $name = substr($sales["" . $i .""]["StockItemName"], 0, 32);
+                                                    echo $name . "..."; }
+                                                    else {
+                                                        echo $sales["" . $i .""]["StockItemName"];
+                                                    }
+                                                    echo "<br><b><span class='text-danger'>" . substr($discount, 1, -13) . "% korting" ?></span></b></h5>
                             <h5 class="card-title"><?= "€" . $sales["" . $i .""]["UnitPrice"] ?></h5>
                             <a href="#" class="btn btn-primary">Bekijk product</a>
                         </div>
@@ -32,8 +39,8 @@
 
     <section class="text-center feelinglucky cjumbotron">
         <div class="container transparent-background">
-            <h1 class="jumbotron-heading white-text">I'm feeling lucky</h1>
-            <p><a href="#" class="btn btn-light my-2">GO</a></p>
+            <h1 class="jumbotron-heading white-text big-header">I'm feeling lucky</h1>
+            <p><a href="#" class="btn btn-light my-2 custom-button-big">GO</a></p>
         </div>
     </section>
 
@@ -84,7 +91,7 @@
                 <?php $sales = $wwi->get_best_sellers(); for($i =0; $i < 4; $i++): ?>
                     <div class="col-md-3">
                         <div class="card">
-                            <img src="..." class="card-img-top" alt="...">
+                            <img src="public/images/space 2.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $sales["" . $i .""]["StockItemName"] ?></h5>
                                 <h5 class="card-title"><?= "€" . $sales["" . $i .""]["RecommendedRetailPrice"] ?></h5>

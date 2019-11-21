@@ -12,9 +12,9 @@
 }
 .transparent-background {
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 2% 0% 2% 0%;
+    padding: 3% 2% 3% 2%;
 
-    max-width: 500px !important;
+    max-width: 600px !important;
 }
 .white-text {
     color: #ffffff;
@@ -22,9 +22,15 @@
 .halloween-font {
     font-family: 'Creepster', cursive;
 }
+.custom-button-big {
+    font-size: 1.8rem;
+}
 .text-header {
     background-color: #4ecdc4;
     padding: 1%;
+}
+.big-header {
+    font-size: 4rem;
 }
 .margin-top-botom {
     margin-top: 2%;
