@@ -1,6 +1,5 @@
 <!--TODO:
 -form for adding to cart functionality
--delete from wishlist
 -images per product
 -->
 <?php
@@ -12,7 +11,7 @@ else {
     print("witness some errors (errorpage hasn't been made yet):<br>");
 }
 
-//check for share command
+//check for action commands
 $cmd_shared = 0;
 if(isset($_POST["share"])){
     if($_POST["share"]){
@@ -24,6 +23,9 @@ if(isset($_POST["share"])){
         $cmd_shared = 2;
     }
 
+}
+if(isset($_POST["Product"])){
+    print($db_custom->wishlistDelete($w, $_POST["Product"]));
 }
 
 //put wishlist info into variables
@@ -39,9 +41,10 @@ $shared = $wishlist["shared"];
 $products = $db_custom->wishlistProducts($w);
 
 //test if wishlist is allowed to be displayed
-//owner is logged in, and wants to view his own list -> display
+//owner is logged in, and wants to view his own list -> display and set owner permissions to true
 //user in not logged in, but list is shared          -> display
 //else                                               -> dont display
+$owned = FALSE;
 if(isset($_SESSION["loggedin"]) && ($_SESSION["user_id"] == $owner_id)){
     $display = TRUE;
     $owned = TRUE;
@@ -97,26 +100,25 @@ if($display) {
         </div >
         <div class="col-5 verlanglijst_buttons" >
             <div style = "float: right">
-                <form class="form-inline" id="form_'.$record["StockItemID"].'">
+                <form class="form-inline" id="form_'.$record["StockItemID"].'" method="post">
                     <input class="form-control" type = "number" value = "1" name = "aantal" >
                     <div class="btn btn-primary" ><i class="fa fa-cart-arrow-down" ></i ></div >
-                    <input type = "hidden" name = "hiddenToevoegen" value = '.$record["StockItemID"].' >
-                    <div class="btn btn-primary" style = "margin-left: 10px" ><i class="fa fa-trash-o"></i ></div >
-                </form>
+                    <input type = "hidden" name = "Product" value = '.$record["StockItemID"].' >
+                    '); if($owned){print('<div class="btn btn-primary" style = "margin-left: 10px" onclick="submitToPage(\'form_'.$record["StockItemID"].'\', \'/KBS-1/verlanglijst.php?w='.$w.'\');"><i class="fa fa-trash-o"></i ></div >');}
+                print('</form>
             </div>
 
         </div >
     </div >
-                '
-        );
+                ');
     }
 
     //print share button
     print('<div class="row">
             <div class="col-12">
-                <div style="float: left; margin-top: 10px">');
+                <div style="float: left; margin-top: 10px; margin-bottom: 10px;">');
     if($owned && $shared){
-        print('<div style="float: left; margin-bottom: 10px">
+        print('<div>
             Je verlanglijst is gedeeld
         <form action="verlanglijst.php?w='.$w.'" method="post" style="display: inline;" id="share">
                       <input type="hidden" name="share" value=0>
@@ -126,7 +128,7 @@ if($display) {
     }
     elseif(!$shared){
         print('
-            <div style="float: left; margin-bottom: 10px">
+            <div>
                  Je verlanglijst staat op privé 
                  <form action="verlanglijst.php?w='.$w.'" method="post" style="display: inline;" id="share">
                       <input type="hidden" name="share" value=1>

@@ -148,6 +148,22 @@ class wwic_db {
     }
 
     /**
+     * delete product from wishlist
+     *
+     * @param wishlist id
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Jelle Wiersma
+     * @return none
+     */
+    function wishlistDelete($wishlist, $product){
+        $query = "DELETE FROM wishlist_product WHERE wishlist_id = ? AND product_id = ?";
+        $stmt = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($stmt, "ii", $wishlist, $product);
+        mysqli_stmt_execute($stmt);
+    }
+
+    /**
      * set wishlist to shared
      *
      * @param wishlist id
