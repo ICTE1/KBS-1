@@ -90,3 +90,29 @@ body {
 .content{
     min-height: 74.5vh;
 }
+
+
+.login {
+    background: linear-gradient(to bottom left, #1a535c, #4ecdc4);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 15%;
+}
+.login-box {
+    background-color: rgba(0, 0, 0, 0.25);
+    /*border-width: 1px;*/
+    /*border-style: solid;*/
+    /*margin: 10%;*/
+    padding: 5%;
+}
+.center {
+    text-align: center;
+}
+.cbtn-secundary {
+    background-color: #ffe66d;
+}
+.custom-white {
+    color: #f7fff7;
+    font-weight: bold;
+}
