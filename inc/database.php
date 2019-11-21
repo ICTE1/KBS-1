@@ -268,6 +268,7 @@ class wwic_db {
     function logout() {
         $_SESSION["loggedin"] = NULL;
         $_SESSION["username"] = NULL;
+        $_SESSION["user_id"] = NULL;
 
     }
     function __destruct(){
