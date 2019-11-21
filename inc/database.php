@@ -118,6 +118,25 @@ class wwic_db {
     }
 
     /**
+     * get user wishlists
+     *
+     * @param user id
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Jelle Wiersma
+     * @return array with wishlists made by user
+     */
+    function userWishlists($user){
+        $query = "SELECT wishlist_id FROM wishlist WHERE customer_id = ? LIMIT 1";
+        $stmt = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($stmt, "i", $user);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $name = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        return($name);
+    }
+
+    /**
      * get info of wishlist
      *
      * @param wishlist id
