@@ -26,7 +26,7 @@
     </div>
 
         <form class="form-inline my-2 search-area">
-            <input class="form-control" type="search" placeholder="Bananen..." aria-label="Search">
+            <input class="form-control" type="search" placeholder="Zoeken...." aria-label="Search">
             <button class="btn" type="submit">Zoeken</button>
         </form>
         <div class="navbar-collapse">
