@@ -1,2 +1,5 @@
+
+.vs/
 db.json
-ds_store
+.idea/
+.DS_Store

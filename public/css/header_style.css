@@ -1,0 +1,133 @@
+.bg-light {
+    /*header achtergrondkleur*/
+    background-color: #1a535c!important;
+}
+
+/*categorieën en link kleur tekst*/
+.navbar-light .navbar-nav .nav-link {
+    color: #f7fff7;
+}
+
+.btn-outline-success{
+    color: #3ac4da;
+    border-color: #3dc3d8;
+}
+
+.btn-outline-success:hover{
+    transition: all 0.3s;
+    color: #ffffff;
+    border-color: #3dc3d8;
+    background-color: #43c5da;
+}
+
+.fa{
+    color: #3ac4da;
+}
+.fa:hover{
+    color: #298796;
+    border:none;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Search area */
+.search-area{
+    width: 20em;
+}
+
+.search-area input{
+    position: absolute;
+    padding-right: 6.2em; 
+}
+
+.search-area input:focus{
+    outline: none;
+    border: none ;
+    box-shadow: none;
+    padding-right: 6.3em;
+}
+
+.search-area button[type='submit']  {
+    display: inline;
+    background-color: #2c90a0;
+    color: #ffffff;
+    border:none;
+    border-radius: 0 5px 5px 0;
+    position:relative;
+    z-index: 2;
+    left: 13.3em;
+    width: 5.03em;
+    height: 2.45em; 
+
+}
+
+.search-area button[type='submit']:hover {
+    transition: background-color 0.3s;
+    background-color: #32b8cc!important;
+    box-shadow: none;
+}
+.nav-link{
+    font-weight: bold   ;
+}
+
+.dropdown {
+    float: left;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 29.7px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar li:hover,
+.dropdown:hover .dropbtn {
+    background-color: #2c90a0;
+}
+
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 29.7px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 29.7px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #4ecdc4;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nav-link:hover{
+    color: #ffffff!important;
+}
+
+.special-links li:hover{
+    background-color: rgba(0,0,0,0);
+}
+
+.special-links li:hover a i{
+    color: #2c90a0;
+}

@@ -1,0 +1,76 @@
+.landing-ad {
+    background-image: url("../images/halloween.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 400px;
+}
+.feelinglucky {
+    background-image: url("../images/feelinglucky.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 400px;
+}
+.transparent-background {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2% 0% 2% 0%;
+
+    max-width: 500px !important;
+}
+.white-text {
+    color: #ffffff;
+}
+.halloween-font {
+    font-family: 'Creepster', cursive;
+}
+.text-header {
+    background-color: #4ecdc4;
+    padding: 1%;
+}
+.margin-top-botom {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.cjumbotron {
+    padding-top: 5rem;
+}
+.verlanglijst {
+    box-shadow: 1px 1px 3px #343a40;
+    margin-bottom: 10px;
+}
+
+.verlanglijst_card {
+    padding: 5px;
+    height: 160px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    border-bottom: 1px solid #d1d3d4;
+}
+
+.verlanglijst_card img {
+    max-height: 138px;
+    resize: both;
+    margin-left: 15px;
+    float: left;
+}
+
+.verlanglijst_text {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 5px;
+    height: 100%
+}
+
+.verlanglijst_prijs {
+    position: absolute;
+    bottom: 10px
+}
+
+.verlanglijst_buttons {
+    padding-top: 51px;
+    padding-bottom: 51px;
+    text-align: right;
+}
+
+.content{
+    min-height: 81.2vh;
+}
