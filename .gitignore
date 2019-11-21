@@ -1,2 +1,4 @@
-conf/db.json
+.vs/
+db.json
 .idea/
+.DS_Store

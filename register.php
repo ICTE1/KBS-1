@@ -1,8 +1,6 @@
 <?php
 require_once "inc/database.php";
 
-session_start();
-
 $view = "views/register.php";
 
 // Check if the method is POST to determine if you should handle the request or send it to the login page.
