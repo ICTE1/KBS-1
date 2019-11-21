@@ -34,7 +34,7 @@
                 <li>
                     <div class="loginbutton">
                     <button type="button" class="btn btn-default">
-                        <a class="btn btn-outline-success my-2 my-sm-0" href="<?php if($_SESSION['loggedin']) { echo 'logout.php'; } else { echo 'login.php'; } ?>"><?php if($_SESSION['loggedin']) { echo 'logout'; } else { echo 'login'; } ?><span class="sr-only">(current)</span></a>
+                        <a class="btn btn-outline-success my-2 my-sm-0" href="<?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout.php"; } else { echo "logout.php"; } } else { echo "login.php"; }?>"><?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout"; } else { echo "logout"; } } else { echo "login"; }?><span class="sr-only">(current)</span></a>
                     </button>
                     </div>
                 </li>
