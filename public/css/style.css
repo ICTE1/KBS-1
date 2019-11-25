@@ -21,9 +21,9 @@ body {
 }
 .transparent-background {
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 2% 0% 2% 0%;
+    padding: 3% 2% 3% 2%;
 
-    max-width: 500px !important;
+    max-width: 600px !important;
 }
 .white-text {
     color: #ffffff;
@@ -31,9 +31,15 @@ body {
 .halloween-font {
     font-family: 'Creepster', cursive;
 }
+.custom-button-big {
+    font-size: 1.8rem;
+}
 .text-header {
     background-color: #4ecdc4;
     padding: 1%;
+}
+.big-header {
+    font-size: 4rem;
 }
 .margin-top-botom {
     margin-top: 2%;
@@ -83,4 +89,30 @@ body {
 
 .content{
     min-height: 74.5vh;
+}
+
+
+.login {
+    background: linear-gradient(to bottom left, #1a535c, #4ecdc4);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 15%;
+}
+.login-box {
+    background-color: rgba(0, 0, 0, 0.25);
+    /*border-width: 1px;*/
+    /*border-style: solid;*/
+    /*margin: 10%;*/
+    padding: 5%;
+}
+.center {
+    text-align: center;
+}
+.cbtn-secundary {
+    background-color: #ffe66d;
+}
+.custom-white {
+    color: #f7fff7;
+    font-weight: bold;
 }

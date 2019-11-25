@@ -17,7 +17,6 @@ if(isset($_SESSION["winkelWagen"][$product])){ /* haalt aantal uit winkelwagen v
     $aantal = $_SESSION["winkelWagen"][$product];
 }
    /*hier onder een form om producten toe te voegen aan de winkelwagen */
-   ?>
 
 
-
+include "views/toevoegen_winkelwagen.php";
