@@ -11,8 +11,6 @@
     <link rel="stylesheet" type="text/css" href="public/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <link rel="stylesheet" type="text/css" href="public/css/footer_style.css">
-    <link rel="stylesheet" type="text/css" href="public/css/header_style.css">
 
     <link rel="icon" href="public/images/favicon.ico" type="image/ico">
 

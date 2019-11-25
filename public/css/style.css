@@ -1,6 +1,9 @@
 body {
     position: relative;
     min-height: 100vh;
+    background-color: #353535;
+    color: #AAAAAA;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .content {
@@ -26,17 +29,42 @@ body {
     max-width: 600px !important;
 }
 .white-text {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 .halloween-font {
     font-family: 'Creepster', cursive;
 }
 .custom-button-big {
+    color: #FFFFFF;
     font-size: 1.8rem;
+    background-color: #FF652F;
+    border-color: #FF652F;
 }
+
+.custom-button-primary {
+    color: #FFFFFF;
+    background-color: #17A76C;
+    border-color: #17A76C;
+}
+
+.custom-button-primary:hover {
+    color: #FFFFFF;
+    background-color: #02693f;
+    border-color: #02693f;
+}
+
+.custom-list-group-item {
+    background-color: #353535;
+    border: 1.3px solid #272727;
+}
+
 .text-header {
-    background-color: #4ecdc4;
+    background-color: #272727;
     padding: 1%;
+}
+
+.text-attention {
+    color: #FFE400;
 }
 .big-header {
     font-size: 4rem;
@@ -47,6 +75,11 @@ body {
 }
 .cjumbotron {
     padding-top: 5rem;
+}
+
+.ccart {
+    background-color: transparent;
+    border: 3px solid #14A76C;
 }
 .verlanglijst {
     box-shadow: 1px 1px 3px #343a40;
@@ -115,4 +148,164 @@ body {
 .custom-white {
     color: #f7fff7;
     font-weight: bold;
+}
+
+.footer {
+    /*height of the footer*/
+    height: 6em;
+    /*position on screen*/
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    /*total width over the user screen*/
+    width: 100%;
+    /*(background)color*/
+    background-color: #272727;
+    /*text color*/
+    color: #f7fff7;
+    /*Place of text*/
+    text-align: center;
+    /*text showing when amount of text is bigger then the div is*/
+    overflow: hidden;
+
+}
+
+.footer img{
+    display: inline-block;
+    padding-top: 10px;
+    width: 10em;
+}
+
+.footer p {
+    display: inline-block;
+}
+
+/* Search area */
+.search-area{
+    width: 20em;
+}
+
+.search-area input{
+    position: absolute;
+    padding-right: 6.2em;
+}
+
+.search-area input:focus{
+    outline: none;
+    border: none ;
+    box-shadow: none;
+    padding-right: 6.3em;
+}
+
+.search-area button[type='submit']  {
+    display: inline;
+    background-color: #2c90a0;
+    color: #ffffff;
+    border:none;
+    border-radius: 0 5px 5px 0;
+    position:relative;
+    z-index: 2;
+    left: 13.3em;
+    width: 5.03em;
+    height: 2.45em;
+
+}
+
+.search-area button[type='submit']:hover {
+    transition: background-color 0.3s;
+    background-color: #32b8cc!important;
+    box-shadow: none;
+}
+.nav-link{
+    font-weight: bold   ;
+}
+
+.dropdown {
+    float: left;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 29.7px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar li:hover,
+.dropdown:hover .dropbtn {
+    background-color: #2c90a0;
+}
+
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 29.7px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 29.7px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #4ecdc4;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nav-link:hover{
+    color: #ffffff!important;
+}
+
+.special-links li:hover{
+    background-color: rgba(0,0,0,0);
+}
+
+.special-links li:hover a i{
+    color: #2c90a0;
+}
+
+.bg-light {
+    /*header achtergrondkleur*/
+    background-color: #272727!important;
+}
+
+/*categorieën en link kleur tekst*/
+.navbar-light .navbar-nav .nav-link {
+    color: #f7fff7;
+}
+
+.btn-outline-success{
+    color: #3ac4da;
+    border-color: #3dc3d8;
+}
+
+.btn-outline-success:hover{
+    transition: all 0.3s;
+    color: #ffffff;
+    border-color: #3dc3d8;
+    background-color: #43c5da;
+}
+
+.navbarIcon{
+    color: #3ac4da;
+}
+.navbarIcon:hover{
+    color: #298796;
+    border:none;
 }
