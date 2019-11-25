@@ -4,10 +4,38 @@
         <div class="container">
             <div class="row">
                 <div class="col-4">
-                    <div class="card bg-dark text-white">
-                        <img src="public/images/space 2.jpg" class="card-img" alt="product">
+
+                    <div class="row padding-product">
+
+                        <div class="col-12 no-padding">
+                            <a href="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox" rel="ligthbox">
+                                <img  src="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="zoom img-fluid "  alt="">
+
+                            </a>
+                        </div>
+                        <div class="col-4 no-padding">
+                            <a href="https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"  class="fancybox" rel="ligthbox">
+                                <img  src="https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="zoom img-fluid"  alt="">
+                            </a>
+                        </div>
+
+                        <div class="col-4 no-padding">
+                            <a href="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="fancybox" rel="ligthbox">
+                                <img  src="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="zoom img-fluid "  alt="">
+                            </a>
+                        </div>
+
+                        <div class="col-4 no-padding">
+                            <a href="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="fancybox" rel="ligthbox">
+                                <img  src="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="zoom img-fluid "  alt="">
+                            </a>
+                        </div>
+
                     </div>
+
+
                 </div>
+
                 <div class="col-4">
                     <h1> <?php print($product['StockItemName']) ?></h1>
                     <p> <?php if($product['MarketingComments'] != "") {
