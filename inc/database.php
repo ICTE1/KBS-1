@@ -35,7 +35,7 @@ class wwi_db  {
 
     function productInfo($product){
         
-        $query = "SELECT StockItemID, StockItemName, RecommendedRetailPrice, SearchDetails  FROM stockitems WHERE StockItemID =?;";
+        $query = "SELECT StockItemID, StockItemName, MarketingComments, tags, RecommendedRetailPrice, CustomFields, SearchDetails  FROM stockitems WHERE StockItemID =?;";
 
         $statement = mysqli_prepare($this->connectie, $query);
         mysqli_stmt_bind_param($statement, "i", $product);
@@ -63,7 +63,15 @@ class wwi_db  {
         return $rows;
     }
 
+    function get_similar_products($id) {
 
+//        SELECT *
+//        FROM stockitems I
+//        WHERE I.stockItemID IN
+//        (SELECT stockItemID FROM stockitems J WHERE J.CustomFields LIKE CONCAT('%', (SELECT Tags FROM stockitems WHERE StockItemID = 55 ), '%') AND I.stockItemID <> 55)
+//        ORDER BY rand()
+//        LIMIT 4
+    }
 
 
     function __destruct(){

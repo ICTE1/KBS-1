@@ -19,13 +19,7 @@
                     <div class="card">
                         <img src="public/images/space 2.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">
-                                                    <?php if(strlen($sales["" . $i .""]["StockItemName"]) >= 35) {
-                                                    $name = substr($sales["" . $i .""]["StockItemName"], 0, 32);
-                                                    echo $name . "..."; }
-                                                    else {
-                                                        echo $sales["" . $i .""]["StockItemName"];
-                                                    }
+                            <h5 class="card-title"><?php if(strlen($sales["" . $i .""]["StockItemName"]) >= 35) {$name = substr($sales["" . $i .""]["StockItemName"], 0, 32);echo $name . "..."; } else {echo $sales["" . $i .""]["StockItemName"];}
                                                     echo "<br><b><span class='text-danger'>" . substr($discount, 1, -13) . "% korting" ?></span></b></h5>
                             <h5 class="card-title"><?= "€" . $sales["" . $i .""]["UnitPrice"] ?></h5>
                             <a href="#" class="btn btn-primary">Bekijk product</a>
