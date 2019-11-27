@@ -116,3 +116,40 @@ body {
     color: #f7fff7;
     font-weight: bold;
 }
+.product-list {
+    width: 80%;
+    margin: 1.5em auto;
+}
+
+.row {
+    margin-bottom: 1em;
+}
+
+/* Product column */
+.product {
+    background-color: #f2eff4;
+    margin: 1em 0.5em!important;
+    padding: 1em;
+}
+
+/* Product column title */
+.product h4 {
+
+}
+
+/* Product column price */
+.product h5 {
+    font-weight: bolder;
+}
+
+/* Product column image */
+.product img {
+
+}
+
+/* Product column category */
+.product span {
+
+}
+
+

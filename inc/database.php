@@ -32,6 +32,25 @@ class wwi_db  {
     }
 
 
+    function get_products_by_category($category_name) {
+        $query = "
+        SELECT DISTINCT i.StockItemName ProductName , g.StockGroupName Category, i.UnitPrice Price
+        FROM  stockitemstockgroups v 
+        JOIN stockitems i  ON v.StockItemID = i.StockItemID
+        JOIN stockgroups g
+        WHERE g.StockGroupName = ?
+        ";
+
+
+        $stmt = mysqli_prepare($this->connectie ,$query);
+        mysqli_stmt_bind_param($stmt, 's', $category_name);
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    }
+
 
     function productInfo($product){
         
