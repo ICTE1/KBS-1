@@ -7,16 +7,16 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#">Limited Stock</a>
-                <a href="#">Halloween Fun</a>
-                <a href="#">Comfortable</a>
-                <a href="#">Long Battery Life</a>
-                <a href="#">So Realistic</a>
-                <a href="#">Vintage</a>
-                <a href="#">Radio Control</a>
-                <a href="#">Realistic Sound</a>
-                <a href="#">Comedy</a>
-                <a href="#">USB Powered</a>
+                <a href="products.php?c=Novelty Items">Novelty Items</a>
+                <a href='products.php?c=Clothing'>Clothing</a>
+                <a href="products.php?c=Mugs">Mugs</a>
+                <a href="products.php?c=T-Shirts">T-Shirts</a>
+                <a href="products.php?c=Airline Novelties">Airline Novelties</a>
+                <a href="products.php?c=Computing Novelties">Computing Novelties</a>
+                <a href="products.php?c=USB Novelties">USB Novelties</a>
+                <a href="products.php?c=Furry Footwear">Furry Footwear</a>
+                <a href="products.php?c=Toys">Toys</a>
+                <a href="products.php?c=Packaging Materials">Packaging Materials</a>
             </div>
         </div>
     </div>

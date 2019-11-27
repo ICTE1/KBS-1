@@ -25,10 +25,7 @@ function show_products ($products){
     $number = count($products);
     for($i=0; $i< $number;$i+=3) {
         $product1=$products[$i];
-
         $product2=$products[$i+1];
-
-
         $product3=$products[$i+2];
         print(
             "
