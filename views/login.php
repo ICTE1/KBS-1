@@ -22,7 +22,7 @@
                     <span class="help-block"><?php if(isset($_SESSION['password_err'])) { echo $_SESSION['password_err']; } ?></span>
                 </div>
                 <div class="form-group center">
-                    <input type="submit" class="btn btn-info" value="Login">
+                    <input type="submit" class="btn custom-button-primary" value="Login">
                 </div>
             </form>
         </div>

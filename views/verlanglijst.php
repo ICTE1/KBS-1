@@ -1,5 +1,4 @@
 <?php
-
 //if allowed to display: print html
 if($display) {
     //print shared alert
@@ -44,9 +43,10 @@ if($display) {
             <div style = "float: right">
                 <form class="form-inline" id="form_'.$record["StockItemID"].'" method="post">
                     <input class="form-control" type = "number" value = "1" name = "aantal" >
-                    <div class="btn btn-primary" ><i class="fa fa-cart-arrow-down" ></i ></div >
-                    <input type = "hidden" name = "Product" value = '.$record["StockItemID"].' >
-                    '); if($owned){print('<div class="btn btn-primary" style = "margin-left: 10px" onclick="submitToPage(\'form_'.$record["StockItemID"].'\', \'verlanglijst.php?w='.$w.'\');"><i class="fa fa-trash-o"></i ></div >');}
+                    <div class="btn custom-button-primary" ><i class="fa fa-cart-arrow-down" ></i ></div >
+                    <input type = "hidden" name = "Product" value = '.$record["StockItemID"].' >');
+                    if($owned){
+                        print('<div class="btn custom-button-primary" style = "margin-left: 10px" onclick="submitToPage(\'form_'.$record["StockItemID"].'\', \'verlanglijst.php?w='. $w .'\');"><i class="fa fa-trash-o"></i ></div >');}
                 print('</form>
             </div>
 
@@ -64,7 +64,7 @@ if($display) {
             Je verlanglijst is gedeeld
         <form action="verlanglijst.php?w='.$w.'" method="post" style="display: inline;" id="share">
                       <input type="hidden" name="share" value=0>
-                      <div class="btn btn-primary" onclick="submitOnClick(\'share\')"><i class="fa fa-times"></i> Niet meer delen</input>
+                      <div class="btn custom-button-primary" onclick="submitOnClick(\'share\')"><i class="fa fa-times"></i> Niet meer delen</input>
                  </form>
             </div>');
     }
@@ -74,7 +74,7 @@ if($display) {
                  Je verlanglijst staat op privé 
                  <form action="verlanglijst.php?w='.$w.'" method="post" style="display: inline;" id="share">
                       <input type="hidden" name="share" value=1>
-                      <div class="btn btn-primary" onclick="submitOnClick(\'share\')"><i class="fa fa-share-square-o"></i> delen</input>
+                      <div class="btn custom-button-primary" onclick="submitOnClick(\'share\')"><i class="fa fa-share-square-o"></i> delen</input>
                  </form>
             </div>');
     }
