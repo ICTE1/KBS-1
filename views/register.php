@@ -20,7 +20,7 @@
                     <span class="help-block"><?php if(isset($_SESSION['confirm_password_err'])) { echo $_SESSION['confirm_password_err']; } ?></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Registreren">
+                    <input type="submit" class="btn custom-button-primary" value="Registreren">
                 </div>
                 <p>Heb je al een account? <a href="login.php">Log hier in.</a></p>
             </form>

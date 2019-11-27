@@ -82,7 +82,6 @@ body {
     border: 3px solid #14A76C;
 }
 .verlanglijst {
-    box-shadow: 1px 1px 3px #343a40;
     margin-bottom: 10px;
 }
 
@@ -91,7 +90,7 @@ body {
     height: 160px;
     padding-bottom: 10px;
     margin-top: 10px;
-    border-bottom: 1px solid #d1d3d4;
+    border-bottom: 1px solid #272727;
 }
 
 
@@ -126,10 +125,6 @@ body {
 
 
 .login {
-    background: linear-gradient(to bottom left, #1a535c, #4ecdc4);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
     padding: 15%;
 }
 .login-box {
@@ -199,7 +194,7 @@ body {
 
 .search-area button[type='submit']  {
     display: inline;
-    background-color: #2c90a0;
+    background-color: #14A76C;
     color: #ffffff;
     border:none;
     border-radius: 0 5px 5px 0;
@@ -213,7 +208,7 @@ body {
 
 .search-area button[type='submit']:hover {
     transition: background-color 0.3s;
-    background-color: #32b8cc!important;
+    background-color: #02693f!important;
     box-shadow: none;
 }
 .nav-link{
@@ -237,7 +232,7 @@ body {
 
 .navbar li:hover,
 .dropdown:hover .dropbtn {
-    background-color: #2c90a0;
+    background-color: #14A76C;
 }
 
 
@@ -261,7 +256,7 @@ body {
 }
 
 .dropdown-content a:hover {
-    background-color: #4ecdc4;
+    background-color: #14A76C;
 }
 
 .dropdown:hover .dropdown-content {
@@ -277,7 +272,7 @@ body {
 }
 
 .special-links li:hover a i{
-    color: #2c90a0;
+    color: #02693f;
 }
 
 .bg-light {
@@ -291,25 +286,29 @@ body {
 }
 
 .btn-outline-success{
-    color: #3ac4da;
-    border-color: #3dc3d8;
+    color: #14A76C;
+    border-color: #14A76C;
 }
 
 .btn-outline-success:hover{
     transition: all 0.3s;
     color: #ffffff;
-    border-color: #3dc3d8;
-    background-color: #43c5da;
+    border-color: #02693f;
+    background-color: #02693f;
 }
 
 .navbarIcon{
-    color: #3ac4da;
+    color: #14A76C;
 }
 .navbarIcon:hover{
-    color: #298796;
+    color: #02693f;
     border:none;
 }
 
+.form-control:focus {
+    border-color: #14A76C;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(20, 167, 108, 0.6);
+}
 
 /* Product catergory view*/
 .product-list {
