@@ -35,7 +35,7 @@ function show_products ($products){
 
     $number = count($products);
     
-
+    print ("<span>{$number} resultaten</span>");
     if ($number <= 0 ){
         print("<span>Geen producten</span>");
     }

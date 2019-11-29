@@ -61,6 +61,8 @@ class wwi_db  {
         stockitems.StockItemName LIKE ?
         OR
         stockitems.SearchDetails LIKE ?
+        GROUP BY stockitems.StockItemName
+        ORDER BY stockitems.StockItemName
         ";
 
         $search_term = '%'. $search_term .'%';
