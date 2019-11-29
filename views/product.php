@@ -41,7 +41,7 @@
                     <p> <?php if($product['MarketingComments'] != "") {
                         print($product['MarketingComments']);
                         }else {
-                        print('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dictum tempus justo, id vehicula mauris porttitor eget. Suspendisse tristique urna sit amet lectus sollicitudin cursus. Pellentesque porttitor ultrices dolor ac egestas. Phasellus at pulvinar tellus, eu hendrerit sem. Phasellus accumsan gravida scelerisque. Ut fringilla nunc sagittis velit lobortis maximus. Nullam quis neque diam. Etiam vitae viverra nibh. Integer diam velit, dictum eu mi ut, tincidunt accumsan ante. Sed sodales velit at pulvinar varius. Vivamus posuere ipsum nisi, eget dictum purus euismod ut. In hac habitasse platea dictumst.');
+                        print('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dictum tempus justo, id vehicula mauris porttitor eget. Suspendisse tristique urna sit amet lectus sollicitudin cursus. Pellentesque porttitor ultrices dolor ac egestas. Phasellus at pulvinar tellus, eu hendrerit sem. Phasellus accumsan gravida scelerisque.');
                         } ?></p>
                     <p><?php print("Tags: " . substr($product['tags'], 2, -2)); ?></p>
                 </div>
@@ -58,14 +58,33 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="row">
+                    <div class="col-6">
+                        <h1>Reviews</h1>
+                        <div class="row">
+                            <?php for($i = 0; $i < count($reviews); $i++): ?>
+                            <div class="col-3">
+                                <img src="public/images/space 2.jpg" class="user-photo align-content-center"><br>
+                                <h5 class="center"><?= $reviews[$i]["name"]; ?></h5>
+                            </div>
+                            <div class="col-9">
+                                <?php for($x = 0; $x < $reviews[$i]["rating"]; $x++): ?>
+                                    <i class="no-margin-bottom fa fa-star"></i>
+                                <?php endfor; ?>
+                                <br>
+                                <?php if(strlen($reviews["" . $i .""]["review"]) >= 178) {
+                                    $short_review = substr($reviews["" . $i .""]["review"], 0, 175);
+                                    echo $short_review . "..."; }
+                                else {
+                                    echo $reviews["" . $i .""]["review"];
+                                } ?>
+                            </div>
+                            <?php endfor; ?>
+                        </div>
+                    </div>
+
                     <div class="col-6">
 
                     </div>
-                    <div class="col-6">
-
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -78,21 +97,27 @@
 
     <section>
         <div class="container">
-            <div class="row">
-                <div class="row">
-                    <div class="col-3">
+            <div class="row text-center">
+                <?php for($i =0; $i < 4; $i++): ?>
+                    <div class="col-md-3">
+                        <div class="card ccart">
+                            <img src="public/images/space 2.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">
 
+                                    <?php if(strlen($similar["" . $i .""]["StockItemName"]) >= 35) {
+                                        $name = substr($similar["" . $i .""]["StockItemName"], 0, 32);
+                                        echo $name . "..."; }
+                                    else {
+                                        echo $sales["" . $i .""]["StockItemName"];
+                                    } ?>
+                                </h5>
+                                <h5 class="card-title"><?= "€" . $similar["" . $i .""]["RecommendedRetailPrice"] ?></h5>
+                                <a href="#" class="btn btn-primary custom-button-primary">Bekijk product</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-3">
-
-                    </div>
-                    <div class="col-3">
-
-                    </div>
-                    <div class="col-3">
-
-                    </div>
-                </div>
+                <?php endfor; ?>
             </div>
         </div>
     </section>

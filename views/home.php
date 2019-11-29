@@ -19,19 +19,14 @@
                     <div class="card ccart">
                         <img src="public/images/space 2.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-<<<<<<< HEAD
-                            <h5 class="card-title"><?php if(strlen($sales["" . $i .""]["StockItemName"]) >= 35) {$name = substr($sales["" . $i .""]["StockItemName"], 0, 32);echo $name . "..."; } else {echo $sales["" . $i .""]["StockItemName"];}
-                                                    echo "<br><b><span class='text-danger'>" . substr($discount, 1, -13) . "% korting" ?></span></b></h5>
-=======
                             <h5 class="card-title">
-                                                    <?php if(strlen($sales["" . $i .""]["StockItemName"]) >= 35) {
-                                                    $name = substr($sales["" . $i .""]["StockItemName"], 0, 32);
-                                                    echo $name . "..."; }
-                                                    else {
-                                                        echo $sales["" . $i .""]["StockItemName"];
-                                                    }
-                                                    echo "<br><b><span class='text-attention'>" . substr($discount, 1, -13) . "% korting" ?></span></b></h5>
->>>>>>> develop
+                                <?php if(strlen($sales["" . $i .""]["StockItemName"]) >= 35) {
+                                $name = substr($sales["" . $i .""]["StockItemName"], 0, 32);
+                                echo $name . "..."; }
+                                else {
+                                    echo $sales["" . $i .""]["StockItemName"];
+                                }
+                                echo "<br><b><span class='text-attention'>" . substr($discount, 1, -13) . "% korting" ?></span></b></h5>
                             <h5 class="card-title"><?= "€" . $sales["" . $i .""]["UnitPrice"] ?></h5>
                             <a href="#" class="btn custom-button-primary">Bekijk product</a>
                         </div>

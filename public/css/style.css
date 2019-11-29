@@ -149,8 +149,6 @@ body {
     color: #f7fff7;
     font-weight: bold;
 }
-
-<<<<<<< HEAD
 /*lightbox*/
 
 .no-padding {
@@ -164,7 +162,7 @@ img.zoom {
 .padding-product {
     padding: 5%;
 }
-=======
+
 .footer {
     /*height of the footer*/
     height: 6em;
@@ -324,4 +322,15 @@ img.zoom {
     color: #298796;
     border:none;
 }
->>>>>>> develop
+
+.user-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.no-margin-bottom {
+    height: 15px;
+}
+.review {
+    max-width: 70%;
+}

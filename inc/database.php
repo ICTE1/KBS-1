@@ -63,14 +63,18 @@ class wwi_db  {
         return $rows;
     }
 
-    function get_similar_products($id) {
+    function get_similar_products($product) {
 
-//        SELECT *
-//        FROM stockitems I
-//        WHERE I.stockItemID IN
-//        (SELECT stockItemID FROM stockitems J WHERE J.CustomFields LIKE CONCAT('%', (SELECT Tags FROM stockitems WHERE StockItemID = 55 ), '%') AND I.stockItemID <> 55)
-//        ORDER BY rand()
-//        LIMIT 4
+        $query = "SELECT * FROM stockitems I WHERE I.stockItemID IN (SELECT stockItemID FROM stockitems J WHERE J.CustomFields LIKE CONCAT('%', (SELECT Tags FROM stockitems WHERE StockItemID = ? ), '%') AND I.stockItemID <> ?) ORDER BY rand() LIMIT 4";
+
+        $stmt = mysqli_prepare($this->connectie, $query);
+
+        mysqli_stmt_bind_param($stmt, "ii", $product, $product);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $similar = mysqli_fetch_all($result,MYSQLI_ASSOC);
+        return($similar);
+
     }
 
 
@@ -281,6 +285,28 @@ class wwic_db {
         $result = mysqli_stmt_get_result($stmt);
 
         return mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+    }
+    /**
+     * Get the reviews from 1 specific product
+     *
+     * @param product_id - the id of the product to get the reviews from
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Dylan Roubos
+     * @return rows in an associative array
+     */
+    function get_product_reviews($product_id) {
+        $query = "SELECT name, rating, review, photo FROM review WHERE product_id = ?";
+
+        $stmt = mysqli_prepare($this->connectie, $query);
+
+        mysqli_stmt_bind_param($stmt, "s", $product_id);
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     }
     /**
