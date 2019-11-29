@@ -37,7 +37,7 @@ class wwi_db  {
         SELECT DISTINCT i.StockItemName ProductName , g.StockGroupName Category, i.UnitPrice Price
         FROM  stockitemstockgroups v 
         JOIN stockitems i  ON v.StockItemID = i.StockItemID
-        JOIN stockgroups g
+        JOIN stockgroups g ON v.StockGroupID = g.StockGroupID
         WHERE g.StockGroupName = ?
         ";
 
@@ -50,6 +50,29 @@ class wwi_db  {
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     }
+
+    function search_products ($search_term ){
+        $query = "
+        SELECT stockitems.StockItemName AS ProductName ,stockitems.UnitPrice AS Price, g.StockGroupName AS Category
+        FROM stockitems 
+        JOIN stockitemstockgroups v  ON v.StockItemID = stockitems.StockItemID
+        JOIN stockgroups g ON v.StockGroupID = g.StockGroupID
+        WHERE  
+        stockitems.StockItemName LIKE ?
+        OR
+        stockitems.SearchDetails LIKE ?
+        ";
+
+        $search_term = '%'. $search_term .'%';
+        $statement = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($statement , 'ss' , $search_term, $search_term);
+
+        mysqli_stmt_execute($statement);
+        $result = mysqli_stmt_get_result($statement);
+
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
 
 
     function productInfo($product){

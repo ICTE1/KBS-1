@@ -197,7 +197,7 @@ body {
     padding-right: 6.3em;
 }
 
-.search-area button[type='submit']  {
+.search-area input[type='submit']  {
     display: inline;
     background-color: #2c90a0;
     color: #ffffff;
@@ -211,7 +211,7 @@ body {
 
 }
 
-.search-area button[type='submit']:hover {
+.search-area input[type='submit']:hover {
     transition: background-color 0.3s;
     background-color: #32b8cc!important;
     box-shadow: none;

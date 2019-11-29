@@ -21,9 +21,10 @@
         </div>
     </div>
 
-        <form class="form-inline my-2 search-area">
-            <input class="form-control" type="search" placeholder="Zoeken...." aria-label="Search">
-            <button class="btn" type="submit">Zoeken</button>
+    
+        <form class="form-inline my-2 search-area" method="GET" action='products.php' >
+            <input class="form-control" type="search"  <?php print isset ($_GET['s'])? "value=".$_GET['s']:""; ?> name='s' placeholder="Zoeken...." aria-label="Search">
+            <input class="btn" type="submit" value='Zoeken'></input>
         </form>
         <div class="navbar-nav" style="margin-left: auto">
             <div class="loginbutton">

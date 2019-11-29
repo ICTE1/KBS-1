@@ -1,29 +1,44 @@
 <?php
 include_once "inc/database.php";
 
+$db = new wwi_db();
+
 if (isset($_GET['c'])) {
     // dit word alleen uitgevoerd als er een categorie parameter is meegegeven.
-    $Category = $_GET['c'];
-    $db = new wwi_db();
-
-      $products_to_show = $db->get_products_by_category($Category);
+    $Category = urldecode($_GET['c']);
+  
+    $products_to_show = $db->get_products_by_category($Category);
 
 
     $view = 'views/products.php';
 
+    include 'template.php';
+
+} else if (isset($_GET['s'])){
+    
+    $search_term = trim(urldecode($_GET['s']));
+    $products_to_show = $db->search_products($search_term);
+
+    
+    $view = 'views/products.php';
 
     include 'template.php';
 
 } else
 {
     // Geen parameter meegekregen, doe iets!
-    print ("Geen product categories");
+    print ("Geen product");
 }
 
 
 function show_products ($products){
 
     $number = count($products);
+    
+
+    if ($number <= 0 ){
+        print("<span>Geen producten</span>");
+    }
     
     for($i=0; $i< $number;$i+=3) {
 
