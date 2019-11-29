@@ -22,37 +22,45 @@ if (isset($_GET['c'])) {
 
 
 function show_products ($products){
+
     $number = count($products);
+    
     for($i=0; $i< $number;$i+=3) {
-        $product1=$products[$i];
-        $product2=$products[$i+1];
-        $product3=$products[$i+2];
-        print(
-            "
-            <div class= 'row justify-content-around'>
-                <div class='col-md-3 product'>
-                    <H4>".$product1["ProductName"]."</H4>
-                    <H5>€".$product1["Price"]."</H5>
-                    <span>".$product1["Category"]."</span>
-                    <img width='150' src='https://cdn0.iconfinder.com/data/icons/business-mix/512/cargo-512.png'/>
-                </div>
-                <div class='col-md-3 product'>
-                    <H4>".$product2["ProductName"]."</H4>
-                    <H5>€".$product2["Price"]."</H5>
-                    <span>".$product1["Category"]."</span>
-                    <img width='150' src='https://cdn0.iconfinder.com/data/icons/business-mix/512/cargo-512.png'/>
-                </div>
-                <div class='col-md-3 product'>
-                    <H4>".$product3["ProductName"]."</H4>
-                    <H5>€".$product3["Price"]."</H5>
-                    <span>".$product1["Category"]."</span>
-                    <img width='150' src='https://cdn0.iconfinder.com/data/icons/business-mix/512/cargo-512.png'/>
-                </div>
-            </div>
-                          
-            
-            "
-        );
+
+
+        print(" <div class= 'row  align-content-around'>" );
+        
+
+        $product1_index = $i ;
+        $product2_index = $i + 1;
+        $product3_index = $i + 2;
+
+        print_product($products[$product1_index]);
+     
+
+        if ( ( $product2_index >= $number ) === false ){
+          print_product($products[$product2_index]);
+        }
+
+        if( ($product3_index >= $number) === false ){
+         print_product($products[$product3_index]);
+        }
+
+        print("</div>");
     }
 
 }
+
+
+function print_product  ($product ){
+    print("
+    <div class='col-md-3 product' title='".$product['ProductName']."'>
+        <H4>".$product["ProductName"]."</H4>
+        <H5>€".$product["Price"]."</H5>
+        <img width='150' src='https://cdn0.iconfinder.com/data/icons/business-mix/512/cargo-512.png'/>
+
+        <span>".$product["Category"]."</span>
+      
+    </div>
+    ");
+} 

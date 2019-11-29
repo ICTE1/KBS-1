@@ -323,27 +323,50 @@ body {
 
 /* Product column */
 .product {
-    background-color: #f2eff4;
-    margin: 1em 0.5em!important;
+    border: 3px solid #14A76C;
+    margin:  0.5em!important;
     padding: 1em;
+   
+}
+
+.product:hover{
+    animation: product_hover 0.6s forwards ;
+}
+
+@keyframes product_hover{
+    to  { background-color: #14A76C; color: #ffffff }
 }
 
 /* Product column title */
 .product h4 {
-
+    overflow: hidden;
+    height: 2.5em;
 }
+
 
 /* Product column price */
 .product h5 {
     font-weight: bolder;
+    position: relative;
+    left: 9em;
+    top: 2em;
+    color: #ffff;
 }
 
 /* Product column image */
 .product img {
-
+    background-color: #ffffff;
 }
 
 /* Product column category */
 .product span {
+
+    position: relative;
+    top: 3rem;
+    left: 3rem;
+    padding: 0.3em;
+    color: #ffffff;
+    background-color: #FF652F;
+    border-radius: 15px;
 
 }
