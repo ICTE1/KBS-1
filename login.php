@@ -42,7 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user_data = $wwic->get_user_data($username);
         // Check if the user is known
         if (empty($user_data)) {
-            $_SESSION["username_err"] = "Gebruiker niet bekend in het systeem";
+            $_SESSION["username_err"] = "Wachtwoord en gebruikersnaam combinatie fout";
+            $_SESSION["password_err"] = "Wachtwoord en gebruikersnaam combinatie fout";
         } else {
             // Check if the filed password matches the password in the db
             if (password_verify($password, $user_data["password"])) {
@@ -56,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header("location: ./index.php");
 
             } else {
+                $_SESSION["username_err"] = "Wachtwoord en gebruikersnaam combinatie fout";
                 $_SESSION["password_err"] = "Wachtwoord en gebruikersnaam combinatie fout";
             }
         }
