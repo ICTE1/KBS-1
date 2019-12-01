@@ -11,8 +11,9 @@ $view = "views/login.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //Clear error session variables
-    $_SESSION["username_err"] = NULL;
-    $_SESSION["password_err"] = NULL;
+    $_SESSION["username_err_l"] = NULL;
+    $_SESSION["password_err_l"] = NULL;
+    $_SESSION["username_l"] = NULL;
 
     // Define variables and initialize with empty values
     $username = $password = "";
@@ -23,11 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION["username_err"] = "Vul een gebruikersnaam in";
     } else {
         $username = trim($_POST["username"]);
+        $_SESSION["username_l"] = trim($_POST["username"]);
     }
 
     // Check if password is empty
     if (empty(trim($_POST["password"]))) {
-        $_SESSION["password_err"] = "Vul je wachtwoord in";
+        $_SESSION["password_err_l"] = "Vul je wachtwoord in";
     } else {
         $password = trim($_POST["password"]);
     }
@@ -43,11 +45,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Check if the user is known
         if (empty($user_data)) {
-            $_SESSION["username_err"] = "Wachtwoord en gebruikersnaam combinatie fout";
-            $_SESSION["password_err"] = "Wachtwoord en gebruikersnaam combinatie fout";
+            $_SESSION["username_err_l"] = "Wachtwoord en gebruikersnaam combinatie fout";
+            $_SESSION["password_err_l"] = "Wachtwoord en gebruikersnaam combinatie fout";
         }else {
             if($user_data["activated"] === 0) {
-                $_SESSION["username_err"] = "Account niet geactiveerd";
+                $_SESSION["username_err_l"] = "Account niet geactiveerd";
             }
             // Check if the filed password matches the password in the db
             elseif (password_verify($password, $user_data["password"])) {
@@ -61,8 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header("location: ./index.php");
 
             } else {
-                $_SESSION["username_err"] = "Wachtwoord en gebruikersnaam combinatie fout";
-                $_SESSION["password_err"] = "Wachtwoord en gebruikersnaam combinatie fout";
+                $_SESSION["username_err_l"] = "Wachtwoord en gebruikersnaam combinatie fout";
+                $_SESSION["password_err_l"] = "Wachtwoord en gebruikersnaam combinatie fout";
             }
         }
     }
