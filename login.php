@@ -40,13 +40,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Get the user data from the db
         $user_data = $wwic->get_user_data($username);
+
         // Check if the user is known
         if (empty($user_data)) {
             $_SESSION["username_err"] = "Wachtwoord en gebruikersnaam combinatie fout";
             $_SESSION["password_err"] = "Wachtwoord en gebruikersnaam combinatie fout";
-        } else {
+        }else {
+            if($user_data["activated"] === 0) {
+                $_SESSION["username_err"] = "Account niet geactiveerd";
+            }
             // Check if the filed password matches the password in the db
-            if (password_verify($password, $user_data["password"])) {
+            elseif (password_verify($password, $user_data["password"])) {
 
                 // Store data in session variables
                 $_SESSION["loggedin"] = true;

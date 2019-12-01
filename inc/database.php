@@ -282,7 +282,7 @@ class wwic_db {
      * @return rows in an associative array
      */
     function get_user_data($username) {
-        $query = "SELECT id, username, password FROM user WHERE username = ?";
+        $query = "SELECT id, username, password, activated FROM user WHERE username = ?";
 
         $stmt = mysqli_prepare($this->connectie, $query);
 
