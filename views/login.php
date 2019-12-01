@@ -21,9 +21,10 @@
                     <input type="password" name="password" class="form-control <?php echo (isset($_SESSION['password_err'])) ? 'is-invalid' : ''; ?>">
                     <span class="help-block"><?php if(isset($_SESSION['password_err'])) { echo $_SESSION['password_err']; } ?></span>
                 </div>
-                <div class="form-group center">
+                <div class="form-group">
                     <input type="submit" class="btn custom-button-primary" value="Login">
                 </div>
+                <p>Heb je nog geen account? <a href="register.php">Registreer hier.</a></p>
             </form>
         </div>
     </div>
