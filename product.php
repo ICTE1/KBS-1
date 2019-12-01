@@ -6,7 +6,7 @@ $wwic = new wwic_db();
 
 
 
-$id = 80;
+$id = $_GET['p'];
 
 $product = $wwi->productInfo($id);
 

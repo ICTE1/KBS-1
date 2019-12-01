@@ -14,8 +14,7 @@
                             </a>
                         </div>
                         <div class="col-4 no-padding">
-                            <a href="https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"  class="fancybox" rel="ligthbox">
-                                <img  src="https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="zoom img-fluid"  alt="">
+                                <iframe src="https://www.youtube.com/embed/kknyT7ffmm8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" class="zoom img-fluid video-custom" allowfullscreen></iframe>
                             </a>
                         </div>
 
@@ -36,7 +35,7 @@
 
                 </div>
 
-                <div class="col-4">
+                <div class="col-4" style="padding-top: 1%;">
                     <h1> <?php print($product['StockItemName']) ?></h1>
                     <p> <?php if($product['MarketingComments'] != "") {
                         print($product['MarketingComments']);
@@ -45,11 +44,14 @@
                         } ?></p>
                     <p><?php print("Tags: " . substr($product['tags'], 2, -2)); ?></p>
                 </div>
-                <div class="col-4">
+                <div class="col-4" style="padding-top: 5%;">
                     <h1 class="center">€ <?php print($product['RecommendedRetailPrice'])?></h1>
+
                     <button type="button" class="btn btn-primary btn-lg btn-block">Nu kopen <i class="fa fa-shopping-cart"></i></button>
+
                     <button type="button" class="btn btn-primary btn-lg btn-block">In verlanglijst <i class="fa fa-heart"></i></button>
-                    <button type="button" class="btn btn-primary btn-lg btn-block ">Delen <i class="fa fa-share"></i></button>
+
+                    <button type="button" value="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>" id="sharebutton" class="btn btn-primary btn-lg btn-block ">Delen <i class="fa fa-share"></i></button>
                 </div>
             </div>
         </div>
@@ -67,8 +69,12 @@
                                 <h5 class="center"><?= $reviews[$i]["name"]; ?></h5>
                             </div>
                             <div class="col-9">
-                                <?php for($x = 0; $x < $reviews[$i]["rating"]; $x++): ?>
+
+                                <?php $stars = 0; for($x = 0; $x < $reviews[$i]["rating"]; $x++): ?>
                                     <i class="no-margin-bottom fa fa-star"></i>
+                                <?php $stars++; endfor; ?>
+                                <?php $empty_stars = 5 - $stars; for($z = 0; $z < $empty_stars; $z++): ?>
+                                    <i class="no-margin-bottom fa fa-star-o"></i>
                                 <?php endfor; ?>
                                 <br>
                                 <?php if(strlen($reviews["" . $i .""]["review"]) >= 178) {
@@ -83,7 +89,23 @@
                     </div>
 
                     <div class="col-6">
+                        <h1>Aanvullende informatie</h1>
+                            <?php
 
+                            $characters = array("\"", "{", "}");
+                            $replace = (" ");
+                            $arr = ($product["CustomFields"]);
+                            $array = str_replace($characters,$replace,$arr);
+
+                            $split_array = str_split($array);
+
+                            foreach($split_array as $split_ar) {
+                                print($split_ar);
+                                if($split_ar == ",") {
+                                    print("<br>");
+                                }
+                            }
+                            ?>
                     </div>
             </div>
         </div>
@@ -96,7 +118,7 @@
     </section>
 
     <section>
-        <div class="container">
+        <div class="container" style="margin-bottom: 2%;">
             <div class="row text-center">
                 <?php for($i =0; $i < 4; $i++): ?>
                     <div class="col-md-3">
@@ -104,12 +126,11 @@
                             <img src="public/images/space 2.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">
-
                                     <?php if(strlen($similar["" . $i .""]["StockItemName"]) >= 35) {
                                         $name = substr($similar["" . $i .""]["StockItemName"], 0, 32);
                                         echo $name . "..."; }
                                     else {
-                                        echo $sales["" . $i .""]["StockItemName"];
+                                        echo $similar["" . $i .""]["StockItemName"];
                                     } ?>
                                 </h5>
                                 <h5 class="card-title"><?= "€" . $similar["" . $i .""]["RecommendedRetailPrice"] ?></h5>

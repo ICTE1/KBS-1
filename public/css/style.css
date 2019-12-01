@@ -334,3 +334,6 @@ img.zoom {
 .review {
     max-width: 70%;
 }
+.video-custom {
+    height: 100px !important;
+}
