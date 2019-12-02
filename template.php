@@ -22,6 +22,7 @@
 
     <script src="public/javascript/wishlist.js"></script>
     <script src="public/javascript/main.js"></script>
+    <script src="public/javascript/functions.js"></script>
 
     <title>WorldWideImporters Europa</title>
 </head>
