@@ -165,7 +165,7 @@ class wwic_db {
      */
     function wishlistProducts($wishlist){
 
-        $query = "SELECT product_id FROM wishlist_product WHERE wishlist_id = ? ORDER BY created_at";
+        $query = "SELECT product_id FROM wishlist_product WHERE wishlist_id = ? ORDER BY date_added";
 
         $stmt = mysqli_prepare($this->connectie, $query);
         mysqli_stmt_bind_param($stmt, "i", $wishlist);

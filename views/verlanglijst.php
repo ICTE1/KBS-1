@@ -14,37 +14,35 @@ if($display) {
     }
     //print title
     print('
-<div class="container verlanglijst" style="margin-top: 10px">
+        <div class="container product_card" style="margin-top: 10px">
 
-    <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4" style="text-align: center">
-            <h1>' . $name . '</h1>
-        </div>
-        <div class="col-4"></div>
-    </div>');
+            <div class="row">
+                    <h1 style="margin: 0 auto">' . $name . '</h1>
+            </div>
+    ');
     //print product cards
     foreach ($products as $num => $record) {
         print('
-                <div class="row verlanglijst_card" >
+                <div class="row product_card_card" >
         <div class="col-2" >
             <img class="img-fluid productThumbnail" src = "public/images/space 2.jpg" >
         </div >
         <div class="col-5" >
-            <div class="verlanglijst_text" >
+            <div class="product_card_text" >
                 <p >
                     <b >' . $record["StockItemName"] . '</b ><br >
                     ' . $record["SearchDetails"] . '
                 </p >
-                <span class="verlanglijst_prijs" ><b >' . $record["RecommendedRetailPrice"] . '</b ></span >
+                <span class="product_card_prijs" ><b >' . $record["RecommendedRetailPrice"] . '</b ></span >
             </div >
         </div >
-        <div class="col-5 verlanglijst_buttons" >
+        <div class="col-5 product_card_buttons" >
             <div style = "float: right">
                 <form class="form-inline" id="form_'.$record["StockItemID"].'" method="post">
-                    <input class="form-control" type = "number" value = "1" name = "aantal" >
-                    <div class="btn custom-button-primary" ><i class="fa fa-cart-arrow-down" ></i ></div >
-                    <input type = "hidden" name = "Product" value = '.$record["StockItemID"].' >');
+                    <input class="form-control" type = "number" value = "1" name = "aantal" min="1">
+                    <div class="btn custom-button-primary" onclick="submitToPage(\'form_'.$record["StockItemID"].'\', \'winkelwagen.php\')"><i class="fa fa-cart-arrow-down" ></i ></div >
+                    <input type = "hidden" name = "Product" value = '.$record["StockItemID"].' >
+                    <input type = "hidden" name = "hiddenToevoegen" value = '.$record["StockItemID"].' >');
                     if($owned){
                         print('<div class="btn custom-button-primary" style = "margin-left: 10px" onclick="submitToPage(\'form_'.$record["StockItemID"].'\', \'verlanglijst.php?w='. $w .'\');"><i class="fa fa-trash-o"></i ></div >');}
                 print('</form>
