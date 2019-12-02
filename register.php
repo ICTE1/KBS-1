@@ -7,9 +7,10 @@ $view = "views/register.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Clear error session variables
-    $_SESSION["username_err"] = NULL;
-    $_SESSION["password_err"] = NULL;
-    $_SESSION["confirm_password_err"] = NULL;
+    $_SESSION["username_err_r"] = NULL;
+    $_SESSION["password_err_r"] = NULL;
+    $_SESSION["confirm_password_err_r"] = NULL;
+    $_SESSION["username_r"] = NULL;
 
     // Define variables and initialize with empty values
     $username = $password = $confirm_password = "";
@@ -21,24 +22,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (empty(trim($_POST["username"]))) {
 
             // Store data in session variables
-            $_SESSION["username_err"] = "Vul een gebruikersnaam in.";
+            $_SESSION["username_err_r"] = "Vul een gebruikersnaam in.";
         } else {
             // Create a database object
             $wwic = new wwic_db;
 
             if($wwic->check_if_user_exists($_POST["username"])) {
-                $_SESSION["username_err"] = "Gebruikersnaam al in gebruik";
+                $_SESSION["username_err_r"] = "Gebruikersnaam al in gebruik";
             } else {
                 $username = trim($_POST["username"]);
+                $_SESSION["username_r"] = trim($_POST["username"]);
             }
 
         }
     }
     // Validate password
     if (empty(trim($_POST["password"]))) {
-        $_SESSION["password_err"] = "Vul een wachtwoord in";
+        $_SESSION["password_err_r"] = "Vul een wachtwoord in";
     } elseif (strlen(trim($_POST["password"])) < 6) {
-        $_SESSION["password_err"] = "Wachtwoord moet minimaal 6 karakters";
+        $_SESSION["password_err_r"] = "Wachtwoord moet minimaal 6 karakters";
         $password = trim($_POST["password"]);
     } else {
         $password = trim($_POST["password"]);
@@ -46,16 +48,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validate confirm password
     if (empty(trim($_POST["confirm_password"]))) {
-        $_SESSION["confirm_password_err"] = "Graag het wachtwoord bevestigen";
+        $_SESSION["confirm_password_err_r"] = "Graag het wachtwoord bevestigen";
     } else {
         $confirm_password = trim($_POST["confirm_password"]);
         if ($password != $confirm_password) {
-            $_SESSION["confirm_password_err"] = "Wachtwoord is niet gelijk";
+            $_SESSION["confirm_password_err_r"] = "Wachtwoord is niet gelijk";
         }
     }
 
     // Check input errors before inserting in database
-    if (empty($_SESSION["username_err"]) && empty($_SESSION["password_err"]) && empty($_SESSION["confirm_password_err"])) {
+    if (empty($_SESSION["username_err_r"]) && empty($_SESSION["password_err_r"]) && empty($_SESSION["confirm_password_err_r"])) {
 
         $param_username = $username;
         $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
