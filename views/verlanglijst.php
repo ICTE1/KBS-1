@@ -40,11 +40,10 @@ if($display) {
             <div style = "float: right">
                 <form class="form-inline" id="form_'.$record["StockItemID"].'" method="post">
                     <input class="form-control" type = "number" value = "1" name = "aantal" min="1">
-                    <div class="btn custom-button-primary" onclick="submitToPage(\'form_'.$record["StockItemID"].'\', \'winkelwagen.php\')"><i class="fa fa-cart-arrow-down" ></i ></div >
-                    <input type = "hidden" name = "Product" value = '.$record["StockItemID"].' >
-                    <input type = "hidden" name = "hiddenToevoegen" value = '.$record["StockItemID"].' >');
+                    <button class="btn custom-button-primary" onclick="submitOnClick(\'form_'.$record["StockItemID"].'\')" name="message" value="add"><i class="fa fa-cart-arrow-down" ></i ></button >
+                    <input type = "hidden" name = "Product" value = '.$record["StockItemID"].' >');
                     if($owned){
-                        print('<div class="btn custom-button-primary" style = "margin-left: 10px" onclick="submitToPage(\'form_'.$record["StockItemID"].'\', \'verlanglijst.php?w='. $w .'\');"><i class="fa fa-trash-o"></i ></div >');}
+                        print('<button class="btn custom-button-primary" style = "margin-left: 10px" name="message" value="delete" onclick="submitOnClick(\'form_'.$record["StockItemID"].'\')"><i class="fa fa-trash-o"></i ></button>');}
                 print('</form>
             </div>
 
