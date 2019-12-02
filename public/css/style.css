@@ -370,3 +370,8 @@ body {
     border-radius: 15px;
 
 }
+
+
+.custom-list-group-item a { 
+    color: #AAAAAA!important;
+}

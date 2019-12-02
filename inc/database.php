@@ -107,6 +107,13 @@ class wwi_db  {
         return $rows;
     }
 
+    function get_categories(){        
+        $result = mysqli_query ($this->connectie , "SELECT StockGroupName AS category_name FROM stockgroups");
+        $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC );
+        mysqli_free_result($result);
+        return $rows;
+    }
+
 
 
 
