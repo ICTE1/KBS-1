@@ -1,5 +1,25 @@
-<main role="main">
+<?php
 
+//Add review to database if method is post and type is review
+if(isset($_POST['review'])) {
+
+    $product_id = $id;
+    $r_name = $_POST['name'];
+    $stars = $_POST['stars'];
+    $review = $_POST['reviewtext'];
+    $r_email = $_POST['email'];
+
+    $wwic->insert_review($product_id, $r_name, $stars, $review, $r_email);
+
+    $_POST['name'] = NULL;
+    $_POST['stars'] = NULL;
+    $_POST['reviewtext'] = NULL;
+    $_POST['email'] = NULL;
+
+}
+?>
+
+<main role="main">
     <section>
         <div class="container">
             <div class="row">
@@ -46,11 +66,17 @@
                 </div>
                 <div class="col-4" style="padding-top: 5%;">
                     <h1 class="center">€ <?php print($product['RecommendedRetailPrice'])?></h1>
+                    
+                    <form method="post">
+                        <input type="hidden" value="1" name="aantal" min="1">
+                        <input type = "hidden" name = "Product" value = '.$itemID.'>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block " name="message" value="add"><i class="fa fa-shopping-cart"></i></button>
+                    </form>
 
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Nu kopen <i class="fa fa-shopping-cart"></i></button>
 
-                    <button type="button" class="btn btn-primary btn-lg btn-block">In verlanglijst <i class="fa fa-heart"></i></button>
-
+                    <form>
+                        <button type="button" class="btn btn-primary btn-lg btn-block">In verlanglijst <i class="fa fa-heart"></i></button>
+                    </form>
                     <button type="button" value="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>" id="sharebutton" class="btn btn-primary btn-lg btn-block ">Delen <i class="fa fa-share"></i></button>
                 </div>
             </div>
@@ -85,6 +111,42 @@
                                 } ?>
                             </div>
                             <?php endfor; ?>
+                            <div class="col-3">
+                                <img src="public/images/space 2.jpg" class="user-photo align-content-center"><br>
+                                <h5 class="center"><?= $reviews[$i]["name"]; ?></h5>
+                            </div>
+                            <div class="col-9">
+                                <form method="POST" action="product.php?p=<?= $id ?>">
+                                    <div class="form-group">
+                                        <label for="name">Naam:</label>
+                                        <input type="name" name="name" class="form-control" id="name" placeholder="John" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="stars">Beoordeling:</label>
+                                        <select name="stars" class="form-control" id="stars" required>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reviewtext">Review:</label>
+                                        <textarea name="reviewtext" class="form-control" id="reviewtext" rows="4" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">E-mail:</label>
+                                        <input name="email" type="email" class="form-control" id="name" placeholder="John@doe.nl" required>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-10">
+                                            <button type="submit" name="review" class="btn btn-primary">Plaatsen</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
                         </div>
                     </div>
 
