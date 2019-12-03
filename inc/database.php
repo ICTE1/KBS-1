@@ -166,16 +166,6 @@ class wwic_db {
         $name = mysqli_fetch_array($result, MYSQLI_ASSOC);
         return($name);
     }
-//dylan doe dit nog ff voor t commiten fixen
-    function insert_item_into_wishlist($wishlist, $item){
-        $query = "SELECT wishlist_id FROM wishlist WHERE customer_id = ? LIMIT 1";
-        $stmt = mysqli_prepare($this->connectie, $query);
-        mysqli_stmt_bind_param($stmt, "i", $user);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        $name = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        return($name);
-    }
 
     /**
      * get info of wishlist

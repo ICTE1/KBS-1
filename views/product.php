@@ -68,16 +68,20 @@ if(isset($_POST['review'])) {
                     <h1 class="center">€ <?php print($product['RecommendedRetailPrice'])?></h1>
                     
                     <form method="post">
-                        <input type="hidden" value="1" name="aantal" min="1">
+                        <input type="hidden" value="1" name="aantal">
                         <input type = "hidden" name = "Product" value="<?= $id?>">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block " name="message" value="Nu kopen"><i class="fa fa-shopping-cart"></i></button>
+                        <button type="submit" class="btn custom-button-primary btn-lg btn-block " name="message" value="Nu kopen">Nu kopen<i class="fa fa-shopping-cart"></i></button>
                     </form>
 
 
-                    <form>
-                        <button type="button" class="btn btn-primary btn-lg btn-block">In verlanglijst <i class="fa fa-heart"></i></button>
+                    <form method="post">
+                        <input type ="hidden" name = "Product" value="<?= $id?>">
+                        <button type="submit" class="btn custom-button-primary btn-lg btn-block " name="message" value="verlanglijst">In verlanglijst<i class="fa fa-heart"></i></button>
                     </form>
-                    <button type="button" value="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>" id="sharebutton" class="btn btn-primary btn-lg btn-block ">Delen <i class="fa fa-share"></i></button>
+
+
+
+                    <button type="button" value="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>" id="sharebutton" class="btn custom-button-primary btn-lg btn-block ">Delen <i class="fa fa-share"></i></button>
                 </div>
             </div>
         </div>

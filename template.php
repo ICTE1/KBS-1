@@ -25,7 +25,7 @@
     <script src="public/javascript/functions.js"></script>
 
     <title><?php if(isset($title)){echo($title);} else{echo("WideWorldImporters Europa");}?></title>
-    
+
 </head>
 <body>
     <?php
