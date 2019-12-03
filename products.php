@@ -17,8 +17,15 @@ if (isset($_GET['c'])) {
 } else if (isset($_GET['s'])){
     
     $search_term = trim(urldecode($_GET['s']));
-    $products_to_show = $db->search_products($search_term);
 
+    if (isset($_GET['o'])){
+      
+        $products_to_show = $db->search_products($search_term, $_GET['o']);
+
+    } else{
+        $products_to_show = $db->search_products($search_term);
+    }
+   
     
     $view = 'views/products.php';
 
@@ -35,9 +42,9 @@ function show_products ($products){
 
     $number = count($products);
     
-    print ("<span>{$number} resultaten</span>");
+   
     if ($number <= 0 ){
-        print("<p>Geen producten</p>");
+        return;
     }
     
     for($i=0; $i< $number;$i+=3) {

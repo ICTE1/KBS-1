@@ -51,7 +51,8 @@ class wwi_db  {
 
     }
 
-    function search_products ($search_term ){
+    function search_products ($search_term , $sort_by = null){
+        // build db query 
         $query = "
         SELECT stockitems.StockItemName AS ProductName ,stockitems.UnitPrice AS Price, g.StockGroupName AS Category
         FROM stockitems 
@@ -62,9 +63,25 @@ class wwi_db  {
         OR
         stockitems.SearchDetails LIKE ?
         GROUP BY stockitems.StockItemName
-        ORDER BY stockitems.StockItemName
         ";
 
+        if ( $sort_by != null ){
+            
+            switch($sort_by){
+                case 'naame':
+                    $query .= ' ORDER BY stockitems.StockItemName';
+                break;
+                case 'prijs':
+                    $query .= 'ORDER BY stockitems.UnitPrice';
+                break;
+                default;
+                    // add nothing to query
+                break;
+            }
+           
+        }
+       
+        
         $search_term = '%'. $search_term .'%';
         $statement = mysqli_prepare($this->connectie, $query);
         mysqli_stmt_bind_param($statement , 'ss' , $search_term, $search_term);
