@@ -10,6 +10,10 @@ $id = $_GET['p'];
 
 $product = $wwi->productInfo($id);
 
+if ($product === NULL ) {
+    header("location: 404.php");
+}
+
 $similar = $wwi->get_similar_products($id);
 
 $reviews = $wwic->get_product_reviews($id);
