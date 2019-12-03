@@ -70,18 +70,18 @@ if(isset($_POST['review'])) {
                     <form method="post">
                         <input type="hidden" value="1" name="aantal">
                         <input type = "hidden" name = "Product" value="<?= $id?>">
-                        <button type="submit" class="btn custom-button-primary btn-lg btn-block " name="message" value="Nu kopen">Nu kopen<i class="fa fa-shopping-cart"></i></button>
+                        <button type="submit" class="btn-margin btn custom-button-primary btn-lg btn-block " name="message" value="Nu kopen">Nu kopen<i class="fa fa-shopping-cart"></i></button>
                     </form>
 
 
                     <form method="post">
                         <input type ="hidden" name = "Product" value="<?= $id?>">
-                        <button type="submit" class="btn custom-button-primary btn-lg btn-block " name="message" value="verlanglijst">In verlanglijst<i class="fa fa-heart"></i></button>
+                        <button type="submit" class="btn-margin btn custom-button-primary btn-lg btn-block " name="message" value="verlanglijst">In verlanglijst<i class="fa fa-heart"></i></button>
                     </form>
 
 
 
-                    <button type="button" value="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>" id="sharebutton" class="btn custom-button-primary btn-lg btn-block ">Delen <i class="fa fa-share"></i></button>
+                    <button type="button" value="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>" id="sharebutton" class="btn-margin btn custom-button-primary btn-lg btn-block ">Delen <i class="fa fa-share"></i></button>
                 </div>
             </div>
         </div>
@@ -186,7 +186,7 @@ if(isset($_POST['review'])) {
     <section>
         <div class="container" style="margin-bottom: 2%;">
             <div class="row text-center">
-                <?php for($i =0; $i < 4; $i++): ?>
+                <?php for($i =0; $i < count($similar); $i++): ?>
                     <div class="col-md-3">
                         <div class="card ccart">
                             <img src="public/images/space 2.jpg" class="card-img-top" alt="...">

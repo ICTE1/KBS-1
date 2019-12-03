@@ -391,3 +391,6 @@ img.zoom {
 #cart-button {
     min-width: 74px;
 }
+.btn-margin {
+    margin: 1%;
+}
