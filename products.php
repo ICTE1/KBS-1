@@ -38,6 +38,33 @@ if (isset($_GET['c'])) {
 }
 
 
+function generate_sorting_link ($type) {
+    $uri = 'products.php?';
+
+    if (isset($_GET['c'])){
+        $uri .= 'c='.$_GET['c'];
+
+    }
+    if (isset($_GET['s'])){
+        $uri .= 's='.$_GET['s'];
+
+    }
+
+    switch  ($type){
+        case "naam": 
+            $uri .= '&o=naam'; 
+            return $uri;
+      
+        case "prijs":
+            $uri .= '&o=prijs';
+            return $uri;
+        default:
+        return 'error.php';
+    }
+
+}
+
+
 function show_products ($products){
 
     $number = count($products);
@@ -48,11 +75,7 @@ function show_products ($products){
     }
     
     for($i=0; $i< $number;$i+=3) {
-
-
         print(" <div class= 'row  align-content-around'>" );
-        
-
         $product1_index = $i ;
         $product2_index = $i + 1;
         $product3_index = $i + 2;
@@ -76,13 +99,16 @@ function show_products ($products){
 
 function print_product  ($product ){
     print("
-    <div class='col-md-3 product' title='".$product['ProductName']."'>
-        <H4>".$product["ProductName"]."</H4>
-        <H5>€".$product["Price"]."</H5>
-        <img width='150' src='https://cdn0.iconfinder.com/data/icons/business-mix/512/cargo-512.png'/>
-
-        <span>".$product["Category"]."</span>
-      
+    <div class='col-md-3 card ccart product' style='width: 18rem;'>
+        <img src='https://cdn0.iconfinder.com/data/icons/business-mix/512/cargo-512.png' class='card-img-top' alt='".$product['ProductName']."'>
+        <div class='card-body'>
+            <h5 class='card-title'>".$product['ProductName']."</h5>
+            <p class='card-text'>
+            €".$product['Price']."
+            </p>
+            <a href='#' class='btn btn-primary'>Bekijken</a>
+        </div>
     </div>
+
     ");
 } 

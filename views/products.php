@@ -8,36 +8,7 @@
         }
     ?>
     
-    <div>
-        <?php
-        function generate_sorting_link ($type) {
-            $uri = 'products.php?';
-
-            if (isset($_GET['c'])){
-                $uri .= 'c='.$_GET['c'];
-
-            }
-            if (isset($_GET['s'])){
-                $uri .= 's='.$_GET['s'];
-
-            }
-
-            switch  ($type){
-                case "naam": 
-                    $uri .= '&o=naam'; 
-                    return $uri;
-              
-                case "prijs":
-                    $uri .= '&o=prijs';
-                    return $uri;
-                default:
-                return 'error.php';
-            }
-
-        }
-       
-       ?>
-
+    <div class='sorting-controls'>
         <span class='product-sorting-btn'>
             <a href="<?php print  (generate_sorting_link("naam") ); ?>">
             Naam <i class='fa fa-sort'></i>
