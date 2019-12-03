@@ -6,6 +6,7 @@ if(isset($_SESSION["loggedin"])) {
 }
 
 $view = "views/login.php";
+$title = "WWI inloggen";
 
 //Check if the method is POST to determine if you should handle the request or send it to the login page.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
