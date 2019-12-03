@@ -10,6 +10,7 @@ if (isset($_GET['c'])) {
 
 
     $view = 'views/products.php';
+    $title = ("WWI " . $Category);
 
 
     include 'template.php';
