@@ -24,7 +24,7 @@
     ?>
         <div class="content">
         <?php
-            if(isset($view){
+            if(isset($view)){
                 include $view;
             }
             else {
