@@ -1,5 +1,6 @@
 <?php
 require_once "inc/database.php";
+require_once "inc/package.php";
 
 $databaseWWI = new wwi_db();
 $prijsTot = 0; // zet start bedrag in voor bestelling
@@ -9,12 +10,7 @@ if(isset($_POST["hiddenVerwijderen"])){ // verwijderdt item uit winkelwagen vanu
     }
 
 if(isset($_POST["hiddenToevoegen"])){ // voeg toe aan winkelwagen
-    if(isset($_SESSION["winkelWagen"][$_POST["hiddenToevoegen"]])){
-        $_SESSION["winkelWagen"][$_POST["hiddenToevoegen"]] += $_POST["aantal"];
-    }
-    else{
-        $_SESSION["winkelWagen"][$_POST["hiddenToevoegen"]] = $_POST["aantal"];
-    }
+    addToCart($_POST["hiddenToevoegen"], $_POST["aantal"]);
 }
 
 if(isset($_POST["hiddenUpdate"])){ //zet aantal in de sessie
