@@ -24,7 +24,8 @@
     <script src="public/javascript/main.js"></script>
     <script src="public/javascript/functions.js"></script>
 
-    <title>WorldWideImporters Europa</title>
+    <title><?php if(isset($title)){echo($title);} else{echo("WideWorldImporters Europa");}?></title>
+    
 </head>
 <body>
     <?php
@@ -32,7 +33,12 @@
     ?>
         <div class="content">
         <?php
-            include $view;
+            if(isset($view)){
+                include $view;
+            }
+            else {
+                include "404.php";
+            }
         ?>
         </div>
     <?php

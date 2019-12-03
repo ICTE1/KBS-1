@@ -184,7 +184,7 @@ class wwic_db {
      *
      * @throws No_exceptions cause to lazy to program
      * @author Jelle Wiersma
-     * @return array with records, each value is an array with columns and values per record.
+     * @return array with info on a wishlist: owner, name, shared
      */
     function wishlistInfo($wishlist){
         $query = "SELECT * FROM wishlist WHERE wishlist_id = ?";
@@ -233,6 +233,22 @@ class wwic_db {
      */
     function wishlistDelete($wishlist, $product){
         $query = "DELETE FROM wishlist_product WHERE wishlist_id = ? AND product_id = ?";
+        $stmt = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($stmt, "ii", $wishlist, $product);
+        mysqli_stmt_execute($stmt);
+    }
+
+    /**
+     * add product to wishlist
+     *
+     * @param wishlist id
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Jelle Wiersma
+     * @return none
+     */
+    function wishlistAdd($wishlist, $product){
+        $query = "INSERT INTO wishlist_product(wishlist_id, product_id) VALUES (?, ?)";
         $stmt = mysqli_prepare($this->connectie, $query);
         mysqli_stmt_bind_param($stmt, "ii", $wishlist, $product);
         mysqli_stmt_execute($stmt);

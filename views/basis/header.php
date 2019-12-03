@@ -34,7 +34,7 @@
             <a class="nav-link text-center" href="verlanglijst.php<?php  if(isset($_SESSION["user_id"])){$db = new wwic_db; $wishlist = $db->userWishlists($_SESSION["user_id"]); print("?w=".$wishlist["wishlist_id"]);}?>"><i class="fa fa-heart navbarIcon fa-2x"></i></a>
             <a id="cart-button" class="nav-link" href="winkelwagen.php">
                 <i class="fa fa-shopping-cart navbarIcon fa-2x"></i>
-                <?php if(isset($_SESSION["winkelWagen"]) && !$_SESSION["winkelWagen"] == 0){print("<div class='badge rounded-circle shopping-badge'>".count($_SESSION['winkelWagen'])."</div>");}?>
+                <?php if(isset($_SESSION["winkelWagen"]) && !$_SESSION["winkelWagen"] == 0){print("<div class='badge rounded-circle shopping-badge'>".array_sum($_SESSION['winkelWagen'])."</div>");}?>
 
             </a>
         </div>
