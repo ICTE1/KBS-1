@@ -19,5 +19,6 @@ if(isset($_POST["hiddenUpdate"])){ //zet aantal in de sessie
 
 
 $view = 'views/winkelwagen.php';
+$title = 'WWI Verlanglijst';
 
 include 'template.php';
