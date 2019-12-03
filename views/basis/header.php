@@ -28,18 +28,15 @@
         <div class="navbar-nav" style="margin-left: auto">
             <div class="loginbutton">
                 <button type="button" class="btn btn-default">
-                    <a class="btn btn-outline-success my-2 my-sm-0" href="<?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout.php"; } else { echo "logout.php"; } } else { echo "login.php"; }?>"><?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout"; } else { echo "logout"; } } else { echo "login"; }?><span class="sr-only">(current)</span></a>
+                    <a class="btn btn-outline-success my-2 my-sm-0" style="border-width: 3px" href="<?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout.php"; } else { echo "logout.php"; } } else { echo "login.php"; }?>"><b><?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout"; } else { echo "logout"; } } else { echo "login"; }?></b></a>
                 </button>
             </div>
+            <a class="nav-link text-center" href="verlanglijst.php<?php  if(isset($_SESSION["user_id"])){$db = new wwic_db; $wishlist = $db->userWishlists($_SESSION["user_id"]); print("?w=".$wishlist["wishlist_id"]);}?>"><i class="fa fa-heart navbarIcon fa-2x"></i></a>
+            <a id="cart-button" class="nav-link" href="winkelwagen.php">
+                <i class="fa fa-shopping-cart navbarIcon fa-2x"></i>
+                <?php if(isset($_SESSION["winkelWagen"]) && !$_SESSION["winkelWagen"] == 0){print("<div class='badge rounded-circle shopping-badge'>".array_sum($_SESSION['winkelWagen'])."</div>");}?>
 
-            <div class="nav-item">
-                <a class="nav-link text-center" href="verlanglijst.php<?php  if(isset($_SESSION["user_id"])){$db = new wwic_db; $wishlist = $db->userWishlists($_SESSION["user_id"]); print("?w=".$wishlist["wishlist_id"]);}?>"><i class="fa fa-heart navbarIcon"></i></a>
-            </div>
-            <div class="nav-item">
-                <a class="nav-link" href="winkelwagen.php">
-                    <i class="fa fa-shopping-cart navbarIcon"></i>
-                </a>
-            </div>
+            </a>
         </div>
 </nav>
 

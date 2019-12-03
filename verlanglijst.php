@@ -1,8 +1,8 @@
 <?php
 require_once "inc/database.php";
+require_once "inc/package.php";
 
 //TODO:
-//form for adding to cart functionality
 //images per product
 
 $db_custom = new wwic_db();
@@ -29,8 +29,13 @@ if(isset($_POST["share"])){
     }
 
 }
-if(isset($_POST["Product"])){
-    print($db_custom->wishlistDelete($w, $_POST["Product"]));
+if(isset($_POST["message"])){
+    if($_POST["message"] == "add"){
+        addToCart($_POST["Product"], $_POST["aantal"]);
+    }
+    elseif($_POST["message"] == "delete"){
+        $db_custom->wishlistDelete($w, $_POST["Product"]);
+    }
 }
 
 //put wishlist info into variables

@@ -15,7 +15,7 @@
     <link rel="icon" href="public/images/favicon.ico" type="image/ico">
 
     <script src="public/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="public/javascript/wishlist.js"></script>
+    <script src="public/javascript/functions.js"></script>
     <title>WorldWideImporters Europa</title>
 </head>
 <body>
