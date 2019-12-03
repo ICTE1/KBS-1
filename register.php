@@ -2,6 +2,7 @@
 require_once "inc/database.php";
 
 $view = "views/register.php";
+$title = "WWI registreren";
 
 // Check if the method is POST to determine if you should handle the request or send it to the login page.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
