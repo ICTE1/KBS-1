@@ -43,7 +43,7 @@ if($display) {
                     <button class="btn custom-button-primary" onclick="submitOnClick(\'form_'.$record["StockItemID"].'\')" name="message" value="add"><i class="fa fa-cart-arrow-down" ></i ></button >
                     <input type = "hidden" name = "Product" value = '.$record["StockItemID"].' >');
                     if($owned){
-                        print('<button class="btn custom-button-primary" style = "margin-left: 10px" name="message" value="delete" onclick="submitOnClick(\'form_'.$record["StockItemID"].'\')"><i class="fa fa-trash-o"></i ></button>');}
+                        print('<button class="btn custom-button-primary" style = "margin-left: 10px" name="message" value="delete" onfocus="submitOnClick(\'form_'.$record["StockItemID"].'\')"><i class="fa fa-trash-o"></i ></button>');}
                 print('</form>
             </div>
 
