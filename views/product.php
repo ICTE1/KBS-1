@@ -69,8 +69,8 @@ if(isset($_POST['review'])) {
                     
                     <form method="post">
                         <input type="hidden" value="1" name="aantal" min="1">
-                        <input type = "hidden" name = "Product" value = '.$itemID.'>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block " name="message" value="add"><i class="fa fa-shopping-cart"></i></button>
+                        <input type = "hidden" name = "Product" value="<?= $id?>">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block " name="message" value="Nu kopen"><i class="fa fa-shopping-cart"></i></button>
                     </form>
 
 
