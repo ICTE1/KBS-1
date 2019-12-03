@@ -30,16 +30,16 @@ function print_categories (){
 
     foreach ( $categorie_list as $index => $category ){
         if ( $index == 0 ) {
-            // If we are the first element start the first column
+            // If we are the first element, start the first column
             print ('
             <div class="col-md-4">
             <ul class="list-group list-group-flush">');
         }
-        if ( $index == count ($categorie_list)){
-            // end the column but don't start a new one
+        if ( $index == (count ($categorie_list))){
+            // If we are the last element, end the column but don't start a new one
             print ('
-            </div>
-            </ul>');
+            </ul></div>
+            ');
 
         }        
         if ( $index % 4 == 0 && ! $index == 0   || $index == count ($categorie_list) ){
@@ -52,7 +52,12 @@ function print_categories (){
         }
 
       
-        print ("<li class='list-group-item custom-list-group-item'> <a href='products.php?c={$category['category_name']}'>{$category['category_name']}</a></li>") ;
+        print ("
+                <li class='list-group-item custom-list-group-item'>
+                    <a href='products.php?c={$category['category_name']}'>
+                        {$category['category_name']}
+                    </a>
+                </li>") ;
 
     }
 }
