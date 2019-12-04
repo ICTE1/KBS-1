@@ -74,7 +74,6 @@ elseif($shared){
 }
 else{
     $display = FALSE;
-    print("not allowed to view this list (errorpage hasn't been made yet)");
 }
 $view = "views/verlanglijst.php";
 $title = 'WWI Verlanglijst';

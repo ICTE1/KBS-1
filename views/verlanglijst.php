@@ -91,4 +91,7 @@ if($display) {
     </div>
     </div></div>');
 }
+else {
+    header("Location: error.php?error=Deze lijst is niet openbaar gezet door de eigenaar");
+}
 ?>
