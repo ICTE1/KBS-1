@@ -99,14 +99,14 @@ function show_products ($products){
 
 function print_product  ($product ){
     print("
-    <div class='col-md-3 card ccart product' style='width: 18rem;'>
+    <div class=' center col card ccart product'>
         <img src='https://cdn0.iconfinder.com/data/icons/business-mix/512/cargo-512.png' class='card-img-top' alt='".$product['ProductName']."'>
         <div class='card-body'>
             <h5 class='card-title'>".$product['ProductName']."</h5>
             <p class='card-text'>
             €".$product['Price']."
             </p>
-            <a href='#' class='btn btn-primary'>Bekijken</a>
+            <a href='#' class='btn btn-primary custom-button-primary'>Bekijken</a>
         </div>
     </div>
 
