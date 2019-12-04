@@ -347,16 +347,16 @@ body {
     color: #ffff;
 }
 
-.betaalgegevens {
-    position: relative;
-    left: 0%;
-    top: 6vh;
-}
+/*.betaalgegevens {*/
+/*    position: relative;*/
+/*    left: 0%;*/
+/*    top: 6vh;*/
+/*}*/
 
 .betaalgegevens input:not([type="submit"]),
 .betaalgegevens select {
     display: block;
-    width: 30em;
+    width: 100%;
 }
 .betaalgegevens a,
 .betaalgegevens .btn-group input {
@@ -364,42 +364,34 @@ body {
     margin-top: 2em;
     margin-right: 3em;
 }
-.betaalgegevens {
-    width: 90%;
-    margin: 0 auto;
-}
 
-.winkelwagen_preview{
-    width: 40%;
-
-    position: absolute;
-
-    top: 19vh;
-    left: 45% ;
-
-}
-
-.shopping-badge {
-    background-color: #FFE400;
-    color: black;
-    min-width: 1.5rem;
-    height: 1.5rem;
-    position: relative;
-    bottom: 18px;
-    right: 13px;
-    padding: .25rem;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 16px;
-}
+/*.shopping-badge {*/
+/*    background-color: #FFE400;*/
+/*    color: black;*/
+/*    min-width: 1.5rem;*/
+/*    height: 1.5rem;*/
+/*    position: relative;*/
+/*    bottom: 18px;*/
+/*    right: 13px;*/
+/*    padding: .25rem;*/
+/*    text-align: center;*/
+/*    vertical-align: middle;*/
+/*    line-height: 16px;*/
+/*}*/
 
 #cart-button {
     min-width: 74px;
 }
 
-.content-payment-screen{
-    width: 75%;
-    margin: 0 auto;
-    margin-top: 2em;
-    align-content: center;
+.winkelwagen_preview {
+    padding-top: 25%;
 }
+.table-dark {
+    background-color: #353535;
+}
+/*.content-payment-screen{*/
+/*    width: 75%;*/
+/*    margin: 0 auto;*/
+/*    margin-top: 2em;*/
+/*    align-content: center;*/
+/*}*/
