@@ -364,3 +364,9 @@ body {
 #cart-button {
     min-width: 74px;
 }
+.big-h1 {
+    font-size: 5rem;
+}
+.big-p {
+    font-size: 1.5rem;
+}
