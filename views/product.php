@@ -28,25 +28,24 @@ if(isset($_POST['review'])) {
                     <div class="row padding-product">
 
                         <div class="col-12 no-padding">
-                            <a href="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox" rel="ligthbox">
-                                <img  src="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="zoom img-fluid "  alt="">
-
-                            </a>
-                        </div>
-                        <div class="col-4 no-padding">
-                                <iframe src="https://www.youtube.com/embed/kknyT7ffmm8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" class="zoom img-fluid video-custom" allowfullscreen></iframe>
+                            <a href="public/images/productinvulling/<?= $content[0]['url'] ?>" class="fancybox" rel="ligthbox">
+                                <img  src="public/images/productinvulling/<?= $content[0]['url'] ?>" class="zoom img-fluid "  alt="">
                             </a>
                         </div>
 
-                        <div class="col-4 no-padding">
-                            <a href="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="fancybox" rel="ligthbox">
-                                <img  src="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="zoom img-fluid "  alt="">
-                            </a>
-                        </div>
+                        <?php for($i = 1; $i < 3; $i++): ?>
+
+                            <div class="col-4 no-padding">
+                                <a href="" class="fancybox" rel="ligthbox">
+                                    <img  src="public/images/productinvulling/<?= $content[$i]['url'] ?>" class="zoom img-fluid "  alt="">
+                                </a>
+                            </div>
+
+                        <?php endfor; ?>
 
                         <div class="col-4 no-padding">
-                            <a href="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="fancybox" rel="ligthbox">
-                                <img  src="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="zoom img-fluid "  alt="">
+                            <a href="" class="fancybox" rel="ligthbox">
+                                <?= $content[3]['url'] ?>
                             </a>
                         </div>
 

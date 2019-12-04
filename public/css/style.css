@@ -374,8 +374,6 @@ img.zoom {
 .product span {
 }
 
-}
-
 .shopping-badge {
     background-color: #FFE400;
     color: black;
@@ -395,4 +393,13 @@ img.zoom {
 }
 .btn-margin {
     margin: 1%;
+}
+iframe {
+    max-width: 100% !important;
+    max-height: 115px !important;
+}
+
+.fancybox-wrap iframe {
+    min-width: 600px;
+    min-height: 600px;
 }
