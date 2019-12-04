@@ -37,7 +37,7 @@ class wwi_db  {
         SELECT DISTINCT i.StockItemName ProductName , g.StockGroupName Category, i.UnitPrice Price
         FROM  stockitemstockgroups v 
         JOIN stockitems i  ON v.StockItemID = i.StockItemID
-        JOIN stockgroups g
+        JOIN stockgroups g ON v.StockGroupID = g.StockGroupID
         WHERE g.StockGroupName = ?
         ";
 
@@ -50,6 +50,48 @@ class wwi_db  {
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     }
+
+    function search_products ($search_term , $sort_by = null){
+        // build db query 
+        $query = "
+        SELECT stockitems.StockItemName AS ProductName ,stockitems.UnitPrice AS Price, g.StockGroupName AS Category
+        FROM stockitems 
+        JOIN stockitemstockgroups v  ON v.StockItemID = stockitems.StockItemID
+        JOIN stockgroups g ON v.StockGroupID = g.StockGroupID
+        WHERE  
+        stockitems.StockItemName LIKE ?
+        OR
+        stockitems.SearchDetails LIKE ?
+        GROUP BY stockitems.StockItemName
+        ";
+
+        if ( $sort_by != null ){
+            
+            switch($sort_by){
+                case 'naame':
+                    $query .= ' ORDER BY stockitems.StockItemName';
+                break;
+                case 'prijs':
+                    $query .= 'ORDER BY stockitems.UnitPrice';
+                break;
+                default;
+                    // add nothing to query
+                break;
+            }
+           
+        }
+       
+        
+        $search_term = '%'. $search_term .'%';
+        $statement = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($statement , 'ss' , $search_term, $search_term);
+
+        mysqli_stmt_execute($statement);
+        $result = mysqli_stmt_get_result($statement);
+
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
 
 
     function productInfo($product){
@@ -81,6 +123,13 @@ class wwi_db  {
     function get_product_amount() {
 
         $result = mysqli_query ($this->connectie , "SELECT COUNT(StockItemID) amount FROM stockitems");
+        $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC );
+        mysqli_free_result($result);
+        return $rows;
+    }
+
+    function get_categories(){        
+        $result = mysqli_query ($this->connectie , "SELECT StockGroupName AS category_name FROM stockgroups");
         $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC );
         mysqli_free_result($result);
         return $rows;

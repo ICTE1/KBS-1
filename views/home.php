@@ -59,28 +59,9 @@
     <section>
         <div class="container margin-top-botom">
             <div class="row">
-                <div class="col-md-4">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item custom-list-group-item">Limited Stock</li>
-                        <li class="list-group-item custom-list-group-item">Halloween Fun</li>
-                        <li class="list-group-item custom-list-group-item">Comfortable</li>
-                        <li class="list-group-item custom-list-group-item">Long Battery Life</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item custom-list-group-item">So Realistic</li>
-                        <li class="list-group-item custom-list-group-item">Vintage</li>
-                        <li class="list-group-item custom-list-group-item">Radio Control</li>
-                        <li class="list-group-item custom-list-group-item">Realistic Sound</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item custom-list-group-item">Comedy</li>
-                        <li class="list-group-item custom-list-group-item">USB Powered</li>
-                    </ul>
-                </div>
+                <?php 
+                print_categories();
+                ?>
             </div>
         </div>
     </section>
