@@ -38,7 +38,7 @@
                                                     }
                                                     echo "<br><b><span class='text-attention'>" . substr($discount, 1, -13) . "% korting" ?></span></b></h5>
                             <h5 class="card-title"><?= "€" . $sales[$i]["UnitPrice"] ?></h5>
-                            <a href="#" class="btn custom-button-primary">Bekijk product</a>
+                            <a href="product.php?p=<?php print($sales[$i]['StockItemID']) ;?>" class="btn custom-button-primary">Bekijk product</a>
                         </div>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><?= $sales[$i]["StockItemName"] ?></h5>
                                 <h5 class="card-title"><?= "€" . $sales[$i]["RecommendedRetailPrice"] ?></h5>
-                                <a href="#" class="btn btn-primary custom-button-primary">Bekijk product</a>
+                                <a href="product.php?p=<?php print( $sales[$i]['StockItemID']); ?>" class="btn btn-primary custom-button-primary">Bekijk product</a>
                             </div>
                         </div>
                     </div>
