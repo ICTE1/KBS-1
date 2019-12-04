@@ -183,10 +183,11 @@ if(isset($_POST['review'])) {
     <section>
         <div class="container" style="margin-bottom: 2%;">
             <div class="row text-center">
-                <?php for($i =0; $i < count($similar); $i++): ?>
+                <?php for($i =0; $i < count($similar); $i++):
+                    $content = $wwic->get_product_photo($similar["" . $i .""]["StockItemID"]); ?>
                     <div class="col-md-3">
                         <div class="card ccart">
-                            <img src="public/images/space 2.jpg" class="card-img-top" alt="...">
+                            <img src="public/images/productinvulling/<?= $content[0]['url'] ?>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <?php if(strlen($similar["" . $i .""]["StockItemName"]) >= 35) {
@@ -197,7 +198,7 @@ if(isset($_POST['review'])) {
                                     } ?>
                                 </h5>
                                 <h5 class="card-title"><?= "€" . $similar["" . $i .""]["RecommendedRetailPrice"] ?></h5>
-                                <a href="#" class="btn btn-primary custom-button-primary">Bekijk product</a>
+                                <a href="product.php?p=<?= $similar["" . $i .""]["StockItemID"] ?>" class="btn btn-primary custom-button-primary">Bekijk product</a>
                             </div>
                         </div>
                     </div>
