@@ -1,4 +1,5 @@
 <?php
+ define('image_url' ,'public/images/productinvulling/') ;
 include_once "inc/database.php";
 
 $db = new wwi_db();
@@ -102,9 +103,12 @@ function show_products ($products){
 
 
 function print_product  ($product ) {
+   
+    $wwic = $wwic = new wwic_db();
+    $content = $wwic->get_product_photo($product['identifier']);
     print("
     <div class=' center col card ccart product'>
-        <img src='https://cdn0.iconfinder.com/data/icons/business-mix/512/cargo-512.png' class='card-img-top' alt='".$product['ProductName']."'>
+        <img src='".image_url . $content[0]['url']."' class='card-img-top' alt='".$product['ProductName']."'>
         <div class='card-body'>
             <h5 class='card-title'>".$product['ProductName']."</h5>
             <p class='card-text'>
