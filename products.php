@@ -28,8 +28,6 @@ if (isset($_GET['c'])) {
     } else{
         $products_to_show = $db->search_products($search_term);
     }
-
-    var_dump($products_to_show);
    
     
     $view = 'views/products.php';
