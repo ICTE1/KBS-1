@@ -1,6 +1,6 @@
 <?php
- define('image_url' ,'public/images/productinvulling/') ;
-include_once "inc/database.php";
+require_once "inc/package.php";
+require_once "inc/database.php";
 
 $db = new wwi_db();
 

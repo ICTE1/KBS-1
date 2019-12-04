@@ -1,4 +1,5 @@
 <?php
+define('image_url' ,'public/images/productinvulling/') ;
 function addToCart($item, $aantal){
     if(isset($_SESSION["winkelWagen"][$item])){
         $_SESSION["winkelWagen"][$item] += $aantal;
