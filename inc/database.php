@@ -403,8 +403,14 @@ class wwic_db {
 
         $result = mysqli_stmt_get_result($stmt);
 
-        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $content =  mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+        if($content == NULL ) {
+            $new_number = $product_id + 1;
+            $content = $this->get_product_photo($new_number);
+
+        }
+        return $content;
     }
 
     /**
