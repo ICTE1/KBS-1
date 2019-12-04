@@ -8,6 +8,7 @@
         }
     ?>
     
+    <?php if (isset($_GET['c']) == false):?>
     <div class='sorting-controls'>
         <span class='product-sorting-btn'>
             <a href="<?php print  (generate_sorting_link("naam") ); ?>">
@@ -23,6 +24,7 @@
         
         <span><i class="fa fa-filter"></i></span>         
     </div>
+    <?php endif;?>
 
   
     <?php
