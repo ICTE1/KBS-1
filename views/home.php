@@ -20,9 +20,11 @@
                         <img src="public/images/space 2.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">
-                                                    <?php if(strlen($sales["" . $i .""]["StockItemName"]) >= 35) {
-                                                    $name = substr($sales["" . $i .""]["StockItemName"], 0, 32);
-                                                    echo $name . "..."; }
+                                                    <?php if(strlen($sales["" . $i .""]["StockItemName"]) >= 23) {
+                                                    $name = substr($sales["" . $i .""]["StockItemName"], 0, 28);
+                                                    echo $name . "..."; } elseif (strlen($sales["" . $i .""]["StockItemName"]) <= 23) {
+                                                        echo $sales["" . $i .""]["StockItemName"] . "<br>";
+                                                    }
                                                     else {
                                                         echo $sales["" . $i .""]["StockItemName"];
                                                     }
@@ -40,7 +42,11 @@
     <section class="text-center feelinglucky cjumbotron">
         <div class="container transparent-background">
             <h1 class="jumbotron-heading white-text big-header">I'm feeling lucky</h1>
-            <p><a href="#" class="btn btn-light my-2 custom-button-big">GO</a></p>
+            <?php $amount = $wwi->get_product_amount(); ?>
+            <form action="product.php?p=<?= rand(0, $amount[0]['amount']); ?>" method="post">
+                <button type="submit" name="your_name" value="your_value" class="btn btn-light my-2 custom-button-big">GO</button>
+            </form>
+
         </div>
     </section>
 

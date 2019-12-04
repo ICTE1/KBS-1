@@ -1,0 +1,214 @@
+<?php
+
+//Add review to database if method is post and type is review
+if(isset($_POST['review'])) {
+
+    $product_id = $id;
+    $r_name = $_POST['name'];
+    $stars = $_POST['stars'];
+    $review = $_POST['reviewtext'];
+    $r_email = $_POST['email'];
+
+    $wwic->insert_review($product_id, $r_name, $stars, $review, $r_email);
+
+    $_POST['name'] = NULL;
+    $_POST['stars'] = NULL;
+    $_POST['reviewtext'] = NULL;
+    $_POST['email'] = NULL;
+
+}
+?>
+
+<main role="main">
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+
+                    <div class="row padding-product">
+
+                        <div class="col-12 no-padding">
+                            <a href="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox" rel="ligthbox">
+                                <img  src="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="zoom img-fluid "  alt="">
+
+                            </a>
+                        </div>
+                        <div class="col-4 no-padding">
+                                <iframe src="https://www.youtube.com/embed/kknyT7ffmm8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" class="zoom img-fluid video-custom" allowfullscreen></iframe>
+                            </a>
+                        </div>
+
+                        <div class="col-4 no-padding">
+                            <a href="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="fancybox" rel="ligthbox">
+                                <img  src="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="zoom img-fluid "  alt="">
+                            </a>
+                        </div>
+
+                        <div class="col-4 no-padding">
+                            <a href="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="fancybox" rel="ligthbox">
+                                <img  src="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="zoom img-fluid "  alt="">
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-4" style="padding-top: 1%;">
+                    <h1> <?php print($product['StockItemName']) ?></h1>
+                    <p> <?php if($product['MarketingComments'] != "") {
+                        print($product['MarketingComments']);
+                        }else {
+                        print('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dictum tempus justo, id vehicula mauris porttitor eget. Suspendisse tristique urna sit amet lectus sollicitudin cursus. Pellentesque porttitor ultrices dolor ac egestas. Phasellus at pulvinar tellus, eu hendrerit sem. Phasellus accumsan gravida scelerisque.');
+                        } ?></p>
+                    <p><?php print("Tags: " . substr($product['tags'], 2, -2)); ?></p>
+                </div>
+                <div class="col-4" style="padding-top: 5%;">
+                    <h1 class="center">€ <?php print($product['RecommendedRetailPrice'])?></h1>
+                    
+                    <form method="post">
+                        <input type="hidden" value="1" name="aantal">
+                        <input type = "hidden" name = "Product" value="<?= $id?>">
+                        <button type="submit" class="btn-margin btn custom-button-primary btn-lg btn-block " name="message" value="Nu kopen">Nu kopen<i class="fa fa-shopping-cart"></i></button>
+                    </form>
+
+
+                    <form method="post">
+                        <input type ="hidden" name = "Product" value="<?= $id?>">
+                        <button type="submit" class="btn-margin btn custom-button-primary btn-lg btn-block " name="message" value="verlanglijst">In verlanglijst<i class="fa fa-heart"></i></button>
+                    </form>
+
+
+
+                    <button type="button" value="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>" id="sharebutton" class="btn-margin btn custom-button-primary btn-lg btn-block ">Delen <i class="fa fa-share"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                    <div class="col-6">
+                        <h1>Reviews</h1>
+                        <div class="row">
+                            <?php for($i = 0; $i < count($reviews); $i++): ?>
+                            <div class="col-3">
+                                <img src="public/images/space 2.jpg" class="user-photo align-content-center"><br>
+                                <h5 class="center"><?= $reviews[$i]["name"]; ?></h5>
+                            </div>
+                            <div class="col-9">
+
+                                <?php $stars = 0; for($x = 0; $x < $reviews[$i]["rating"]; $x++): ?>
+                                    <i class="no-margin-bottom fa fa-star"></i>
+                                <?php $stars++; endfor; ?>
+                                <?php $empty_stars = 5 - $stars; for($z = 0; $z < $empty_stars; $z++): ?>
+                                    <i class="no-margin-bottom fa fa-star-o"></i>
+                                <?php endfor; ?>
+                                <br>
+                                <?php if(strlen($reviews["" . $i .""]["review"]) >= 178) {
+                                    $short_review = substr($reviews["" . $i .""]["review"], 0, 175);
+                                    echo $short_review . "..."; }
+                                else {
+                                    echo $reviews["" . $i .""]["review"];
+                                } ?>
+                            </div>
+                            <?php endfor; ?>
+                            <div class="col-3">
+                                <img src="public/images/space 2.jpg" class="user-photo align-content-center"><br>
+                                <h5 class="center"><?= $reviews[$i]["name"]; ?></h5>
+                            </div>
+                            <div class="col-9">
+                                <form method="POST" action="product.php?p=<?= $id ?>">
+                                    <div class="form-group">
+                                        <label for="name">Naam:</label>
+                                        <input type="name" name="name" class="form-control" id="name" placeholder="John" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="stars">Beoordeling:</label>
+                                        <select name="stars" class="form-control" id="stars" required>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reviewtext">Review:</label>
+                                        <textarea name="reviewtext" class="form-control" id="reviewtext" rows="4" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">E-mail:</label>
+                                        <input name="email" type="email" class="form-control" id="name" placeholder="John@doe.nl" required>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-10">
+                                            <button type="submit" name="review" class="btn btn-primary">Plaatsen</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <h1>Aanvullende informatie</h1>
+                            <?php
+
+                            $characters = array("\"", "{", "}");
+                            $replace = (" ");
+                            $arr = ($product["CustomFields"]);
+                            $array = str_replace($characters,$replace,$arr);
+
+                            $split_array = str_split($array);
+
+                            foreach($split_array as $split_ar) {
+                                print($split_ar);
+                                if($split_ar == ",") {
+                                    print("<br>");
+                                }
+                            }
+                            ?>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container ">
+            <h1 class="jumobotron-heading text-center">Ook wat voor u?</h1>
+        </div>
+    </section>
+
+    <section>
+        <div class="container" style="margin-bottom: 2%;">
+            <div class="row text-center">
+                <?php for($i =0; $i < count($similar); $i++): ?>
+                    <div class="col-md-3">
+                        <div class="card ccart">
+                            <img src="public/images/space 2.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <?php if(strlen($similar["" . $i .""]["StockItemName"]) >= 35) {
+                                        $name = substr($similar["" . $i .""]["StockItemName"], 0, 32);
+                                        echo $name . "..."; }
+                                    else {
+                                        echo $similar["" . $i .""]["StockItemName"];
+                                    } ?>
+                                </h5>
+                                <h5 class="card-title"><?= "€" . $similar["" . $i .""]["RecommendedRetailPrice"] ?></h5>
+                                <a href="#" class="btn btn-primary custom-button-primary">Bekijk product</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endfor; ?>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+

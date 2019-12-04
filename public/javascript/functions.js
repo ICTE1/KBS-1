@@ -17,3 +17,4 @@ function updateAmount(element){
     hidden.value = aantal;
     console.log("product: " + product_id + "\nparent_id: " + id);
 }
+
