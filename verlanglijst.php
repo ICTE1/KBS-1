@@ -29,14 +29,6 @@ if(isset($_POST["share"])){
     }
 
 }
-if(isset($_POST["message"])){
-    if($_POST["message"] == "add"){
-        addToCart($_POST["Product"], $_POST["aantal"]);
-    }
-    elseif($_POST["message"] == "delete"){
-        $db_custom->wishlistDelete($w, $_POST["Product"]);
-    }
-}
 
 //put wishlist info into variables
 $wishlist = $db_custom->wishlistInfo($w);
@@ -47,8 +39,26 @@ $name = $wishlist["name"];
 $owner_id = $wishlist["customer_id"];
 $shared = $wishlist["shared"];
 
-//put wishlist products into variable
+//put wishlist products into variables
 $products = $db_custom->wishlistProducts($w);
+
+//check for commands
+if(isset($_POST["message"])){
+    //add product to shoppingcart
+    if($_POST["message"] == "add"){
+        addToCart($_POST["Product"], $_POST["aantal"]);
+    }
+    //delete product from wishlist
+    elseif($_POST["message"] == "delete"){
+        $db_custom->wishlistDelete($w, $_POST["Product"]);
+    }
+    elseif($_POST["message"] == "add all"){
+        foreach($products as $product){
+            $aantal = $_POST[$product["StockItemID"]];
+            addToCart($product["StockItemID"], $aantal);
+        }
+    }
+}
 
 //test if wishlist is allowed to be displayed
 //owner is logged in, and wants to view his own list -> display and set owner permissions to true

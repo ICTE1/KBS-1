@@ -38,7 +38,7 @@
                 <div style="position: absolute; bottom: 10px; right: 10px">
                     <form method="post" class="form-inline" style="display: inline-block">
                         aantal:
-                        <input type="number" class="form-control m-1" name="aantal" style="width: 60px;" min="1" value="' . $aantal . '">
+                        <input type="number" onfocusout="submit()" class="form-control m-1" name="aantal" style="width: 60px;" min="1" value="' . $aantal . '">
                         <input type="hidden" name="hiddenUpdate" value="' . $product . '">
                         <button type="submit" class="btn custom-button-primary" value="Update">Update</button>
                     </form>
