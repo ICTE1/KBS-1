@@ -195,6 +195,7 @@ class wwic_db {
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         $stock_item_id = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
         $wwi = new wwi_db();
         $products = array();
         foreach($stock_item_id as $key => $col){

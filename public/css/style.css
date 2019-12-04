@@ -342,8 +342,40 @@ body {
 
 }
 
-/* Product column category */
-.product span {
+.product-sorting-btn a {
+    text-decoration: none;
+    color: #ffff;
+}
+
+.betaalgegevens {
+    position: relative;
+    left: 0%;
+    top: 6vh;
+}
+
+.betaalgegevens input:not([type="submit"]),
+.betaalgegevens select {
+    display: block;
+    width: 30em;
+}
+.betaalgegevens a,
+.betaalgegevens .btn-group input {
+    display: block;
+    margin-top: 2em;
+    margin-right: 3em;
+}
+.betaalgegevens {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.winkelwagen_preview{
+    width: 40%;
+
+    position: absolute;
+
+    top: 19vh;
+    left: 45% ;
 
 }
 
@@ -363,4 +395,11 @@ body {
 
 #cart-button {
     min-width: 74px;
+}
+
+.content-payment-screen{
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 2em;
+    align-content: center;
 }
