@@ -387,6 +387,7 @@ img.zoom {
     display: block;
     width: 100%;
 }
+<<<<<<< HEAD
 .betaalgegevens a,
 .betaalgegevens .btn-group input {
     display: block;
@@ -445,3 +446,11 @@ iframe {
 }
 
 
+=======
+.big-h1 {
+    font-size: 5rem;
+}
+.big-p {
+    font-size: 1.5rem;
+}
+>>>>>>> errorscreen
