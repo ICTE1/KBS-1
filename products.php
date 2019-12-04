@@ -19,6 +19,7 @@ if (isset($_GET['c'])) {
     
     $search_term = trim(urldecode($_GET['s']));
 
+    
     if (isset($_GET['o'])){
       
         $products_to_show = $db->search_products($search_term, $_GET['o']);
@@ -26,6 +27,8 @@ if (isset($_GET['c'])) {
     } else{
         $products_to_show = $db->search_products($search_term);
     }
+
+    var_dump($products_to_show);
    
     
     $view = 'views/products.php';
@@ -98,7 +101,7 @@ function show_products ($products){
 }
 
 
-function print_product  ($product ){
+function print_product  ($product ) {
     print("
     <div class=' center col card ccart product'>
         <img src='https://cdn0.iconfinder.com/data/icons/business-mix/512/cargo-512.png' class='card-img-top' alt='".$product['ProductName']."'>
@@ -107,7 +110,7 @@ function print_product  ($product ){
             <p class='card-text'>
             €".$product['Price']."
             </p>
-            <a href='#' class='btn btn-primary custom-button-primary'>Bekijken</a>
+            <a href='product.php?p=".$product['identifier']."' class='btn btn-primary custom-button-primary'>Bekijken</a>
         </div>
     </div>
 

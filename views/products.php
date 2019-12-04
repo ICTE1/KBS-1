@@ -26,6 +26,6 @@
 
   
     <?php
-    show_products($products_to_show);
+   show_products($products_to_show);
     ?>
 </div>

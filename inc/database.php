@@ -34,7 +34,7 @@ class wwi_db  {
 
     function get_products_by_category($category_name) {
         $query = "
-        SELECT DISTINCT i.StockItemName ProductName , g.StockGroupName Category, i.UnitPrice Price
+        SELECT DISTINCT i.StockItemID AS identifier,  i.StockItemName ProductName , g.StockGroupName Category, i.UnitPrice Price
         FROM  stockitemstockgroups v 
         JOIN stockitems i  ON v.StockItemID = i.StockItemID
         JOIN stockgroups g ON v.StockGroupID = g.StockGroupID
@@ -54,7 +54,7 @@ class wwi_db  {
     function search_products ($search_term , $sort_by = null){
         // build db query 
         $query = "
-        SELECT stockitems.StockItemName AS ProductName ,stockitems.UnitPrice AS Price, g.StockGroupName AS Category
+        SELECT stockitems.StockItemID AS identifier, stockitems.StockItemName AS ProductName ,stockitems.UnitPrice AS Price, g.StockGroupName AS Category
         FROM stockitems 
         JOIN stockitemstockgroups v  ON v.StockItemID = stockitems.StockItemID
         JOIN stockgroups g ON v.StockGroupID = g.StockGroupID
