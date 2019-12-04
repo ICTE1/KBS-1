@@ -6,7 +6,7 @@
             </div>
             <div class="col-8 center" style="margin-top: 5%;">
                 <h1 class="big-h1">404</h1>
-                <p class="big-p">Awesome product niet gevonden.<br> Ga terug:</p>
+                <p class="big-p">Awesome pagina niet gevonden.<br> Ga terug:</p>
 
                 <form action="index.php">
                     <input type="submit" class="custom-button-primary btn btn-lg" value="Home" />
