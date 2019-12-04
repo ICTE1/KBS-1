@@ -20,9 +20,11 @@
                         <img src="public/images/space 2.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">
-                                                    <?php if(strlen($sales["" . $i .""]["StockItemName"]) >= 35) {
-                                                    $name = substr($sales["" . $i .""]["StockItemName"], 0, 32);
-                                                    echo $name . "..."; }
+                                                    <?php if(strlen($sales["" . $i .""]["StockItemName"]) >= 23) {
+                                                    $name = substr($sales["" . $i .""]["StockItemName"], 0, 28);
+                                                    echo $name . "..."; } elseif (strlen($sales["" . $i .""]["StockItemName"]) <= 23) {
+                                                        echo $sales["" . $i .""]["StockItemName"] . "<br>";
+                                                    }
                                                     else {
                                                         echo $sales["" . $i .""]["StockItemName"];
                                                     }
@@ -40,7 +42,11 @@
     <section class="text-center feelinglucky cjumbotron">
         <div class="container transparent-background">
             <h1 class="jumbotron-heading white-text big-header">I'm feeling lucky</h1>
-            <p><a href="#" class="btn btn-light my-2 custom-button-big">GO</a></p>
+            <?php $amount = $wwi->get_product_amount(); ?>
+            <form action="product.php?p=<?= rand(0, $amount[0]['amount']); ?>" method="post">
+                <button type="submit" name="your_name" value="your_value" class="btn btn-light my-2 custom-button-big">GO</button>
+            </form>
+
         </div>
     </section>
 
@@ -53,28 +59,9 @@
     <section>
         <div class="container margin-top-botom">
             <div class="row">
-                <div class="col-md-4">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item custom-list-group-item">Limited Stock</li>
-                        <li class="list-group-item custom-list-group-item">Halloween Fun</li>
-                        <li class="list-group-item custom-list-group-item">Comfortable</li>
-                        <li class="list-group-item custom-list-group-item">Long Battery Life</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item custom-list-group-item">So Realistic</li>
-                        <li class="list-group-item custom-list-group-item">Vintage</li>
-                        <li class="list-group-item custom-list-group-item">Radio Control</li>
-                        <li class="list-group-item custom-list-group-item">Realistic Sound</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item custom-list-group-item">Comedy</li>
-                        <li class="list-group-item custom-list-group-item">USB Powered</li>
-                    </ul>
-                </div>
+                <?php 
+                print_categories();
+                ?>
             </div>
         </div>
     </section>
