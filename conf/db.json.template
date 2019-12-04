@@ -7,8 +7,8 @@
     },
     "world_wide_importers_custom": {
        "host": "185.182.56.58",
-        "user": "dylanyv400_wwi",
+        "user": "dylanyv400_wwicc",
         "pass": "",
-        "dbname": "dylanyv400_wwi"
+        "dbname": "dylanyv400_wwicc"
     }
 }

@@ -3,7 +3,9 @@
     <section class="text-center landing-ad cjumbotron">
         <div class="container transparent-background">
             <h1 class="white-text halloween-font big-header">Tijd voor halloween</h1>
-            <p><a href="#" class="btn btn-light my-2 halloween-font custom-button-big">Ga naar de aanbieding</a></p>
+            <form method="GET" action="products.php">
+                <button type="submit" name="s" value="halloween" class="btn btn-light my-2 halloween-font custom-button-big">Ga naar de aanbieding</button>
+            </form>
         </div>
     </section>
 
