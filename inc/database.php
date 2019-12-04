@@ -118,7 +118,10 @@ class wwi_db  {
     }
 
     function get_best_sellers() {
-
+            $result = mysqli_query ($this->connectie , "SELECT PL.StockItemID, SI.StockItemName, SI.RecommendedRetailPrice, COUNT(*) aantal FROM purchaseorderlines PL JOIN stockitems SI ON PL.StockItemID = SI.StockItemID GROUP BY PL.StockItemID ORDER BY aantal DESC LIMIT 4");
+            $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC );
+            mysqli_free_result($result);
+            return $rows;
     }
     function get_product_amount() {
 
