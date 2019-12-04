@@ -24,7 +24,7 @@
             //print content
             print('>
                 <div class="col-2" >
-                    <img class="img-fluid productThumbnail" src = "public/images/space 2.jpg" >
+                    <img class="img-fluid productThumbnail" src = "'); $foto_url = ("public/images/productinvulling/" . $databaseWWIC->get_product_photo($product)[0]["url"]); print($foto_url .'" >
                 </div >
                 <div class="col-5" >
                     <div class="product_card_text" >
