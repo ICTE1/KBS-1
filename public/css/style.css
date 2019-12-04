@@ -144,6 +144,19 @@ body {
     color: #f7fff7;
     font-weight: bold;
 }
+/*lightbox*/
+
+.no-padding {
+    padding: 0;
+}
+
+img.zoom {
+    min-height: 100px;
+}
+
+.padding-product {
+    padding: 5%;
+}
 
 .footer {
     /*height of the footer*/
@@ -305,6 +318,21 @@ body {
     border:none;
 }
 
+.user-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.no-margin-bottom {
+    height: 15px;
+}
+.review {
+    max-width: 70%;
+}
+.video-custom {
+    height: 100px !important;
+}
+
 .form-control:focus {
     border-color: #14A76C;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(20, 167, 108, 0.6);
@@ -343,21 +371,41 @@ body {
 .product-sorting-btn:hover {
     transition: background-color 0.6s;
     background-color: #6c6c6c;
+/* Product column category */
+.product span {
 }
 
-.shopping-badge {
-    background-color: #FFE400;
-    color: black;
-    min-width: 1.5rem;
-    height: 1.5rem;
-    position: relative;
-    bottom: 18px;
-    right: 13px;
-    padding: .25rem;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 16px;
+/*.betaalgegevens {*/
+/*    position: relative;*/
+/*    left: 0%;*/
+/*    top: 6vh;*/
+/*}*/
+
+.betaalgegevens input:not([type="submit"]),
+.betaalgegevens select {
+    display: block;
+    width: 100%;
 }
+.betaalgegevens a,
+.betaalgegevens .btn-group input {
+    display: block;
+    margin-top: 2em;
+    margin-right: 3em;
+}
+
+/*.shopping-badge {*/
+/*    background-color: #FFE400;*/
+/*    color: black;*/
+/*    min-width: 1.5rem;*/
+/*    height: 1.5rem;*/
+/*    position: relative;*/
+/*    bottom: 18px;*/
+/*    right: 13px;*/
+/*    padding: .25rem;*/
+/*    text-align: center;*/
+/*    vertical-align: middle;*/
+/*    line-height: 16px;*/
+/*}*/
 
 #cart-button {
     min-width: 74px;
@@ -371,4 +419,29 @@ body {
 }
 .big-p {
     font-size: 1.5rem;
+}
+
+.winkelwagen_preview {
+    padding-top: 25%;
+}
+.table-dark {
+    background-color: #353535;
+}
+/*.content-payment-screen{*/
+/*    width: 75%;*/
+/*    margin: 0 auto;*/
+/*    margin-top: 2em;*/
+/*    align-content: center;*/
+/*}*/
+.btn-margin {
+    margin: 1%;
+}
+iframe {
+    max-width: 100% !important;
+    max-height: 115px !important;
+}
+
+.fancybox-wrap iframe {
+    min-width: 600px;
+    min-height: 600px;
 }
