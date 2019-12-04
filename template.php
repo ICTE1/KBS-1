@@ -14,9 +14,18 @@
 
     <link rel="icon" href="public/images/favicon.ico" type="image/ico">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="public/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+    <script src="public/javascript/wishlist.js"></script>
+    <script src="public/javascript/main.js"></script>
     <script src="public/javascript/functions.js"></script>
+
     <title><?php if(isset($title)){echo($title);} else{echo("WideWorldImporters Europa");}?></title>
+
 </head>
 <body>
     <?php
