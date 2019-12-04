@@ -371,6 +371,7 @@ img.zoom {
 .product-sorting-btn:hover {
     transition: background-color 0.6s;
     background-color: #6c6c6c;
+}
 /* Product column category */
 .product span {
 }
@@ -438,4 +439,9 @@ iframe {
 .fancybox-wrap iframe {
     min-width: 600px;
     min-height: 600px;
-}g
+}
+.fancybox-inner {
+    height: auto !important;
+}
+
+
