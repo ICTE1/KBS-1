@@ -371,6 +371,7 @@ img.zoom {
 .product-sorting-btn:hover {
     transition: background-color 0.6s;
     background-color: #6c6c6c;
+}
 /* Product column category */
 .product span {
 }
@@ -386,6 +387,7 @@ img.zoom {
     display: block;
     width: 100%;
 }
+<<<<<<< HEAD
 .betaalgegevens a,
 .betaalgegevens .btn-group input {
     display: block;
@@ -414,12 +416,15 @@ img.zoom {
     text-decoration: none;
     color: #ffff;
 }
+<<<<<<< HEAD
 .big-h1 {
     font-size: 5rem;
 }
 .big-p {
     font-size: 1.5rem;
 }
+=======
+>>>>>>> 3c91cd5bf289f3a1dc1c7a62cbe60e6b6318097e
 
 .winkelwagen_preview {
     padding-top: 25%;
@@ -445,3 +450,19 @@ iframe {
     min-width: 600px;
     min-height: 600px;
 }
+<<<<<<< HEAD
+=======
+.fancybox-inner {
+    height: auto !important;
+}
+
+
+=======
+.big-h1 {
+    font-size: 5rem;
+}
+.big-p {
+    font-size: 1.5rem;
+}
+>>>>>>> errorscreen
+>>>>>>> 3c91cd5bf289f3a1dc1c7a62cbe60e6b6318097e
