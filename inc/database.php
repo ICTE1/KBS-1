@@ -390,6 +390,29 @@ class wwic_db {
         mysqli_stmt_bind_param($stmt, "isiss", $product_id, $r_name, $stars, $review, $r_email);
         mysqli_stmt_execute($stmt);
     }
+
+
+    function get_product_photo($product_id) {
+
+        $query = "SELECT C.url, C.photo FROM content C JOIN content_r CR ON C.content_id = CR.content_id WHERE CR.stockitem_id = ?;";
+
+        $stmt = mysqli_prepare($this->connectie, $query);
+
+        mysqli_stmt_bind_param($stmt, "s", $product_id);
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+
+        $content =  mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        if($content == NULL ) {
+            $new_number = $product_id + 1;
+            $content = $this->get_product_photo($new_number);
+
+        }
+        return $content;
+    }
+
     /**
      * Logout the user
      *

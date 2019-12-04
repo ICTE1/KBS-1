@@ -10,6 +10,8 @@ $id = $_GET['p'];
 
 $product = $wwi->productInfo($id);
 
+$content = $wwic->get_product_photo($id);
+
 if ($product === NULL ) {
     header("location: 404.php");
 }
