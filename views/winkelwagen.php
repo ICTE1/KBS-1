@@ -71,7 +71,7 @@
             </div>
             <div class='card-footer text-right'>
                 <form> 
-                <h4>Totaal: €".$prijsVerzend."   <input type='submit' class='btn custom-button-primary' value='betalen'></h4>
+                <h4>Totaal: €".$prijsVerzend."   <a  class='btn custom-button-primary'  href='betaalpagina.php'>Betalen</a></h4>
                 </form>
             </div>
         </div>

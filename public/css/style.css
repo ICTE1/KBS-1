@@ -345,24 +345,58 @@ body {
     background-color: #6c6c6c;
 }
 
-.shopping-badge {
-    background-color: #FFE400;
-    color: black;
-    min-width: 1.5rem;
-    height: 1.5rem;
-    position: relative;
-    bottom: 18px;
-    right: 13px;
-    padding: .25rem;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 16px;
+/*.betaalgegevens {*/
+/*    position: relative;*/
+/*    left: 0%;*/
+/*    top: 6vh;*/
+/*}*/
+
+.betaalgegevens input:not([type="submit"]),
+.betaalgegevens select {
+    display: block;
+    width: 100%;
 }
+.betaalgegevens a,
+.betaalgegevens .btn-group input {
+    display: block;
+    margin-top: 2em;
+    margin-right: 3em;
+}
+
+/*.shopping-badge {*/
+/*    background-color: #FFE400;*/
+/*    color: black;*/
+/*    min-width: 1.5rem;*/
+/*    height: 1.5rem;*/
+/*    position: relative;*/
+/*    bottom: 18px;*/
+/*    right: 13px;*/
+/*    padding: .25rem;*/
+/*    text-align: center;*/
+/*    vertical-align: middle;*/
+/*    line-height: 16px;*/
+/*}*/
 
 #cart-button {
     min-width: 74px;
 }
+<<<<<<< HEAD
 .product-sorting-btn a {
     text-decoration: none;
     color: #ffff;
 }
+=======
+
+.winkelwagen_preview {
+    padding-top: 25%;
+}
+.table-dark {
+    background-color: #353535;
+}
+/*.content-payment-screen{*/
+/*    width: 75%;*/
+/*    margin: 0 auto;*/
+/*    margin-top: 2em;*/
+/*    align-content: center;*/
+/*}*/
+>>>>>>> betaalpagina
