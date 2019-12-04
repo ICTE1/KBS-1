@@ -408,13 +408,11 @@ img.zoom {
 #cart-button {
     min-width: 74px;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 .product-sorting-btn a {
     text-decoration: none;
     color: #ffff;
 }
-=======
 
 .winkelwagen_preview {
     padding-top: 25%;
@@ -422,14 +420,7 @@ img.zoom {
 .table-dark {
     background-color: #353535;
 }
-/*.content-payment-screen{*/
-/*    width: 75%;*/
-/*    margin: 0 auto;*/
-/*    margin-top: 2em;*/
-/*    align-content: center;*/
-/*}*/
->>>>>>> betaalpagina
-=======
+
 
 .big-h1 {
     font-size: 5rem;
@@ -451,4 +442,4 @@ iframe {
     min-width: 600px;
     min-height: 600px;
 }
->>>>>>> wishlist
+
