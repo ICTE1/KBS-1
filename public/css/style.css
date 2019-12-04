@@ -144,6 +144,19 @@ body {
     color: #f7fff7;
     font-weight: bold;
 }
+/*lightbox*/
+
+.no-padding {
+    padding: 0;
+}
+
+img.zoom {
+    min-height: 100px;
+}
+
+.padding-product {
+    padding: 5%;
+}
 
 .footer {
     /*height of the footer*/
@@ -305,6 +318,21 @@ body {
     border:none;
 }
 
+.user-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.no-margin-bottom {
+    height: 15px;
+}
+.review {
+    max-width: 70%;
+}
+.video-custom {
+    height: 100px !important;
+}
+
 .form-control:focus {
     border-color: #14A76C;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(20, 167, 108, 0.6);
@@ -344,6 +372,7 @@ body {
 
 /* Product column category */
 .product span {
+}
 
 }
 
@@ -363,4 +392,7 @@ body {
 
 #cart-button {
     min-width: 74px;
+}
+.btn-margin {
+    margin: 1%;
 }
