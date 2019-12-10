@@ -169,13 +169,17 @@ if(isset($_POST['review'])) {
                                 }
                             }
                             ?>
+                        <br><br>
+                        <h1>Trademarks:</h1>
+                        <img src="public/images/trademark1.png" style="max-width: 25%;" />
+                        <img src="public/images/trademark2.png" style="max-width: 25%;" />
                     </div>
             </div>
         </div>
     </section>
 
     <section>
-        <div class="container ">
+        <div class="container">
             <h1 class="jumobotron-heading text-center">Ook wat voor u?</h1>
         </div>
     </section>
