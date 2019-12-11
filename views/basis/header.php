@@ -24,7 +24,7 @@
     
         <form class="form-inline my-2 search-area" method="GET" action='products.php' >
             <input class="form-control" type="search"  <?php print isset ($_GET['s'])? "value=".$_GET['s']:""; ?> name='s' placeholder="Zoeken...." aria-label="Search">
-            <input class="btn" type="submit" value='Zoeken'></input>
+            <input class="btn" type="submit" value='Zoeken'>
         </form>
         <div class="navbar-nav" style="margin-left: auto">
             <div class="loginbutton">
@@ -32,7 +32,7 @@
                     <a class="btn btn-outline-success my-2 my-sm-0" style="border-width: 3px" href="<?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout.php"; } else { echo "logout.php"; } } else { echo "login.php"; }?>"><b><?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout"; } else { echo "logout"; } } else { echo "login"; }?></b></a>
                 </button>
             </div>
-            <a class="nav-link text-center" href="verlanglijst.php<?php  if(isset($_SESSION["user_id"])){$db = new wwic_db; $wishlist = $db->userWishlists($_SESSION["user_id"]); print("?w=".$wishlist["wishlist_id"]);}?>"><i class="fa fa-heart navbarIcon fa-2x"></i></a>
+            <a class="nav-link text-center" href="selecteer_lijst.php"><i class="fa fa-heart navbarIcon fa-2x"></i></a>
             <a id="cart-button" class="nav-link" href="winkelwagen.php">
                 <i class="fa fa-shopping-cart navbarIcon fa-2x"></i>
                 <?php if(isset($_SESSION["winkelWagen"]) && !$_SESSION["winkelWagen"] == 0){print("<div class='badge rounded-circle shopping-badge'>".array_sum($_SESSION['winkelWagen'])."</div>");}?>

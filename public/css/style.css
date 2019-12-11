@@ -444,3 +444,9 @@ iframe {
     min-height: 600px;
 }
 
+.not-link {
+    text-decoration: none;
+}
+.not-link:hover {
+    text-decoration: none;
+}

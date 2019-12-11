@@ -211,16 +211,86 @@ class wwic_db {
      *
      * @throws No_exceptions cause to lazy to program
      * @author Jelle Wiersma
-     * @return array with wishlists made by user
+     * @return array with wishlist_id's made by user
      */
     function userWishlists($user){
-        $query = "SELECT wishlist_id FROM wishlist WHERE customer_id = ? LIMIT 1";
+        $query = "SELECT wishlist_id FROM wishlist WHERE customer_id = ?";
         $stmt = mysqli_prepare($this->connectie, $query);
         mysqli_stmt_bind_param($stmt, "i", $user);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
-        $name = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        return($name);
+        $id = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        foreach($id as $record => $wishlist){
+            $wishlists[] = $wishlist["wishlist_id"];
+        }
+        return($wishlists);
+    }
+
+    /**
+     * add wishlist
+     *
+     * @param wishlist id
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Jelle Wiersma
+     * @return none
+     */
+    function add_wishlist($user, $name){
+        if($name == ""){
+            $query = "INSERT INTO wishlist(customer_id) VALUE (?)";
+            $stmt = mysqli_prepare($this->connectie, $query);
+            mysqli_stmt_bind_param($stmt, "i", $user);
+        }
+        else{
+            $query = "INSERT INTO wishlist(customer_id, name) VALUES (?, ?)";
+            $stmt = mysqli_prepare($this->connectie, $query);
+            mysqli_stmt_bind_param($stmt, "is", $user, $name);
+        }
+
+        mysqli_stmt_execute($stmt);
+    }
+
+    /**
+     * delete wishlist
+     *
+     * @param wishlist id
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Jelle Wiersma
+     * @return none
+     */
+    function delete_wishlist($wishlist){
+        $query = "DELETE FROM wishlist WHERE wishlist_id = ?";
+        $stmt = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($stmt, "i", $wishlist);
+        mysqli_stmt_execute($stmt);
+    }
+
+    /**
+     * test if product is in wishlist
+     *
+     * @param wishlist id
+     *
+     * @throws No_exceptions cause to lazy to program
+     * @author Jelle Wiersma
+     * @return array with info on a wishlist: owner, name, shared
+     */
+    function wishlistTest($wishlist, $product_id)
+    {
+        $query = "SELECT * FROM wishlist_product WHERE wishlist_id = ?";
+        $stmt = mysqli_prepare($this->connectie, $query);
+        mysqli_stmt_bind_param($stmt, "i", $wishlist);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $info = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $return = false;
+        foreach ($info as $key => $products) {
+            if ($products["product_id"] == $product_id) {
+                $return = true;
+                break;
+            }
+        }
+        return ($return);
     }
 
     /**
@@ -238,8 +308,8 @@ class wwic_db {
         mysqli_stmt_bind_param($stmt, "i", $wishlist);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
-        $name = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        return($name);
+        $info = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        return($info);
     }
     /**
      * get info of products on wishlist

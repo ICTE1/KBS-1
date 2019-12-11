@@ -23,11 +23,6 @@ $reviews = $wwic->get_product_reviews($id);
 if(isset($_POST["message"])) {
     if ($_POST["message"] == "Nu kopen") {
         addToCart($_POST["Product"], $_POST["aantal"]);
-    } elseif ($_POST["message"] == "verlanglijst") {
-        $user_id = $_SESSION["user_id"];
-        $wishlist_id = $wwic->userWishlists($user_id);
-
-        $wwic->wishlistAdd($wishlist_id, $_POST['Product']);
     }
 }
 

@@ -1,5 +1,11 @@
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
 <?php
 //if allowed to display: print html
+
 if($display) {
     //print shared alert
     if($cmd_shared == 1){
