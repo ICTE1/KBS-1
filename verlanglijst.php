@@ -30,7 +30,7 @@ if(isset($_POST["share"])){
 }
 
 //put wishlist info into variables
-$wishlist = $db_custom->wishlistInfo($w);
+$wishlist = $wishlist_db->wishlistInfo($w);
 if ($wishlist["name"] == NULL){
     $wishlist["name"] = "Verlanglijst";
 }
@@ -49,7 +49,7 @@ if(isset($_POST["message"])){
     }
     //delete product from wishlist
     elseif($_POST["message"] == "delete"){
-        $db_custom->wishlistDelete($w, $_POST["Product"]);
+        $wishlist_db->wishlistDelete($w, $_POST["Product"]);
     }
     elseif($_POST["message"] == "add all"){
         foreach($products as $product){

@@ -36,10 +36,10 @@ if(isset($_POST["message"])) {
 if(isset($_POST['review'])) {
 
     $product_id = $id;
-    $r_name = $_POST['name'];
-    $stars = $_POST['stars'];
-    $review = $_POST['reviewtext'];
-    $r_email = $_POST['email'];
+    $r_name = clean_input($_POST['name']);
+    $stars = clean_input($_POST['stars']);
+    $review = clean_input($_POST['reviewtext']);
+    $r_email = clean_input($_POST['email']);
 
     $review->insert_review($product_id, $r_name, $stars, $review, $r_email);
 

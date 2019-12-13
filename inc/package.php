@@ -15,3 +15,10 @@ function addToCart($item, $aantal){
         $_SESSION["winkelWagen"][$item] = $aantal;
     }
 }
+
+function clean_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}

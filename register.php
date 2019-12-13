@@ -61,8 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Check input errors before inserting in database
     if (empty($_SESSION["username_err_r"]) && empty($_SESSION["password_err_r"]) && empty($_SESSION["confirm_password_err_r"])) {
-
-        $param_username = $username;
+        $password = clean_input($password);
+        $param_username = clean_input($username);
         $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
 
         // Create the user using the db object
