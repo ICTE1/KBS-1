@@ -70,8 +70,9 @@
 
                             $total_price = 0;
                             foreach ( $shopping_cart_content as $itemId => $amount) {
-                            $db = new wwi_db();
-                            $productInfo = $db->productInfo($itemId);
+                            $db = new Products();
+                            $productInfo = $db->productInfo($itemId)[0];
+                          
                             $total_price +=  ($productInfo['RecommendedRetailPrice'] * $amount);
                             print("
                             

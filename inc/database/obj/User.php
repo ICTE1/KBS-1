@@ -14,13 +14,13 @@ class User extends DbTable  {
         $query = "SELECT * FROM user WHERE username = ?";
 
         $result = [];
-        self::query('wwic', $query, $result );
+        self::query('wwic', $query, $result, 's',  [$username] );
 
-        return $user ? true : false;
+        return $result ? true : false;
 
     }
 
-    /**
+    /** 
      * Creates user in database
      *
      * @param name - uses the name to create the user
@@ -51,8 +51,8 @@ class User extends DbTable  {
 
         $result = NULL;
 
-        self::query('wwic', $query, $result, 's', $username );
-
+        self::query('wwic', $query, $result, 's', [$username] );
+        
 
         return $result;
 

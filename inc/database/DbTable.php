@@ -69,6 +69,11 @@ abstract class dbTable {
     private function prepared_query ($connectionToUse , $query, $param_types, $params ) {
         $stmt = mysqli_prepare($connectionToUse , $query );
             
+        if ( is_array ($params) == false ) {
+            die("Implementatie fout!");
+        }
+
+
         mysqli_stmt_bind_param($stmt , $param_types, ...$params);
         
         mysqli_stmt_execute($stmt);
@@ -77,7 +82,6 @@ abstract class dbTable {
 
 
         if ($a == false) {
-            die("Get result went wrong!");
             return NULL;
         }
 

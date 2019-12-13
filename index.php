@@ -1,5 +1,10 @@
 <?php
 require_once "inc/package.php";
+
+$view = "views/home.php";
+include "template.php";
+
+
 /*
 *   The function below generates the html structures for all available categories
 *
@@ -66,6 +71,9 @@ function print_sales(){
         $discount =  ($sales[$i]["UnitPrice"] - $sales[$i]["RecommendedRetailPrice"]) / $sales[$i]["RecommendedRetailPrice"] * 100;
       
         $image_uri = $products->get_product_photo($sales[$i]['StockItemID']);
+        if ( count($image_uri) == 0 ){
+            $image_uri = [ [ "url" => '' ]];
+        }
 
         $name = "";        
          if (strlen($sales[$i]["StockItemName"]) >= 23) {
@@ -82,8 +90,14 @@ function print_sales(){
 
         $discount_string =  "<br><b><span class='text-attention'>" . substr($discount, 1, -13) . "% korting</span></b>"; 
 
+       
+
         $unitPrice =  "€" . $sales[$i]["UnitPrice"] ;
+
         $image = image_url . $image_uri[0]['url'];
+
+    
+
         $itemID = $sales[$i]['StockItemID'];
         print(" 
         <div class='col-md-3'>
@@ -102,8 +116,3 @@ function print_sales(){
     
     }
 }
-
-
-
-$view = "views/home.php";
-include "template.php";

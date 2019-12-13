@@ -109,7 +109,7 @@ function print_product  ($product ) {
     $content = $Products->get_product_photo($product['identifier']);
     
     if ( $content == null ){
-        $content[0] = ['url'=>'space.jpg'];
+        $content = [['url'=>'space.jpg']] ;
     }
 
     print("
