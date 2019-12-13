@@ -1,14 +1,13 @@
 <?php
 require_once "inc/package.php";
-require_once "inc/database.php";
 
-$db = new wwi_db();
+$products = new Products();
 
 if (isset($_GET['c'])) {
     // dit word alleen uitgevoerd als er een categorie parameter is meegegeven.
     $Category = urldecode($_GET['c']);
   
-    $products_to_show = $db->get_products_by_category($Category);
+    $products_to_show = $products->get_products_by_category($Category);
 
 
     $view = 'views/products.php';
@@ -23,10 +22,10 @@ if (isset($_GET['c'])) {
     
     if (isset($_GET['o'])){
       
-        $products_to_show = $db->search_products($search_term, $_GET['o']);
+        $products_to_show = $products->search_products($search_term, $_GET['o']);
 
     } else{
-        $products_to_show = $db->search_products($search_term);
+        $products_to_show = $products->search_products($search_term);
     }
    
     
@@ -76,12 +75,14 @@ function show_products ($products){
     if ($number <= 0 ){
         return;
     }
-    print(" <div class= 'container'>" );
+print(" <div class= 'container'>" );
     for($i=0; $i< $number;$i+=3) {
         print(" <div class= 'row'>" );
         $product1_index = $i ;
         $product2_index = $i + 1;
         $product3_index = $i + 2;
+
+       
 
         print_product($products[$product1_index]);
      
@@ -103,8 +104,13 @@ function show_products ($products){
 
 function print_product  ($product ) {
    
-    $wwic = $wwic = new wwic_db();
-    $content = $wwic->get_product_photo($product['identifier']);
+    $Products = new Products();
+    $content = $Products->get_product_photo($product['identifier']);
+    
+    if ( $content == null ){
+        $content[0] = ['url'=>'space.jpg'];
+    }
+
     print("
     <div class='col-sm-4'>
         <div class=' center card ccart product'>
