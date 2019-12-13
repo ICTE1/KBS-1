@@ -18,7 +18,7 @@ if(isset($_POST["action"])){
         $view = "views/toevoegen_lijst.php";
     }
     elseif($_POST["action"] == "addList"){
-        $wwic_db->add_wishlist($userid, $_POST["name"]);
+        $wwic_db->add_wishlist($userid, clean_input($_POST["name"]));
     }
     elseif($_POST["action"] == "deleteList"){
         $wwic_db->delete_wishlist($_POST["wishlist"]);
