@@ -1,5 +1,7 @@
 <?php
 require_once "inc/database.php";
+require_once "inc/package.php";
+
 $wwic_db = new wwic_db();
 $view = "views/selecteer_lijst.php";
 $title = "WWI Verlanglijsten";
