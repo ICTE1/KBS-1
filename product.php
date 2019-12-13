@@ -1,5 +1,6 @@
 <?php
 require_once "inc/package.php";
+require_once "inc/package.php";
 
 $products = new Products();
 $wishlist = new Wishlist();

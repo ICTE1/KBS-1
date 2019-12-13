@@ -1,5 +1,6 @@
 <?php
 require_once "inc/package.php";
+
 /*
 *   The function below generates the html structures for all available categories
 *
