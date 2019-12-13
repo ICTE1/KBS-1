@@ -81,16 +81,11 @@
             </div>
         </form>
 
-        <div class="loginbutton">
-            <button type="button" class="btn btn-default">
-                <a class="btn btn-outline-success my-2 my-sm-0" style="border-width: 3px" href="<?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout.php"; } else { echo "logout.php"; } } else { echo "login.php"; }?>"><b><?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout"; } else { echo "logout"; } } else { echo "login"; }?></b></a>
-            </button>
+        <div style="margin-left: auto; width: 150px;">
+            <a class="btn btn-outline-success my-2 my-sm-0" style="border-width: 3px" href="<?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout.php"; } else { echo "logout.php"; } } else { echo "login.php"; }?>"><b><?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout"; } else { echo "logout"; } } else { echo "login"; }?></b></a>
+            <a class="text-center " href="verlanglijst.php<?php  if(isset($_SESSION["user_id"])){$db = new wwic_db; $wishlist = $db->userWishlists($_SESSION["user_id"]); print("?w=".$wishlist["wishlist_id"]);}?>"><i class="fa fa-heart navbarIcon fa-2x"></i></a>
+            <a id="cart-button" class="" href="winkelwagen.php" style="margin-left: 2%;"><i class="fa fa-shopping-cart navbarIcon fa-2x"></i><?php if(isset($_SESSION["winkelWagen"]) && !$_SESSION["winkelWagen"] == 0){print("<div class='badge rounded-circle shopping-badge'>".array_sum($_SESSION['winkelWagen'])."</div>");}?></a>
         </div>
-        <a class="text-center " href="verlanglijst.php<?php  if(isset($_SESSION["user_id"])){$db = new wwic_db; $wishlist = $db->userWishlists($_SESSION["user_id"]); print("?w=".$wishlist["wishlist_id"]);}?>"><i class="fa fa-heart navbarIcon fa-2x"></i></a>
-        <a id="cart-button" class="" href="winkelwagen.php" style="margin-left: 2%;">
-            <i class="fa fa-shopping-cart navbarIcon fa-2x"></i>
-            <?php if(isset($_SESSION["winkelWagen"]) && !$_SESSION["winkelWagen"] == 0){print("<div class='badge rounded-circle shopping-badge'>".array_sum($_SESSION['winkelWagen'])."</div>");}?>
-        </a>
 
 
     </div>
