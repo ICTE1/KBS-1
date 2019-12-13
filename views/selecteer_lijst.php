@@ -45,7 +45,7 @@ if($deleted){
             <form id="addList" method="post">
                 <input type="hidden" name="user_id" value="<?=$userid ?>">
                 <input type="hidden" name="action" value="addList">
-                <input type="text" name="name" class="form-control" style="width: 100%" placeholder="Nieuwe verlanglijst">
+                <input type="text" name="name" class="form-control" style="width: 100%" placeholder="Nieuwe verlanglijst" maxlength="45">
             </form>
         </div>
         <div class="col-sm-2">

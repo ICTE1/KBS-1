@@ -36,7 +36,6 @@ if($deleted){
                         <input type="hidden" name="product" value="<?=$_POST["product"]?>">
                         <?php if($wwic_db->wishlistTest($wishlist, $_POST["product"])){print('<div class="btn custom-button-primary"><i class="fa fa-check"></i></div>');} else{print('<button name="action" value="addProduct" class="btn custom-button-primary" ><b>Toevoegen</b></button>');}?>
                     </form>
-<!--                    <a class="btn custom-button-primary" href="verlanglijst.php?w=--><?//= $wishlist?><!--">Bekijk</a>-->
                 </div>
             </td>
         </tr>
@@ -46,7 +45,7 @@ if($deleted){
             <form id="addList" method="post">
                 <input type="hidden" name="user_id" value="<?=$userid ?>">
                 <input type="hidden" name="action" value="addList">
-                <input type="text" name="name" class="form-control" style="width: 100%" placeholder="Nieuwe verlanglijst">
+                <input type="text" name="name" class="form-control" style="width: 100%" placeholder="Nieuwe verlanglijst" maxlength="45">
             </form>
         </div>
         <div class="col-sm-2">
