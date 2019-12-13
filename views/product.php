@@ -1,23 +1,3 @@
-<?php
-
-//Add review to database if method is post and type is review
-if(isset($_POST['review'])) {
-
-    $product_id = $id;
-    $r_name = $_POST['name'];
-    $stars = $_POST['stars'];
-    $review = $_POST['reviewtext'];
-    $r_email = $_POST['email'];
-
-    $wwic->insert_review($product_id, $r_name, $stars, $review, $r_email);
-
-    $_POST['name'] = NULL;
-    $_POST['stars'] = NULL;
-    $_POST['reviewtext'] = NULL;
-    $_POST['email'] = NULL;
-
-}
-?>
 
 <main role="main">
     <section>
@@ -184,7 +164,7 @@ if(isset($_POST['review'])) {
         <div class="container" style="margin-bottom: 2%;">
             <div class="row text-center">
                 <?php for($i =0; $i < count($similar); $i++):
-                    $content = $wwic->get_product_photo($similar["" . $i .""]["StockItemID"]); ?>
+                    $content = $products->get_product_photo($similar["" . $i .""]["StockItemID"]); ?>
                     <div class="col-md-3">
                         <div class="card ccart">
                             <img src="public/images/productinvulling/<?= $content[0]['url'] ?>" class="card-img-top" alt="...">
