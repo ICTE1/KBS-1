@@ -1,5 +1,5 @@
 <?php
-require_once "inc/database.php";
+require_once "inc/package.php";
 
 $view = "views/register.php";
 $title = "WWI registreren";

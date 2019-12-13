@@ -30,7 +30,15 @@ if(isset($_POST["share"])){
 }
 
 //put wishlist info into variables
-$wishlist = $db_custom->wishlistInfo($w);
+$wishlist = $wishlist_db->wishlistInfo($w);
+
+
+if (  $wishlist == NULL ){
+    $wishlist["name"] = "verlanglijst";
+}
+if ($wishlist["name"] == NULL ){
+    $wishlist["name"] = "Verlanglijst";
+}
 $name = $wishlist["name"];
 $owner_id = $wishlist["customer_id"];
 $shared = $wishlist["shared"];

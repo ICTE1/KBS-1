@@ -33,7 +33,7 @@ class Wishlist extends DbTable{
     function wishlistInfo($wishlist){
         $query = "SELECT * FROM wishlist WHERE wishlist_id = ?";
         $result = null;
-        self::query ('wwic', $query, $result, 'i', $wishlist);
+        self::query ('wwic', $query, $result, 'i', [$wishlist]);
         return $result;
     }
     /**
@@ -50,7 +50,7 @@ class Wishlist extends DbTable{
         $query = "SELECT product_id FROM wishlist_product WHERE wishlist_id = ? ORDER BY date_added";
 
         $stock_item_ids = null;
-        self::query('wwic', $query, $stock_item_ids , 'i', $wishlist);
+        self::query('wwic', $query, $stock_item_ids , 'i', [$wishlist]);
 
 
         $products = array();

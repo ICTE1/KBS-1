@@ -164,7 +164,7 @@
         <div class="container" style="margin-bottom: 2%;">
             <div class="row text-center">
                 <?php for($i =0; $i < count($similar); $i++):
-                    $content = $products->get_product_photo($similar["" . $i .""]["StockItemID"]); ?>
+                    $content = $products_db->get_product_photo($similar["" . $i .""]["StockItemID"]); ?>
                     <div class="col-md-3">
                         <div class="card ccart">
                             <img src="public/images/productinvulling/<?= $content[0]['url'] ?>" class="card-img-top" alt="...">

@@ -40,4 +40,19 @@
             </a>
         </div>
 </nav>
-
+<?php
+/**
+ * Print wishlist link
+ */
+function generate_wishlistLink(){
+    if(isset($_SESSION["user_id"])){
+        $db = new Wishlist();
+        $wishlist = $db->userWishlists($_SESSION["user_id"]);
+        if ( $wishlist == NULL){
+            print ("?w=0");
+            return;
+        }
+        print("?w=".$wishlist["wishlist_id"]);
+    }
+}
+?>

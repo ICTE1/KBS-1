@@ -1,5 +1,5 @@
 <?php
-require_once "inc/database.php";
+require_once "inc/package.php";
 
 if ( isset ($_POST['payment']) ){
     $view = 'views/betaald.php';
