@@ -23,10 +23,10 @@
             }
             //print content
             print('>
-                <div class="col-2" >
+                <div class="col-sm-2" >
                     <img class="img-fluid productThumbnail" src = "'); $foto_url = ("public/images/productinvulling/" . $databaseWWIC->get_product_photo($product)[0]["url"]); print($foto_url .'" >
                 </div >
-                <div class="col-5" >
+                <div class="col-sm-5" >
                     <div class="product_card_text" >
                         <p >
                             <b >' . $data["StockItemName"] . '</b ><br >
@@ -34,8 +34,8 @@
                         </p >
                     </div >
                 </div >
-                <div class="col-5">
-                <div style="position: absolute; bottom: 10px; right: 10px">
+                <div class="col-sm-5 text-right">
+                <div>
                     <form method="post" class="form-inline" style="display: inline-block">
                         aantal:
                         <input type="number" onfocusout="submit()" class="form-control m-1" name="aantal" style="width: 60px;" min="1" value="' . $aantal . '">
@@ -46,7 +46,7 @@
                         <input type="hidden" name="hiddenVerwijderen" value="' . $product . '">
                         <button type="submit" class="btn custom-button-primary"><i class="fa fa-trash-o"></i></button>
                     </form>
-                    <div class="text-right">
+                    <div>
                         Prijs per product: €' . $data["RecommendedRetailPrice"] . '
                         <br>
                         Prijs totaal: €' . $prijs . '

@@ -23,11 +23,11 @@ if(isset($_POST['review'])) {
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-4">
+                <div class="col-sm-4">
 
                     <div class="row padding-product">
 
-                        <div class="col-12 no-padding">
+                        <div class="col-sm-12 no-padding">
                             <a href="public/images/productinvulling/<?= $content[0]['url'] ?>" class="fancybox" rel="ligthbox">
                                 <img  src="public/images/productinvulling/<?= $content[0]['url'] ?>" class="zoom img-fluid "  alt="">
                             </a>
@@ -35,7 +35,7 @@ if(isset($_POST['review'])) {
 
                         <?php for($i = 1; $i < 3; $i++): ?>
 
-                            <div class="col-4 no-padding">
+                            <div class="col-sm-4 no-padding">
                                 <a href="" class="fancybox" rel="ligthbox">
                                     <img  src="public/images/productinvulling/<?= $content[$i]['url'] ?>" class="zoom img-fluid "  alt="">
                                 </a>
@@ -43,7 +43,7 @@ if(isset($_POST['review'])) {
 
                         <?php endfor; ?>
 
-                        <div class="col-4 no-padding">
+                        <div class="col-sm-4 no-padding">
                             <a href="" class="fancybox" rel="ligthbox">
                                 <?= $content[3]['url'] ?>
                             </a>
@@ -54,7 +54,7 @@ if(isset($_POST['review'])) {
 
                 </div>
 
-                <div class="col-4" style="padding-top: 1%;">
+                <div class="col-sm-4" style="padding-top: 1%;">
                     <h1> <?php print($product['StockItemName']) ?></h1>
                     <p> <?php if($product['MarketingComments'] != "") {
                         print($product['MarketingComments']);
@@ -63,7 +63,7 @@ if(isset($_POST['review'])) {
                         } ?></p>
                     <p><?php print("Tags: " . substr($product['tags'], 2, -2)); ?></p>
                 </div>
-                <div class="col-4" style="padding-top: 5%;">
+                <div class="col-sm-4" style="padding-top: 5%;">
                     <h1 class="center">€ <?php print($product['RecommendedRetailPrice'])?></h1>
                     
                     <form method="post">
@@ -89,16 +89,16 @@ if(isset($_POST['review'])) {
     <section>
         <div class="container">
             <div class="row">
-                    <div class="col-6">
+                    <div class="col-sm-6">
                         <h1>Reviews</h1>
                         <div class="row">
 
                             <?php for($i = 0; $i < count($reviews); $i++): ?>
-                            <div class="col-3">
+                            <div class="col-sm-3">
                                 <img src="public/images/space 2.jpg" class="user-photo align-content-center"><br>
                                 <h5 class="center"><?= $reviews[$i]["name"]; ?></h5>
                             </div>
-                            <div class="col-9">
+                            <div class="col-sm-9">
 
                                 <?php $stars = 0; for($x = 0; $x < $reviews[$i]["rating"]; $x++): ?>
                                     <i class="no-margin-bottom fa fa-star"></i>
@@ -116,7 +116,7 @@ if(isset($_POST['review'])) {
                             </div>
                             <?php endfor; ?>
                          
-                            <div class="col-9">
+                            <div class="col-sm-9">
                                 <form method="POST" action="product.php?p=<?= $id ?>">
                                     <div class="form-group">
                                         <label for="name">Naam:</label>
@@ -151,7 +151,7 @@ if(isset($_POST['review'])) {
                         </div>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-sm-6">
                         <h1>Aanvullende informatie</h1>
                             <?php
 
@@ -189,7 +189,7 @@ if(isset($_POST['review'])) {
             <div class="row text-center">
                 <?php for($i =0; $i < count($similar); $i++):
                     $content = $wwic->get_product_photo($similar["" . $i .""]["StockItemID"]); ?>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                         <div class="card ccart">
                             <img src="public/images/productinvulling/<?= $content[0]['url'] ?>" class="card-img-top" alt="...">
                             <div class="card-body">
