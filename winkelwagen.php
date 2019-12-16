@@ -3,6 +3,8 @@ require_once "inc/database.php";
 require_once "inc/package.php";
 
 $databaseWWI = new wwi_db();
+$databaseWWIC = new wwic_db();
+
 $prijsTot = 0; // zet start bedrag in voor bestelling
 
 if(isset($_POST["hiddenVerwijderen"])){ // verwijderdt item uit winkelwagen vanuit form hieronder

@@ -92,6 +92,7 @@ if(isset($_POST['review'])) {
                     <div class="col-6">
                         <h1>Reviews</h1>
                         <div class="row">
+
                             <?php for($i = 0; $i < count($reviews); $i++): ?>
                             <div class="col-3">
                                 <img src="public/images/space 2.jpg" class="user-photo align-content-center"><br>
@@ -114,10 +115,7 @@ if(isset($_POST['review'])) {
                                 } ?>
                             </div>
                             <?php endfor; ?>
-                            <div class="col-3">
-                                <img src="public/images/space 2.jpg" class="user-photo align-content-center"><br>
-                                <h5 class="center"><?= $reviews[$i]["name"]; ?></h5>
-                            </div>
+                         
                             <div class="col-9">
                                 <form method="POST" action="product.php?p=<?= $id ?>">
                                     <div class="form-group">
@@ -185,10 +183,11 @@ if(isset($_POST['review'])) {
     <section>
         <div class="container" style="margin-bottom: 2%;">
             <div class="row text-center">
-                <?php for($i =0; $i < count($similar); $i++): ?>
+                <?php for($i =0; $i < count($similar); $i++):
+                    $content = $wwic->get_product_photo($similar["" . $i .""]["StockItemID"]); ?>
                     <div class="col-md-3">
                         <div class="card ccart">
-                            <img src="public/images/space 2.jpg" class="card-img-top" alt="...">
+                            <img src="public/images/productinvulling/<?= $content[0]['url'] ?>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <?php if(strlen($similar["" . $i .""]["StockItemName"]) >= 35) {
@@ -199,7 +198,7 @@ if(isset($_POST['review'])) {
                                     } ?>
                                 </h5>
                                 <h5 class="card-title"><?= "€" . $similar["" . $i .""]["RecommendedRetailPrice"] ?></h5>
-                                <a href="#" class="btn btn-primary custom-button-primary">Bekijk product</a>
+                                <a href="product.php?p=<?= $similar["" . $i .""]["StockItemID"] ?>" class="btn btn-primary custom-button-primary">Bekijk product</a>
                             </div>
                         </div>
                     </div>
