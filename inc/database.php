@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-class wwi_db  {
+class wwi_db2  {
     public $connectie = null  ;
 
     function __construct() {
@@ -158,7 +158,7 @@ class wwi_db  {
     }
 }
 
-class wwic_db {
+class wwic_db2{
     public $connectie = null;
 
     function __construct (){
@@ -218,8 +218,13 @@ class wwic_db {
         $stmt = mysqli_prepare($this->connectie, $query);
         mysqli_stmt_bind_param($stmt, "i", $user);
         mysqli_stmt_execute($stmt);
+        
+        
         $result = mysqli_stmt_get_result($stmt);
         $id = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        $wishlists = [];
+
         foreach($id as $record => $wishlist){
             $wishlists[] = $wishlist["wishlist_id"];
         }

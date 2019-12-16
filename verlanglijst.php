@@ -35,6 +35,8 @@ $wishlist = $wishlist_db->wishlistInfo($w);
 
 if (  $wishlist == NULL ){
     $wishlist["name"] = "verlanglijst";
+} else{
+    $wishlist = $wishlist[0];
 }
 if ($wishlist["name"] == NULL ){
     $wishlist["name"] = "Verlanglijst";

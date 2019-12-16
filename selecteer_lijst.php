@@ -2,7 +2,7 @@
 require_once "inc/database.php";
 require_once "inc/package.php";
 
-$wwic_db = new wwic_db();
+$wwic_db = new wwic_db2();
 $view = "views/selecteer_lijst.php";
 $title = "WWI Verlanglijsten";
 
@@ -38,6 +38,7 @@ if(isset($_POST["action"])){
 
 
 $wishlists = $wwic_db->userWishlists($userid);
-
+if ( $wishlists == null)
+    $wishlists =  array();
 
 include 'template.php';
