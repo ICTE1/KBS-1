@@ -1,34 +1,56 @@
 <?php
-require_once "inc/database.php";
 require_once "inc/package.php";
 
-$wwi = new wwi_db();
-$wwic = new wwic_db();
+$products_db = new Products();
+$wishlist_db = new Wishlist();
+$review_db = new Review();
 
 
 $id = $_GET['p'];
 
-$product = $wwi->productInfo($id);
+$product = $products_db->productInfo($id)[0];
 
-$content = $wwic->get_product_photo($id);
+$content = $products_db->get_product_photo($id);
 
 if ($product === NULL ) {
     header("location: 404.php");
 }
 
-$similar = $wwi->get_similar_products($id);
+$similar = $products_db->get_similar_products($id);
 
-$reviews = $wwic->get_product_reviews($id);
+$reviews = $products_db->get_product_reviews($id);
 
 if(isset($_POST["message"])) {
     if ($_POST["message"] == "Nu kopen") {
         addToCart($_POST["Product"], $_POST["aantal"]);
     } elseif ($_POST["message"] == "verlanglijst") {
         $user_id = $_SESSION["user_id"];
-        $wishlist_id = $wwic->userWishlists($user_id);
+        $wishlist_id = $wishlist_db->userWishlists($user_id);
 
-        $wwic->wishlistAdd($wishlist_id, $_POST['Product']);
+        $wishlist_db->wishlistAdd($wishlist_id, $_POST['Product']);
     }
+}
+
+
+//Add review to database if method is post and type is review
+if(isset($_POST['review'])) {
+
+    $product_id = $id;
+    $r_name = $_POST['name'];
+    $stars = $_POST['stars'];
+    $review = $_POST['reviewtext'];
+    $r_email = $_POST['email'];
+
+    $review_db->insert_review($product_id, $r_name, $stars, $review, $r_email);
+
+    $_POST['name'] = NULL;
+    $_POST['stars'] = NULL;
+    $_POST['reviewtext'] = NULL;
+    $_POST['email'] = NULL;
+
+    // FIX for review not showing up
+    header("Location: product.php");
+
 }
 
 $view = "views/product.php";

@@ -1,12 +1,11 @@
 <?php
-require_once "inc/database.php";
 require_once "inc/package.php";
 
 //TODO:
 //images per product
 
-$db_custom = new wwic_db();
-$db_wwi = new wwi_db();
+$products_db = new Products();
+$wishlist_db = new Wishlist();
 
 //read which wishlist to display
 if(isset($_GET["w"])){
@@ -20,19 +19,24 @@ else {
 $cmd_shared = 0;
 if(isset($_POST["share"])){
     if($_POST["share"]){
-        $db_custom->shareWishlist($w);
+        $wishlist_db->shareWishlist($w);
         $cmd_shared = 1;
     }
     else{
-        $db_custom->unshareWishlist($w);
+        $wishlist_db->unshareWishlist($w);
         $cmd_shared = 2;
     }
 
 }
 
 //put wishlist info into variables
-$wishlist = $db_custom->wishlistInfo($w);
-if ($wishlist["name"] == NULL){
+$wishlist = $wishlist_db->wishlistInfo($w);
+
+
+if (  $wishlist == NULL ){
+    $wishlist["name"] = "verlanglijst";
+}
+if ($wishlist["name"] == NULL ){
     $wishlist["name"] = "Verlanglijst";
 }
 $name = $wishlist["name"];
@@ -40,7 +44,7 @@ $owner_id = $wishlist["customer_id"];
 $shared = $wishlist["shared"];
 
 //put wishlist products into variables
-$products = $db_custom->wishlistProducts($w);
+$products = $wishlist_db->wishlistProducts($w);
 
 //check for commands
 if(isset($_POST["message"])){

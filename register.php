@@ -1,8 +1,11 @@
 <?php
-require_once "inc/database.php";
+require_once "inc/package.php";
 
 $view = "views/register.php";
 $title = "WWI registreren";
+
+// Create a database object
+$user = new User();
 
 // Check if the method is POST to determine if you should handle the request or send it to the login page.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -25,10 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Store data in session variables
             $_SESSION["username_err_r"] = "Vul een gebruikersnaam in.";
         } else {
-            // Create a database object
-            $wwic = new wwic_db;
+         
 
-            if($wwic->check_if_user_exists($_POST["username"])) {
+            if($user->check_if_user_exists($_POST["username"])) {
                 $_SESSION["username_err_r"] = "Gebruikersnaam al in gebruik";
             } else {
                 $username = trim($_POST["username"]);
@@ -64,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
 
         // Create the user using the db object
-        $wwic->create_user($param_username, $param_password);
+        $user->create_user($param_username, $param_password);
 
         header("location: ./login.php");
     }

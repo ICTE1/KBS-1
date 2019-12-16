@@ -35,7 +35,7 @@
         <div class="content">
         <?php
             if(isset($view)){
-                include $view;
+               include $view;
             }
             else {
                 include "404.php";

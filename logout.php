@@ -1,8 +1,8 @@
 <?php
-require_once "inc/database.php";
+require_once "inc/package.php";
 
-$wwic = new wwic_db;
+$user = new User();
 
-$wwic->logout();
+$user->logout();
 
 header("location: ./login.php");
