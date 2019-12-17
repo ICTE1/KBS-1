@@ -1,6 +1,7 @@
 <?php
 require_once "inc/package.php";
 
+
 $view = "views/home.php";
 include "template.php";
 

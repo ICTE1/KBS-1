@@ -54,7 +54,7 @@ class Wishlist extends DbTable{
 
 
         $products = array();
-        foreach($stock_item_id as $key => $col){
+        foreach($stock_item_ids as $key => $col){
             $products = (new Products())->productInfo($col["product_id"]);
         }
 

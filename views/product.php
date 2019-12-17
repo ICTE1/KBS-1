@@ -53,9 +53,9 @@
                     </form>
 
 
-                    <form method="post">
-                        <input type ="hidden" name = "Product" value="<?= $id?>">
-                        <button type="submit" class="btn-margin btn custom-button-primary btn-lg btn-block " name="message" value="verlanglijst">In verlanglijst<i class="fa fa-heart"></i></button>
+                    <form method="post" action="selecteer_lijst.php">
+                        <input type ="hidden" name = "product" value="<?= $id?>">
+                        <button type="submit" class="btn-margin btn custom-button-primary btn-lg btn-block " name="action" value="ProductPage">In verlanglijst<i class="fa fa-heart"></i></button>
                     </form>
 
 
