@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 class wwi_db2  {
     public $connectie = null  ;
 
