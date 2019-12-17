@@ -75,11 +75,9 @@ function show_products ($products){
     if ($number <= 0 ){
         return;
     }
-
-    
-    
+print(" <div class= 'container'>" );
     for($i=0; $i< $number;$i+=3) {
-        print(" <div class= 'row  align-content-around'>" );
+        print(" <div class= 'row'>" );
         $product1_index = $i ;
         $product2_index = $i + 1;
         $product3_index = $i + 2;
@@ -99,6 +97,7 @@ function show_products ($products){
 
         print("</div>");
     }
+    print("</div>");
 
 }
 
@@ -113,16 +112,18 @@ function print_product  ($product ) {
     }
 
     print("
-    <div class=' center col card ccart product'>
-        <img src='".image_url . $content[0]['url']."' class='card-img-top' alt='".$product['ProductName']."'>
-        <div class='card-body'>
-            <h5 class='card-title'>".$product['ProductName']."</h5>
-            <p class='card-text'>
-            €".$product['Price']."
-            </p>
-            <a href='product.php?p=".$product['identifier']."' class='btn btn-primary custom-button-primary'>Bekijken</a>
+    <div class='col-sm-4'>
+        <div class=' center card ccart product'>
+            <img src='".image_url . $content[0]['url']."' class='card-img-top' alt='".$product['ProductName']."'>
+            <div class='card-body'>
+                <h5 class='card-title'>".$product['ProductName']."</h5>
+                <p class='card-text'>
+                €".$product['Price']."
+                </p>
+                <a href='product.php?p=".$product['identifier']."' class='btn btn-primary custom-button-primary'>Bekijken</a>
+            </div>
         </div>
     </div>
-
+   
     ");
 } 

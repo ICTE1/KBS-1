@@ -1,4 +1,5 @@
 <?php
+require_once "inc/database.php";
 require_once "inc/package.php";
 
 if(isset($_SESSION["loggedin"])) {

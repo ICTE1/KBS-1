@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-6">
+        <div class="col-sm-6">
             <form class='betaalgegevens' method="post" action="betaalpagina.php">
                 <h2>Uw gegevens</h2>
 
@@ -45,7 +45,7 @@
                 </div>
             </form>
             </div>
-            <div class="col-6">
+            <div class="col-sm-6">
                 <div class="winkelwagen_preview">
                     <?php
                     if ( isset($_SESSION['winkelWagen'])){

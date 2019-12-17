@@ -1,5 +1,6 @@
 
-<div class="product-list">
+<div class="">
+    <div class="product-list">
     <?php 
         $number = count($products_to_show);
         print ("<span>{$number} resultaten</span>");
@@ -7,9 +8,11 @@
             print("<p>Geen producten</p>");
         }
     ?>
+
     
     <?php if (isset($_GET['c']) == false):?>
-    <div class='sorting-controls'>
+
+    <div class='sorting-controls '>
         <span class='product-sorting-btn'>
             <a href="<?php print  (generate_sorting_link("naam") ); ?>">
             Naam <i class='fa fa-sort'></i>
@@ -23,6 +26,7 @@
         </span>
         
         <span><i class="fa fa-filter"></i></span>         
+    </div>
     </div>
     <?php endif;?>
 
