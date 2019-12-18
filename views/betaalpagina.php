@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-6">
+        <div class="col-sm-6">
             <form class='betaalgegevens' method="post" action="betaalpagina.php">
                 <h2>Uw gegevens</h2>
 
@@ -26,7 +26,7 @@
 
                 <h2>Betalen</h2>
 
-                <select name="bank" id="">
+                <select name="bank">
                     <option value="">Selecteer een bank</option>
                     <option value="">ABN AMRO</option>
                     <option value="">ING</option>
@@ -45,7 +45,7 @@
                 </div>
             </form>
             </div>
-            <div class="col-6">
+            <div class="col-sm-6">
                 <div class="winkelwagen_preview">
                     <?php
                     if ( isset($_SESSION['winkelWagen'])){
@@ -70,15 +70,16 @@
 
                             $total_price = 0;
                             foreach ( $shopping_cart_content as $itemId => $amount) {
-                            $db = new wwi_db();
-                            $productInfo = $db->productInfo($itemId);
+                            $db = new Products();
+                            $productInfo = $db->productInfo($itemId)[0];
+                          
                             $total_price +=  ($productInfo['RecommendedRetailPrice'] * $amount);
                             print("
                             
                             
                             
                             <tr >
-                                <td scope='row'> ".$productInfo['StockItemName']." </td>
+                                <td> ".$productInfo['StockItemName']." </td>
                                 <td>€".$productInfo["RecommendedRetailPrice"]."</td>
                                 <td> ".$amount." </td>
                 
@@ -91,6 +92,7 @@
                        <tr >
                             <th scope='row'> Totaal </th>
                             <th>€ ".$total_price."</th>
+                            <th></th>
                             
                 
                         </tr>
@@ -102,7 +104,6 @@
                         print("Niks in winkelwagen");
                     }
                     ?>
-                </div>
             </div>
         </div>
     </div>

@@ -1,49 +1,29 @@
-<?php
 
-//Add review to database if method is post and type is review
-if(isset($_POST['review'])) {
-
-    $product_id = $id;
-    $r_name = $_POST['name'];
-    $stars = $_POST['stars'];
-    $review = $_POST['reviewtext'];
-    $r_email = $_POST['email'];
-
-    $wwic->insert_review($product_id, $r_name, $stars, $review, $r_email);
-
-    $_POST['name'] = NULL;
-    $_POST['stars'] = NULL;
-    $_POST['reviewtext'] = NULL;
-    $_POST['email'] = NULL;
-
-}
-?>
-
-<main role="main">
+<main>
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-4">
+                <div class="col-sm-4">
 
                     <div class="row padding-product">
 
-                        <div class="col-12 no-padding">
+                        <div class="col-sm-12 no-padding">
                             <a href="public/images/productinvulling/<?= $content[0]['url'] ?>" class="fancybox" rel="ligthbox">
-                                <img  src="public/images/productinvulling/<?= $content[0]['url'] ?>" class="zoom img-fluid "  alt="">
+                                <img  src="public/images/productinvulling/<?= $content[0]['url'] ?>" class="zoom img-fluid "  alt="product-img-1">
                             </a>
                         </div>
 
-                        <?php for($i = 1; $i < 3; $i++): ?>
+                        <?php var_dump ($content);for($i = 1; $i < 3; $i++): ?>
 
-                            <div class="col-4 no-padding">
+                            <div class="col-sm-4 no-padding">
                                 <a href="" class="fancybox" rel="ligthbox">
-                                    <img  src="public/images/productinvulling/<?= $content[$i]['url'] ?>" class="zoom img-fluid "  alt="">
+                                    <img  src="public/images/productinvulling/<?= $content[$i]['url'] ?>" class="zoom img-fluid "  alt="product-img">
                                 </a>
                             </div>
 
                         <?php endfor; ?>
 
-                        <div class="col-4 no-padding">
+                        <div class="col-sm-4 no-padding">
                             <a href="" class="fancybox" rel="ligthbox">
                                 <?= $content[3]['url'] ?>
                             </a>
@@ -54,7 +34,7 @@ if(isset($_POST['review'])) {
 
                 </div>
 
-                <div class="col-4" style="padding-top: 1%;">
+                <div class="col-sm-4" style="padding-top: 1%;">
                     <h1> <?php print($product['StockItemName']) ?></h1>
                     <p> <?php if($product['MarketingComments'] != "") {
                         print($product['MarketingComments']);
@@ -63,7 +43,7 @@ if(isset($_POST['review'])) {
                         } ?></p>
                     <p><?php print("Tags: " . substr($product['tags'], 2, -2)); ?></p>
                 </div>
-                <div class="col-4" style="padding-top: 5%;">
+                <div class="col-sm-4" style="padding-top: 5%;">
                     <h1 class="center">€ <?php print($product['RecommendedRetailPrice'])?></h1>
                     
                     <form method="post">
@@ -73,9 +53,9 @@ if(isset($_POST['review'])) {
                     </form>
 
 
-                    <form method="post">
-                        <input type ="hidden" name = "Product" value="<?= $id?>">
-                        <button type="submit" class="btn-margin btn custom-button-primary btn-lg btn-block " name="message" value="verlanglijst">In verlanglijst<i class="fa fa-heart"></i></button>
+                    <form method="post" action="selecteer_lijst.php">
+                        <input type ="hidden" name = "product" value="<?= $id?>">
+                        <button type="submit" class="btn-margin btn custom-button-primary btn-lg btn-block " name="action" value="ProductPage">In verlanglijst<i class="fa fa-heart"></i></button>
                     </form>
 
 
@@ -89,16 +69,16 @@ if(isset($_POST['review'])) {
     <section>
         <div class="container">
             <div class="row">
-                    <div class="col-6">
+                    <div class="col-sm-6">
                         <h1>Reviews</h1>
                         <div class="row">
 
                             <?php for($i = 0; $i < count($reviews); $i++): ?>
-                            <div class="col-3">
-                                <img src="public/images/space 2.jpg" class="user-photo align-content-center"><br>
+                            <div class="col-sm-3">
+                                <img src="public/images/space%202.jpg" alt="placeholder profile picture" class="user-photo align-content-center"><br>
                                 <h5 class="center"><?= $reviews[$i]["name"]; ?></h5>
                             </div>
-                            <div class="col-9">
+                            <div class="col-sm-9">
 
                                 <?php $stars = 0; for($x = 0; $x < $reviews[$i]["rating"]; $x++): ?>
                                     <i class="no-margin-bottom fa fa-star"></i>
@@ -116,15 +96,16 @@ if(isset($_POST['review'])) {
                             </div>
                             <?php endfor; ?>
                          
-                            <div class="col-9">
-                                <form method="POST" action="product.php?p=<?= $id ?>">
+                            <div class="col-sm-9">
+                                <form method="POST" action="product.php?p=<?=$id?>">
                                     <div class="form-group">
-                                        <label for="name">Naam:</label>
-                                        <input type="name" name="name" class="form-control" id="name" placeholder="John" required>
+                                        <label for="naam">Naam:</label>
+                                        <input type="text" name="name" class="form-control" id="naam" placeholder="John" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="stars">Beoordeling:</label>
                                         <select name="stars" class="form-control" id="stars" required>
+                                            <option disabled selected value> -- selecteer een optie -- </option>
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -137,8 +118,8 @@ if(isset($_POST['review'])) {
                                         <textarea name="reviewtext" class="form-control" id="reviewtext" rows="4" required></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">E-mail:</label>
-                                        <input name="email" type="email" class="form-control" id="name" placeholder="John@doe.nl" required>
+                                        <label for="email">E-mail:</label>
+                                        <input name="email" type="email" class="form-control" id="email" placeholder="John@doe.nl" required>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-10">
@@ -151,7 +132,7 @@ if(isset($_POST['review'])) {
                         </div>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-sm-6">
                         <h1>Aanvullende informatie</h1>
                             <?php
 
@@ -169,13 +150,17 @@ if(isset($_POST['review'])) {
                                 }
                             }
                             ?>
+                        <br><br>
+                        <h1>Trademarks:</h1>
+                        <img src="public/images/trademark1.png" style="max-width: 25%;" alt="trademark1" />
+                        <img src="public/images/trademark2.png" style="max-width: 25%;" alt="trademark2" />
                     </div>
             </div>
         </div>
     </section>
 
     <section>
-        <div class="container ">
+        <div class="container">
             <h1 class="jumobotron-heading text-center">Ook wat voor u?</h1>
         </div>
     </section>
@@ -184,7 +169,7 @@ if(isset($_POST['review'])) {
         <div class="container" style="margin-bottom: 2%;">
             <div class="row text-center">
                 <?php for($i =0; $i < count($similar); $i++):
-                    $content = $wwic->get_product_photo($similar["" . $i .""]["StockItemID"]); ?>
+                    $content = $products_db->get_product_photo($similar["" . $i .""]["StockItemID"]); ?>
                     <div class="col-md-3">
                         <div class="card ccart">
                             <img src="public/images/productinvulling/<?= $content[0]['url'] ?>" class="card-img-top" alt="...">

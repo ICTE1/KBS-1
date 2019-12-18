@@ -1,5 +1,11 @@
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
 <?php
 //if allowed to display: print html
+
 if($display) {
     //print shared alert
     if($cmd_shared == 1){
@@ -24,10 +30,10 @@ if($display) {
     foreach ($products as $num => $record) {
         print('
                 <div class="row product_card_card" >
-        <div class="col-2" >
+        <div class="col-sm-2" >
             <img class="img-fluid productThumbnail" src = "'); $foto_url = ("public/images/productinvulling/" . $db_custom->get_product_photo($record["StockItemID"])[0]["url"]); print($foto_url .'" >
         </div >
-        <div class="col-5" >
+        <div class="col-sm-5" >
             <div class="product_card_text" >
                 <p >
                     <b >' . $record["StockItemName"] . '</b ><br >
@@ -36,7 +42,7 @@ if($display) {
                 <span class="product_card_prijs" ><b >€' . number_format($record["RecommendedRetailPrice"], 2, ",", ".") . '</b ></span >
             </div >
         </div >
-        <div class="col-5 product_card_buttons" >
+        <div class="col-sm-5 product_card_buttons" >
             <div style = "float: right">
                 <form class="form-inline" id="form_'.$record["StockItemID"].'" method="post">
                     <input class="form-control" onfocusout="updateAmount(this);" type = "number" value = "1" name = "aantal" min="1" max="1000">
@@ -55,7 +61,7 @@ if($display) {
     //print totale prijs en alles toevoegen aan winkelwagen
     //print share button
     print('<div class="row" style="margin-top: 10px; margin-bottom: 10px;">
-            <div class="col-6">
+            <div class="col-sm-6">
                 <div style="float: left;">');
     if($owned && $shared){
         print('<div>
@@ -79,7 +85,7 @@ if($display) {
     else{
         print('Je bekijkt een gedeelde verlanglijst');
     }
-    print("</div></div><div class='col-2'></div><div class='col-4'>
+    print("</div></div><div class='col-sm-2'></div><div class='col-sm-4'>
                 <form method='post' id='addAll'>
                 "); foreach($products as $product){print("<input type='hidden' id='".$product["StockItemID"]."' name='".$product["StockItemID"]."' value='1'>");} print("
                 <h4><button type='submit' class='btn custom-button-primary' name='message' value='add all'>Alles toevoegen aan winkelwagen</h4>

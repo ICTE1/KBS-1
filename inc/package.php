@@ -1,5 +1,11 @@
 <?php
+session_start();
+
+require_once 'database/database.php';
+
 define('image_url' ,'public/images/productinvulling/') ;
+
+
 function addToCart($item, $aantal){
     if(isset($_SESSION["winkelWagen"][$item])){
         $_SESSION["winkelWagen"][$item] += $aantal;
@@ -10,4 +16,11 @@ function addToCart($item, $aantal){
     else {
         $_SESSION["winkelWagen"][$item] = $aantal;
     }
+}
+
+function clean_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
