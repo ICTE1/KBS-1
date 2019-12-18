@@ -13,7 +13,7 @@
                             </a>
                         </div>
 
-                        <?php var_dump ($content);for($i = 1; $i < 3; $i++): ?>
+                        <?php for($i = 1; $i < 3; $i++): ?>
 
                             <div class="col-sm-4 no-padding">
                                 <a href="" class="fancybox" rel="ligthbox">
@@ -75,7 +75,7 @@
 
                             <?php for($i = 0; $i < count($reviews); $i++): ?>
                             <div class="col-sm-3">
-                                <img src="public/images/space%202.jpg" alt="placeholder profile picture" class="user-photo align-content-center"><br>
+                                <img src="public/images/user-stock.png" alt="placeholder profile picture" class="user-photo align-content-center"><br>
                                 <h5 class="center"><?= $reviews[$i]["name"]; ?></h5>
                             </div>
                             <div class="col-sm-9">

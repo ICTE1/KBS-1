@@ -81,15 +81,15 @@ class Products extends DbTable{
 
         $joe = array(
             0 => array (
-                "url" => "74.jpg",
+                "url" => "placeholder.jpg",
                 "photo" => 1
             ),
             1 => array (
-                "url" => "74.jpg",
+                "url" => "placeholder.jpg",
                 "photo" => 1
             ),
             2 => array (
-                "url" => "74.jpg",
+                "url" => "placeholder.jpg",
                 "photo" => 1
             ),
             3 => array (
