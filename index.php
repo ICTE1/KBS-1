@@ -1,8 +1,9 @@
 <?php
+require_once "inc/package.php";
 require_once "inc/database.php";
 
 $wwi = new wwi_db();
-
+$wwic = new wwic_db();
 
 
 /*
@@ -19,9 +20,9 @@ $wwi = new wwi_db();
 */
 
 function print_categories (){
-
-    $db = new wwi_db();
-    $categorie_list = $db->get_categories();
+    global $wwi;
+    
+    $categorie_list = $wwi->get_categories();
 
     if ( $categorie_list == false) {
         throw new Exception ("NO categories") ;

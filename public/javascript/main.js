@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-    console.log('Doc ready!');
+
 
     $(".fancybox").fancybox({
         openEffect: "none",
@@ -20,24 +20,19 @@ $(document).ready(function(){
     let sharebutton = document.getElementById('sharebutton');
 
     sharebutton.addEventListener('click',    function   () {
-        alert('Link gekopieerd naar klembord');
-        /* Get the text field */
-        var copyText = document.getElementById("sharebutton");
-
-        /* Select the text field */
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
-
-        /* Copy the text inside the text field */
-        document.execCommand("copy");
-
-        /* Alert the copied text */
-        alert("Copied the text: " + copyText.value);
+        let url = window.location.href;
+        try {
+         
+        navigator.clipboard.writeText(url).then(function() {
+            alert('Link gekopieerd naar klembord')
+          }, function() {
+            alert('Kan niet naar klembord schrijven. :-(');
+          });   
+        } catch (error) {
+            alert('Kan niet naar klembord schrijven. :-(');
+            
+        }
     });
-
-
-
-
 
 });
 

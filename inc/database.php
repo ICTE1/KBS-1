@@ -34,7 +34,7 @@ class wwi_db  {
 
     function get_products_by_category($category_name) {
         $query = "
-        SELECT DISTINCT i.StockItemName ProductName , g.StockGroupName Category, i.UnitPrice Price
+        SELECT DISTINCT i.StockItemID AS identifier,  i.StockItemName ProductName , g.StockGroupName Category, i.UnitPrice Price
         FROM  stockitemstockgroups v 
         JOIN stockitems i  ON v.StockItemID = i.StockItemID
         JOIN stockgroups g ON v.StockGroupID = g.StockGroupID
@@ -54,7 +54,7 @@ class wwi_db  {
     function search_products ($search_term , $sort_by = null){
         // build db query 
         $query = "
-        SELECT stockitems.StockItemName AS ProductName ,stockitems.UnitPrice AS Price, g.StockGroupName AS Category
+        SELECT stockitems.StockItemID AS identifier, stockitems.StockItemName AS ProductName ,stockitems.UnitPrice AS Price, g.StockGroupName AS Category
         FROM stockitems 
         JOIN stockitemstockgroups v  ON v.StockItemID = stockitems.StockItemID
         JOIN stockgroups g ON v.StockGroupID = g.StockGroupID
@@ -118,7 +118,10 @@ class wwi_db  {
     }
 
     function get_best_sellers() {
-
+            $result = mysqli_query ($this->connectie , "SELECT PL.StockItemID, SI.StockItemName, SI.RecommendedRetailPrice, COUNT(*) aantal FROM purchaseorderlines PL JOIN stockitems SI ON PL.StockItemID = SI.StockItemID GROUP BY PL.StockItemID ORDER BY aantal DESC LIMIT 4");
+            $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC );
+            mysqli_free_result($result);
+            return $rows;
     }
     function get_product_amount() {
 

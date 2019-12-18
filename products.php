@@ -1,5 +1,6 @@
 <?php
-include_once "inc/database.php";
+require_once "inc/package.php";
+require_once "inc/database.php";
 
 $db = new wwi_db();
 
@@ -19,6 +20,7 @@ if (isset($_GET['c'])) {
     
     $search_term = trim(urldecode($_GET['s']));
 
+    
     if (isset($_GET['o'])){
       
         $products_to_show = $db->search_products($search_term, $_GET['o']);
@@ -98,16 +100,19 @@ function show_products ($products){
 }
 
 
-function print_product  ($product ){
+function print_product  ($product ) {
+   
+    $wwic = $wwic = new wwic_db();
+    $content = $wwic->get_product_photo($product['identifier']);
     print("
     <div class=' center col card ccart product'>
-        <img src='https://cdn0.iconfinder.com/data/icons/business-mix/512/cargo-512.png' class='card-img-top' alt='".$product['ProductName']."'>
+        <img src='".image_url . $content[0]['url']."' class='card-img-top' alt='".$product['ProductName']."'>
         <div class='card-body'>
             <h5 class='card-title'>".$product['ProductName']."</h5>
             <p class='card-text'>
             €".$product['Price']."
             </p>
-            <a href='#' class='btn btn-primary custom-button-primary'>Bekijken</a>
+            <a href='product.php?p=".$product['identifier']."' class='btn btn-primary custom-button-primary'>Bekijken</a>
         </div>
     </div>
 

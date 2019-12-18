@@ -350,6 +350,7 @@ img.zoom {
 
 .product {
     margin: 0.5em;
+    padding: 0;
 }
 
 
@@ -371,8 +372,6 @@ img.zoom {
 .product-sorting-btn:hover {
     transition: background-color 0.6s;
     background-color: #6c6c6c;
-/* Product column category */
-.product span {
 }
 
 /*.betaalgegevens {*/
@@ -410,6 +409,7 @@ img.zoom {
 #cart-button {
     min-width: 74px;
 }
+
 .product-sorting-btn a {
     text-decoration: none;
     color: #ffff;
@@ -421,15 +421,19 @@ img.zoom {
 .table-dark {
     background-color: #353535;
 }
-/*.content-payment-screen{*/
-/*    width: 75%;*/
-/*    margin: 0 auto;*/
-/*    margin-top: 2em;*/
-/*    align-content: center;*/
-/*}*/
+
+
+.big-h1 {
+    font-size: 5rem;
+}
+.big-p {
+    font-size: 1.5rem;
+}
+
 .btn-margin {
     margin: 1%;
 }
+
 iframe {
     max-width: 100% !important;
     max-height: 115px !important;
@@ -439,3 +443,4 @@ iframe {
     min-width: 600px;
     min-height: 600px;
 }
+
