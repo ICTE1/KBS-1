@@ -1,4 +1,4 @@
-<main role="main">
+<main>
 
     <section class="text-center landing-ad cjumbotron">
         <div class="container transparent-background">
@@ -41,7 +41,7 @@
     <section>
         <div class="container margin-top-botom">
             <div class="row">
-                <?php 
+                <?php
                 print_categories();
                 ?>
             </div>

@@ -13,30 +13,40 @@
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
-                        <a href="products.php?c=Novelty Items">Novelty Items</a>
+                        <a href="products.php?c=Novelty%20Items">Novelty Items</a>
                         <a href='products.php?c=Clothing'>Clothing</a>
                         <a href="products.php?c=Mugs">Mugs</a>
                         <a href="products.php?c=T-Shirts">T-Shirts</a>
-                        <a href="products.php?c=Airline Novelties">Airline Novelties</a>
-                        <a href="products.php?c=Computing Novelties">Computing Novelties</a>
-                        <a href="products.php?c=USB Novelties">USB Novelties</a>
-                        <a href="products.php?c=Furry Footwear">Furry Footwear</a>
+                        <a href="products.php?c=Airline%20Novelties">Airline Novelties</a>
+                        <a href="products.php?c=Computing%20Novelties">Computing Novelties</a>
+                        <a href="products.php?c=USB%20Novelties">USB Novelties</a>
+                        <a href="products.php?c=Furry%20Footwear">Furry Footwear</a>
                         <a href="products.php?c=Toys">Toys</a>
-                        <a href="products.php?c=Packaging Materials">Packaging Materials</a>
+                        <a href="products.php?c=Packaging%20Materials">Packaging Materials</a>
                     </div>
                 </div>
 
             </li>
         </ul>
+<!--        <form class="form-inline my-2 search-area" method="GET" action='products.php' >-->
+<!--            <input class="form-control" type="search"  --><?php //print isset ($_GET['s'])? "value=".$_GET['s']:""; ?><!-- name='s' placeholder="Zoeken...." aria-label="Search">-->
+<!--            <input class="btn" type="submit" value='Zoeken'>-->
+<!--        </form>-->
+
         <form class="form-inline my-2 search-area" method="GET" action='products.php' >
-            <input class="form-control" type="search"  <?php print isset ($_GET['s'])? "value=".$_GET['s']:""; ?> name='s' placeholder="Zoeken...." aria-label="Search">
-            <input class="btn" type="submit" value='Zoeken'>
+            <div class="input-group mb-3">
+                <input class="form-control" type="text"  <?php print isset ($_GET['s'])? "value=".$_GET['s']:""; ?> name='s' placeholder="Zoeken...." aria-label="Search">
+
+                <div class="input-group-append">
+                    <button class="btn cbtn-primary" type="submit" value="">Zoeken</button>
+                </div>
+            </div>
         </form>
+
+
         <div class="navbar-nav" style="margin-left: auto">
             <div class="loginbutton">
-                <button type="button" class="btn btn-default">
-                    <a class="btn btn-outline-success my-2 my-sm-0" style="border-width: 3px" href="<?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout.php"; } else { echo "logout.php"; } } else { echo "login.php"; }?>"><b><?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout"; } else { echo "logout"; } } else { echo "login"; }?></b></a>
-                </button>
+                <a class="btn btn-default btn-outline-success my-2 my-sm-0" style="border-width: 3px" href="<?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout.php"; } else { echo "logout.php"; } } else { echo "login.php"; }?>"><b><?php if(isset($_SESSION["loggedin"])) { if($_SESSION["loggedin"]) { echo "logout"; } else { echo "logout"; } } else { echo "login"; }?></b></a>
             </div>
             <a class="nav-link text-center" href="selecteer_lijst.php"><i class="fa fa-heart navbarIcon fa-2x"></i></a>
             <a id="cart-button" class="nav-link" href="winkelwagen.php">
@@ -44,6 +54,7 @@
                 <?php if(isset($_SESSION["winkelWagen"]) && !$_SESSION["winkelWagen"] == 0){print("<div class='badge rounded-circle shopping-badge'>".array_sum($_SESSION['winkelWagen'])."</div>");}?>
             </a>
         </div>
+
     </div>
 </nav>
 <?php
