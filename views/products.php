@@ -25,7 +25,7 @@
         
         <span><i class="fa fa-filter"></i></span>         
     </div>
-    <?php elseif ($products_to_show <= 0):{
+    <?php  elseif (count($products_to_show) <= 0):{
         print "<span><img class= 'img-fluid' style=' max-width: 35%; display: block; margin-left: auto; margin-right: auto;' src='public/images/John.gif' alt='john travolta'></span>";
     }
 
