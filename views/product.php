@@ -1,5 +1,5 @@
 
-<main role="main">
+<main>
     <section>
         <div class="container">
             <div class="row">
@@ -9,15 +9,15 @@
 
                         <div class="col-sm-12 no-padding">
                             <a href="public/images/productinvulling/<?= $content[0]['url'] ?>" class="fancybox" rel="ligthbox">
-                                <img  src="public/images/productinvulling/<?= $content[0]['url'] ?>" class="zoom img-fluid "  alt="">
+                                <img  src="public/images/productinvulling/<?= $content[0]['url'] ?>" class="zoom img-fluid "  alt="product-img-1">
                             </a>
                         </div>
 
-                        <?php for($i = 1; $i < 3; $i++): ?>
+                        <?php var_dump ($content);for($i = 1; $i < 3; $i++): ?>
 
                             <div class="col-sm-4 no-padding">
                                 <a href="" class="fancybox" rel="ligthbox">
-                                    <img  src="public/images/productinvulling/<?= $content[$i]['url'] ?>" class="zoom img-fluid "  alt="">
+                                    <img  src="public/images/productinvulling/<?= $content[$i]['url'] ?>" class="zoom img-fluid "  alt="product-img">
                                 </a>
                             </div>
 
@@ -75,7 +75,7 @@
 
                             <?php for($i = 0; $i < count($reviews); $i++): ?>
                             <div class="col-sm-3">
-                                <img src="public/images/space 2.jpg" class="user-photo align-content-center"><br>
+                                <img src="public/images/space%202.jpg" alt="placeholder profile picture" class="user-photo align-content-center"><br>
                                 <h5 class="center"><?= $reviews[$i]["name"]; ?></h5>
                             </div>
                             <div class="col-sm-9">
@@ -97,14 +97,15 @@
                             <?php endfor; ?>
                          
                             <div class="col-sm-9">
-                                <form method="POST" action="product.php?p=<?= $id ?>">
+                                <form method="POST" action="product.php?p=<?=$id?>">
                                     <div class="form-group">
-                                        <label for="name">Naam:</label>
-                                        <input type="name" name="name" class="form-control" id="name" placeholder="John" required>
+                                        <label for="naam">Naam:</label>
+                                        <input type="text" name="name" class="form-control" id="naam" placeholder="John" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="stars">Beoordeling:</label>
                                         <select name="stars" class="form-control" id="stars" required>
+                                            <option disabled selected value> -- selecteer een optie -- </option>
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -117,8 +118,8 @@
                                         <textarea name="reviewtext" class="form-control" id="reviewtext" rows="4" required></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">E-mail:</label>
-                                        <input name="email" type="email" class="form-control" id="name" placeholder="John@doe.nl" required>
+                                        <label for="email">E-mail:</label>
+                                        <input name="email" type="email" class="form-control" id="email" placeholder="John@doe.nl" required>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-10">
@@ -151,8 +152,8 @@
                             ?>
                         <br><br>
                         <h1>Trademarks:</h1>
-                        <img src="public/images/trademark1.png" style="max-width: 25%;" />
-                        <img src="public/images/trademark2.png" style="max-width: 25%;" />
+                        <img src="public/images/trademark1.png" style="max-width: 25%;" alt="trademark1" />
+                        <img src="public/images/trademark2.png" style="max-width: 25%;" alt="trademark2" />
                     </div>
             </div>
         </div>

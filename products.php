@@ -114,7 +114,7 @@ function print_product  ($product ) {
     print("
     <div class='col-sm-4'>
         <div class=' center card ccart product'>
-            <img src='".image_url . $content[0]['url']."' class='card-img-top' alt='".$product['ProductName']."'>
+            <img src='".image_url . $content[0]['url']."' class='card-img-top' alt='product-image'>
             <div class='card-body'>
                 <h5 class='card-title'>".$product['ProductName']."</h5>
                 <p class='card-text'>

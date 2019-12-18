@@ -26,7 +26,7 @@
 
                 <h2>Betalen</h2>
 
-                <select name="bank" id="">
+                <select name="bank">
                     <option value="">Selecteer een bank</option>
                     <option value="">ABN AMRO</option>
                     <option value="">ING</option>
@@ -79,7 +79,7 @@
                             
                             
                             <tr >
-                                <td scope='row'> ".$productInfo['StockItemName']." </td>
+                                <td> ".$productInfo['StockItemName']." </td>
                                 <td>€".$productInfo["RecommendedRetailPrice"]."</td>
                                 <td> ".$amount." </td>
                 
@@ -92,6 +92,7 @@
                        <tr >
                             <th scope='row'> Totaal </th>
                             <th>€ ".$total_price."</th>
+                            <th></th>
                             
                 
                         </tr>
@@ -103,7 +104,6 @@
                         print("Niks in winkelwagen");
                     }
                     ?>
-                </div>
             </div>
         </div>
     </div>

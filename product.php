@@ -14,7 +14,7 @@ $product = $products_db->productInfo($id)[0];
 $content = $products_db->get_product_photo($id);
 
 if ($product === NULL ) {
-    header("location: 404.php");
+  //  header("location: 404.php");
 }
 
 $similar = $products_db->get_similar_products($id);

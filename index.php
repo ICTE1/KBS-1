@@ -25,11 +25,14 @@ function print_categories (){
     $categorie_list = $products->get_categories();
 
     if ( $categorie_list == false) {
-        throw new Exception ("NO categories") ;
+        throw new Exception ("No categories") ;
     }
 
 
     foreach ( $categorie_list as $index => $category ){
+
+        $product = urlencode($category['category_name']);
+
         if ( $index == 0 ) {
             // If we are the first element, start the first column
             print ('
@@ -55,12 +58,13 @@ function print_categories (){
       
         print ("
                 <li class='list-group-item custom-list-group-item'>
-                    <a href='products.php?c={$category['category_name']}'>
+                    <a href='products.php?c={$product}'>
                         {$category['category_name']}
                     </a>
                 </li>") ;
 
     }
+    print ("</ul>");
 }
 
 function print_sales(){
@@ -109,7 +113,7 @@ function print_sales(){
                             ".$name. $discount_string."                
                         </h5>
                         <h5 class='card-title'> ".$unitPrice."</h5>
-                        <a href='product.php?p= ".$itemID."' class='btn custom-button-primary'>Bekijk product</a>
+                        <a href='product.php?p=".$itemID."' class='btn custom-button-primary'>Bekijk product</a>
                     </div>
                 </div>
             </div>"
