@@ -26,7 +26,7 @@ if($deleted){
             <td style="width: 50%">
                 <h2><?= $wishlistInfo["name"] ?></h2>
             </td>
-            <td style="width= 25%">
+            <td style="width: 25%">
                 <?php if($wishlistInfo["shared"] == 1){echo("<p class='text-right'>Gedeelde verlanglijst</p>");} ?>
             </td>
             <td style="width: 25%">

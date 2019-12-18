@@ -1,4 +1,4 @@
-<main role="main">
+<main>
     <div class="container">
         <div class="row big-text">
             <div class="col-sm-2">
