@@ -14,11 +14,6 @@
                 <input type="text" name="Phone-number" pattern="^[0-9]{10}$" required>
                 Postcode:
                 <input type="text" name="Zip-code" pattern="^[0-9]{4}[a-zA-Z]{2}$" required>
-                Woonplaats:
-                <input type="text" name="City" pattern="[a-zA-Z]{2,}" required>
-                <br>
-                Straatnaam:
-                <input type="text" name="Street" pattern="[a-zA-Z]{2,}" required>
                 Huisnummer:
                 <input type="number" name="House" pattern="[0-9]+" required>
 
