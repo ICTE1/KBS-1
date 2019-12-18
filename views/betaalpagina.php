@@ -84,9 +84,14 @@
                         }
 
                         print ("
-                       <tr >
+                        <tr>
+                            <th scope='row'> Verzendkosten </th>
+                            <th>€ 5,00 </th>
+                            <th></th>
+                        </tr>
+                        <tr >
                             <th scope='row'> Totaal </th>
-                            <th>€ ".$total_price."</th>
+                            <th>€ ".($total_price + 5)."</th>
                             <th></th>
                             
                 
