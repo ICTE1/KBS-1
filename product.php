@@ -50,7 +50,7 @@ if(isset($_POST['review'])) {
     $_POST['email'] = NULL;
 
     // FIX for review not showing up
-    header("Location: product.php");
+    header("Location: product.php?p={$_POST['product']}");
 
 }
 

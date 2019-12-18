@@ -98,6 +98,7 @@
                          
                             <div class="col-sm-9">
                                 <form method="POST" action="product.php?p=<?=$id?>">
+                                    <input type="hidden" name="product" value='<?=$id?>'>
                                     <div class="form-group">
                                         <label for="naam">Naam:</label>
                                         <input type="text" name="name" class="form-control" id="naam" placeholder="John" required>
