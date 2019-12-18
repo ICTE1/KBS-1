@@ -79,12 +79,28 @@ class Products extends DbTable{
 
         self::query ('wwic', $query, $result, 's', [$product_id]);
 
+        $joe = array(
+            0 => array (
+                "url" => "74.jpg",
+                "photo" => 1
+            ),
+            1 => array (
+                "url" => "74.jpg",
+                "photo" => 1
+            ),
+            2 => array (
+                "url" => "74.jpg",
+                "photo" => 1
+            ),
+            3 => array (
+                "url" => "<iframe src=\"https://www.youtube.com/embed/x46dUiWDGfA\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                "photo" => 0
+            )
+        );
+       if($result == NULL ) {
+           return $joe;
 
-      /* if($result == NULL ) {
-            $new_number = $product_id + 1;
-            $result = $this->get_product_photo($new_number);
-
-        }*/
+       }
         return $result;
     }
 

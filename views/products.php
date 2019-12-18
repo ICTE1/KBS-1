@@ -26,7 +26,7 @@
         <span><i class="fa fa-filter"></i></span>         
     </div>
     <?php else : ?>
-    <img class="img-fluid" style=" max-width: 35%; display: block; margin-left: auto; margin-right: auto;" src="public/images/John.gif">
+    <img class="img-fluid" style=" max-width: 35%; display: block; margin-left: auto; margin-right: auto;" src="public/images/John.gif" alt="john travolta">
 
     <?php endif;?>
 
@@ -34,4 +34,5 @@
     <?php
    show_products($products_to_show);
     ?>
+    </div>
 </div>
