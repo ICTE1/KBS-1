@@ -13,7 +13,7 @@
                             </a>
                         </div>
 
-                        <?php for($i = 1; $i < 3; $i++): ?>
+                        <?php var_dump ($content);for($i = 1; $i < 3; $i++): ?>
 
                             <div class="col-sm-4 no-padding">
                                 <a href="" class="fancybox" rel="ligthbox">
@@ -97,7 +97,7 @@
                             <?php endfor; ?>
                          
                             <div class="col-sm-9">
-                                <form method="POST" action="product.php?p=<?= $id ?>">
+                                <form method="POST" action="product.php?p=<?=$id?>">
                                     <div class="form-group">
                                         <label for="naam">Naam:</label>
                                         <input type="text" name="name" class="form-control" id="naam" placeholder="John" required>
