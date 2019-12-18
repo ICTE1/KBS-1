@@ -6,21 +6,21 @@
 
                 <?php if (!isset($_SESSION['loggedin'])) { ?>
                     Volledige naam:
-                <input type="text" name="name" pattern="^[a-zA-Z]{2,}[[:blank:]][a-zA-Z]{2,}$"  required>
-                    E-mail adress:
-                <input type="email" name="mail" required>
+                <input type="text" name="Name" pattern="^[a-zA-Z]{2,}[[:blank:]][a-zA-Z]{2,}$"  required>
+                    E-mail adres:
+                <input type="email" name="Mail" required>
                 <?php } ?>
                 Telefoon nummer:
-                <input type="text" name="phone-number" pattern="^[0-9]{10}$" required>
+                <input type="text" name="Phone-number" pattern="^[0-9]{10}$" required>
+                Postcode:
+                <input type="text" name="Zip-code" pattern="^[0-9]{4}[a-zA-Z]{2}$" required>
                 Woonplaats:
                 <input type="text" name="City" pattern="[a-zA-Z]{2,}" required>
-                Postcode:
-                <input type="text" name="zip-code" pattern="^[0-9]{4}[a-zA-Z]{2}$" required>
                 <br>
                 Straatnaam:
-                <input type="text" name="name" pattern="[a-zA-Z]{2,}" required>
+                <input type="text" name="Street" pattern="[a-zA-Z]{2,}" required>
                 Huisnummer:
-                <input type="number" name="name" required>
+                <input type="number" name="House" pattern="[0-9]+" required>
 
                 <hr>
 
