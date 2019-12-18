@@ -3,7 +3,7 @@
 class Products extends DbTable{
     function get_products_by_category($category_name) {
         $query = "
-        SELECT DISTINCT i.StockItemID AS identifier,  i.StockItemName ProductName , g.StockGroupName Category, i.UnitPrice Price
+        SELECT DISTINCT i.StockItemID AS identifier,  i.StockItemName ProductName , g.StockGroupName Category, i.RecommendedRetailPrice Price
         FROM  stockitemstockgroups v 
         JOIN stockitems i  ON v.StockItemID = i.StockItemID
         JOIN stockgroups g ON v.StockGroupID = g.StockGroupID
@@ -21,7 +21,7 @@ class Products extends DbTable{
     function search_products ($search_term , $sort_by = null){
         // build db query 
         $query = "
-        SELECT stockitems.StockItemID AS identifier, stockitems.StockItemName AS ProductName ,stockitems.UnitPrice AS Price, g.StockGroupName AS Category
+        SELECT stockitems.StockItemID AS identifier, stockitems.StockItemName AS ProductName ,stockitems.RecommendedRetailPrice AS Price, g.StockGroupName AS Category
         FROM stockitems 
         JOIN stockitemstockgroups v  ON v.StockItemID = stockitems.StockItemID
         JOIN stockgroups g ON v.StockGroupID = g.StockGroupID
