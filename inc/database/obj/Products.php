@@ -29,6 +29,8 @@ class Products extends DbTable{
         stockitems.StockItemName LIKE ?
         OR
         stockitems.SearchDetails LIKE ?
+        OR
+        g.StockGroupName LIKE ?
         GROUP BY stockitems.StockItemName
         ";
 
@@ -52,7 +54,7 @@ class Products extends DbTable{
         $search_term = '%'. $search_term .'%';
     
         $result = null;
-        self::query('wwi', $query , $result, 'ss', [$search_term, $search_term]);
+        self::query('wwi', $query , $result, 'sss', [$search_term, $search_term, $search_term]);
 
         return $result == null ? [] : $result;
     }
