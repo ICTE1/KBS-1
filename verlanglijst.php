@@ -16,15 +16,15 @@ else {
 }
 
 //check for action commands
-$cmd_shared = 0;
+$notification = "";
 if(isset($_POST["share"])){
     if($_POST["share"]){
         $wishlist_db->shareWishlist($w);
-        $cmd_shared = 1;
+        $notification = "shared";
     }
     else{
         $wishlist_db->unshareWishlist($w);
-        $cmd_shared = 2;
+        $notification = "unshared";
     }
 
 }
@@ -52,6 +52,7 @@ if(isset($_POST["message"])){
     //delete product from wishlist
     elseif($_POST["message"] == "delete"){
         $wishlist_db->wishlistDelete($w, $_POST["Product"]);
+        $notification = "deleted";
     }
     elseif($_POST["message"] == "add all"){
         foreach($products as $product){

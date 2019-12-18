@@ -146,6 +146,13 @@ body {
     background-color: #14A76C;
     border-color: #28a745;
 }
+
+.calert-primary {
+    color: #fff;
+    background-color: #14A76C;
+    border-color: #28a745;
+}
+
 .custom-white {
     color: #f7fff7;
     font-weight: bold;

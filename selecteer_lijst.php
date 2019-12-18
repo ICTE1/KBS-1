@@ -14,17 +14,18 @@ else{
     $username = $_SESSION["username"];
 }
 
-$deleted = false;
+$notification = "";
 if(isset($_POST["action"])){
     if($_POST["action"] == "ProductPage"){
         $view = "views/toevoegen_lijst.php";
     }
     elseif($_POST["action"] == "addList"){
         $wwic_db->add_wishlist($userid, clean_input($_POST["name"]));
+        $notification = "add";
     }
     elseif($_POST["action"] == "deleteList"){
         $wwic_db->delete_wishlist($_POST["wishlist"]);
-        $deleted = true;
+        $notification = "delete";
     }
     elseif($_POST["action"] == "editDone"){
         header("Location: product.php?p=".$_POST["product"]);

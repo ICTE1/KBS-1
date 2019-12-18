@@ -5,17 +5,21 @@
 </script>
 <?php
 //if allowed to display: print html
-
 if($display) {
     //print shared alert
-    if($cmd_shared == 1){
+    if($message == "shared"){
         print(
             '<div class="alert alert-primary" role="alert"> Verlanglijst is gedeeld!</div>'
         );
     }
-    elseif($cmd_shared == 2){
+    elseif($message == "unshared"){
         print(
-        '<div class="alert alert-primary" role="alert"> Verlanglijst is niet meer gedeeld!</div>'
+        '<div class="alert calert-primary" role="alert"> Verlanglijst is niet meer gedeeld!</div>'
+        );
+    }
+    elseif($message == "deleted"){
+        print(
+        '<div class="alert calert-primary" role="alert"> Product is verwijderd uit je verlanglijst!</div>'
         );
     }
     //print title
