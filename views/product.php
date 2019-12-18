@@ -13,7 +13,7 @@
                             </a>
                         </div>
 
-                        <?php var_dump ($content);for($i = 1; $i < 3; $i++): ?>
+                        <?php for($i = 1; $i < 3; $i++): ?>
 
                             <div class="col-sm-4 no-padding">
                                 <a href="" class="fancybox" rel="ligthbox">

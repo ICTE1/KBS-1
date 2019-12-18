@@ -31,7 +31,7 @@ if($display) {
         print('
                 <div class="row product_card_card" >
         <div class="col-sm-2" >
-            <img class="img-fluid productThumbnail" src = "'); $foto_url = ("public/images/productinvulling/" . $db_custom->get_product_photo($record["StockItemID"])[0]["url"]); print($foto_url .'" >
+            <img class="img-fluid productThumbnail" src = "'); $foto_url = ("public/images/productinvulling/" . $products_db->get_product_photo($record["StockItemID"])[0]["url"]); print($foto_url .'" >
         </div >
         <div class="col-sm-5" >
             <div class="product_card_text" >
