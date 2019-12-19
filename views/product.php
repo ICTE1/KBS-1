@@ -143,7 +143,6 @@
 
                         </div>
                     </div>
-            </div>
             <div class="col-sm-6">
                 <h1>Aanvullende informatie</h1>
                 <?php
@@ -167,6 +166,7 @@
                 <img src="public/images/trademark1.png" style="max-width: 25%;" alt="trademark1" />
                 <img src="public/images/trademark2.png" style="max-width: 25%;" alt="trademark2" />
             </div>
+        </div>
         </div>
     </section>
 
