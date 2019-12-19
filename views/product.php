@@ -132,30 +132,29 @@
 
                         </div>
                     </div>
+            </div>
+            <div class="col-sm-6">
+                <h1>Aanvullende informatie</h1>
+                <?php
 
-                    <div class="col-sm-6">
-                        <h1>Aanvullende informatie</h1>
-                            <?php
+                $characters = array("\"", "{", "}");
+                $replace = (" ");
+                $arr = ($product["CustomFields"]);
+                $array = str_replace($characters,$replace,$arr);
 
-                            $characters = array("\"", "{", "}");
-                            $replace = (" ");
-                            $arr = ($product["CustomFields"]);
-                            $array = str_replace($characters,$replace,$arr);
+                $split_array = str_split($array);
 
-                            $split_array = str_split($array);
-
-                            foreach($split_array as $split_ar) {
-                                print($split_ar);
-                                if($split_ar == ",") {
-                                    print("<br>");
-                                }
-                            }
-                            ?>
-                        <br><br>
-                        <h1>Trademarks:</h1>
-                        <img src="public/images/trademark1.png" style="max-width: 25%;" alt="trademark1" />
-                        <img src="public/images/trademark2.png" style="max-width: 25%;" alt="trademark2" />
-                    </div>
+                foreach($split_array as $split_ar) {
+                    print($split_ar);
+                    if($split_ar == ",") {
+                        print("<br>");
+                    }
+                }
+                ?>
+                <br><br>
+                <h1>Trademarks:</h1>
+                <img src="public/images/trademark1.png" style="max-width: 25%;" alt="trademark1" />
+                <img src="public/images/trademark2.png" style="max-width: 25%;" alt="trademark2" />
             </div>
         </div>
     </section>
