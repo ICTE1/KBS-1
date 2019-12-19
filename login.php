@@ -70,8 +70,8 @@ function login($username, $password) {
 
     // Check if the user is known
     if (empty($user_data)) {
-        $_SESSION["username_err_l"] = "Wachtwoord en gebruikersnaam combinatie fout 1";
-        $_SESSION["password_err_l"] = "Wachtwoord en gebruikersnaam combinatie fout 1";
+        $_SESSION["username_err_l"] = "Wachtwoord en gebruikersnaam combinatie fout";
+        $_SESSION["password_err_l"] = "Wachtwoord en gebruikersnaam combinatie fout";
     }else {
         if($user_data["activated"] === 0) {
             $_SESSION["username_err_l"] = "Account niet geactiveerd";

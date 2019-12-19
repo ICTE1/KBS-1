@@ -61,7 +61,7 @@ if($display) {
         <div class="col-sm-5 product_card_buttons" >
             <div style = "float: right">
                 <form class="form-inline" id="form_'.$record["StockItemID"].'" method="post">
-                    <input class="form-control" onfocusout="updateAmount(this);" type = "number" value = "1" name = "aantal" min="1" max="1000">
+                    <input class="form-control" onfocusout="updateAmount(this);" type = "number" value = "1" name = "aantal" min="1" max="1">
                     <button class="btn custom-button-primary" onclick="submitOnClick(\'form_'.$record["StockItemID"].'\')" name="message" value="add"><i class="fa fa-cart-arrow-down" ></i ></button >
                     <input type = "hidden" name = "Product" value = '.$record["StockItemID"].' >');
                     if($owned){

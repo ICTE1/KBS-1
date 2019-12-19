@@ -5,11 +5,11 @@
                 <h2>Uw gegevens</h2>
 
                 <?php if (!isset($_SESSION['loggedin'])) { ?>
-                    Volledige naam:
+                Volledige naam:
                 <input type="text" name="Name" pattern="^[a-zA-Z]{2,}[[:blank:]][a-zA-Z]{2,}$"  required>
-                    E-mail adres:
-                <input type="email" name="Mail" required>
                 <?php } ?>
+                E-mail adres:
+                <input type="email" name="Mail" required>
                 Telefoon nummer:
                 <input type="text" name="Phone-number" pattern="^[0-9]{10}$" required>
                 Postcode:
