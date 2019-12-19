@@ -105,6 +105,14 @@ class Products extends DbTable{
         return $result;
     }
 
+    function get_biggest_product_id() {
+        $query = "SELECT StockItemID FROM stockitems ORDER BY StockItemID DESC LIMIT 1";
+
+        $result = null;
+        self::query ('wwi', $query , $result );
+
+        return $result;
+    }
 
     function get_product_amount() {
         $query = "SELECT COUNT(StockItemID) amount FROM stockitems";

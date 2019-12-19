@@ -13,7 +13,9 @@ $product = $products_db->productInfo($id)[0];
 
 $content = $products_db->get_product_photo($id);
 
-if ($product === NULL ) {
+$biggest_product_id = $products_db->get_biggest_product_id();
+
+if ($product === NULL || $product["StockItemID"] > $biggest_product_id[0]["StockItemID"]) {
   header("location: 404.php");
 }
 
