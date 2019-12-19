@@ -3,9 +3,10 @@ require_once "inc/package.php";
 
 
 $products_db = new Products();
-
+$notification = "";
 if(isset($_POST["hiddenVerwijderen"])){ // verwijderdt item uit winkelwagen vanuit form hieronder
     unset($_SESSION["winkelWagen"][$_POST["hiddenVerwijderen"]]);
+    $notification = "deleted";
     }
 
 if(isset($_POST["hiddenToevoegen"])){ // voeg toe aan winkelwagen
@@ -52,11 +53,12 @@ function printShoppingCart(){
     print (startRow($product));
   
     showProduct($data, $product, $foto_url, $prijs, $aantal );
-
+    // end row started at line :53
+    print ( '</div>');
    
     }
-     // end row started at line :34
-     print ( '</div>');
+
+
 
     showPricesAndPayButton($prijsTot, $prijsVerzend); 
 }

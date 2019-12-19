@@ -52,12 +52,15 @@ class Wishlist extends DbTable{
         $stock_item_ids = null;
         self::query('wwic', $query, $stock_item_ids , 'i', [$wishlist]);
 
+       // print_r($stock_item_ids);
 
         $products = array();
         foreach($stock_item_ids as $key => $col){
-            $products = (new Products())->productInfo($col["product_id"]);
-        }
 
+            $product_info = (new Products())->productInfo($col["product_id"]);
+            array_push($products, $product_info[0]);
+        }
+        //print_r($products);
         return $products;
 
     }

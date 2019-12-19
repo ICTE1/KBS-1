@@ -15,27 +15,13 @@ else {
     header('Location: login.php');
 }
 
-//check for action commands
-$cmd_shared = 0;
-if(isset($_POST["share"])){
-    if($_POST["share"]){
-        $wishlist_db->shareWishlist($w);
-        $cmd_shared = 1;
-    }
-    else{
-        $wishlist_db->unshareWishlist($w);
-        $cmd_shared = 2;
-    }
 
-}
 
 //put wishlist info into variables
-$wishlist = $wishlist_db->wishlistInfo($w);
+$wishlist = $wishlist_db->wishlistInfo($w)[0];
 if ($wishlist["name"] == NULL){
     $wishlist["name"] = "Verlanglijst";
 }
-
-
 $name = $wishlist["name"];
 $owner_id = $wishlist["customer_id"];
 $shared = $wishlist["shared"];
@@ -43,21 +29,38 @@ $shared = $wishlist["shared"];
 //put wishlist products into variables
 $products = $wishlist_db->wishlistProducts($w);
 
-//check for commands
+//check for actions and set wich notification to display
+$notification = "";
 if(isset($_POST["message"])){
     //add product to shoppingcart
     if($_POST["message"] == "add"){
         addToCart($_POST["Product"], $_POST["aantal"]);
+        $notification = "added";
     }
     //delete product from wishlist
     elseif($_POST["message"] == "delete"){
         $wishlist_db->wishlistDelete($w, $_POST["Product"]);
+        $notification = "deleted";
+        //update wishlist
+        $products = $wishlist_db->wishlistProducts($w);
     }
+    //add all products in wishlist to shoppingcart with amounts
     elseif($_POST["message"] == "add all"){
         foreach($products as $product){
             $aantal = $_POST[$product["StockItemID"]];
             addToCart($product["StockItemID"], $aantal);
         }
+        $notification = "addAll";
+    }
+    //set wishlist to public
+    elseif($_POST["message"] == "shared"){
+        $wishlist_db->shareWishlist($w);
+        $notification = "shared";
+    }
+    //set wishlist to private
+    elseif($_POST["message"] == "unshared"){
+        $wishlist_db->unshareWishlist($w);
+        $notification = "unshared";
     }
 }
 
@@ -77,5 +80,5 @@ else{
     $display = FALSE;
 }
 $view = "views/verlanglijst.php";
-$title = 'WWI Verlanglijst';
+$title = ('WWI '.$name);
 include "template.php";

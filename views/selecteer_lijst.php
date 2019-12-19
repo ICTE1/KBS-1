@@ -5,8 +5,15 @@
 </script>
 
 <?php
-if($deleted){
-    print('<div class="alert alert-primary" role="alert"> Verlanglijst is verwijderd</div>');
+if($notification == "delete"){
+    print('<div class="alert calert-primary" role="alert"> Verlanglijst is verwijderd</div>');
+}
+elseif($notification == "add"){
+    print('<div class="alert calert-primary" role="alert"> Verlanglijst ');
+    if (clean_input($_POST["name"]) != ""){
+        echo('"'.clean_input($_POST["name"]).'" ');
+    }
+    print('is toegevoegd</div>');
 }
 ?>
 <div class="container">

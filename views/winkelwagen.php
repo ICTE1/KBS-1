@@ -1,3 +1,17 @@
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+
+<?php
+if($notification == "deleted") {
+    print(
+    '<div class="alert calert-primary" role="alert"> Product is verwijderd uit je winkelwagen!</div>'
+    );
+}
+?>
+
 <div class="container" style="margin-top: 10px; margin-bottom: 10px;">
     <h1>Winkelwagen</h1>
 

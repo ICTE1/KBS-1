@@ -67,7 +67,6 @@ class Products extends DbTable{
         $result = null;
         
         self::query('wwi', $query, $result, 'i', [$product]);
-
         return $result;
 
     }

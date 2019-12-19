@@ -4,20 +4,36 @@
     }
 </script>
 <?php
+//var_dump($products);
 //if allowed to display: print html
-
 if($display) {
     //print shared alert
-    if($cmd_shared == 1){
+    if($notification == "shared"){
         print(
-            '<div class="alert alert-primary" role="alert"> Verlanglijst is gedeeld!</div>'
+            '<div class="alert calert-primary" role="alert"> Verlanglijst is gedeeld!</div>'
         );
     }
-    elseif($cmd_shared == 2){
+    elseif($notification == "unshared"){
         print(
-        '<div class="alert alert-primary" role="alert"> Verlanglijst is niet meer gedeeld!</div>'
+        '<div class="alert calert-primary" role="alert"> Verlanglijst is niet meer gedeeld!</div>'
         );
     }
+    elseif($notification == "deleted"){
+        print(
+        '<div class="alert calert-primary" role="alert"> Product is verwijderd uit je verlanglijst!</div>'
+        );
+    }
+    elseif($notification == "addAll"){
+        print(
+        '<div class="alert calert-primary" role="alert"> Verlanglijst is aan winkelwagen toegevoegd!</div>'
+        );
+    }
+    elseif($notification == "added"){
+        print(
+        '<div class="alert calert-primary" role="alert"> Product is aan winkelwagen toegevoegd!</div>'
+        );
+    }
+
     //print title
     print('
         <div class="container product_card" style="margin-top: 10px">
@@ -31,7 +47,7 @@ if($display) {
         print('
                 <div class="row product_card_card" >
         <div class="col-sm-2" >
-            <img class="img-fluid productThumbnail" src = "'); $foto_url = ("public/images/productinvulling/" . $db_custom->get_product_photo($record["StockItemID"])[0]["url"]); print($foto_url .'" >
+            <img class="img-fluid productThumbnail" src = "'); $foto_url = ("public/images/productinvulling/" . $products_db->get_product_photo($record["StockItemID"])[0]["url"]); print($foto_url .'" >
         </div >
         <div class="col-sm-5" >
             <div class="product_card_text" >
@@ -67,7 +83,7 @@ if($display) {
         print('<div>
             Je verlanglijst is gedeeld
         <form action="verlanglijst.php?w='.$w.'" method="post" style="display: inline;" id="share">
-                      <input type="hidden" name="share" value=0>
+                      <input type="hidden" name="message" value="unshared">
                       <div class="btn custom-button-primary" onclick="submitOnClick(\'share\')"><i class="fa fa-times"></i> Niet meer delen</div>
                  </form>
             </div>');
@@ -77,7 +93,7 @@ if($display) {
             <div>
                  Je verlanglijst staat op privé 
                  <form action="verlanglijst.php?w='.$w.'" method="post" style="display: inline;" id="share">
-                      <input type="hidden" name="share" value=1>
+                      <input type="hidden" name="message" value="shared">
                       <div class="btn custom-button-primary" onclick="submitOnClick(\'share\')"><i class="fa fa-share-square-o"></i> delen</div>
                  </form>
             </div>');

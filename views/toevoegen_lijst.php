@@ -5,8 +5,15 @@
 </script>
 
 <?php
-if($deleted){
-    print('<div class="alert alert-primary" role="alert"> Verlanglijst is verwijderd</div>');
+if($notification == "delete"){
+    print('<div class="alert calert-primary" role="alert"> Verlanglijst is verwijderd</div>');
+}
+elseif($notification == "add"){
+    print('<div class="alert calert-primary" role="alert"> Verlanglijst ');
+    if (clean_input($_POST["name"]) != ""){
+        echo('"'.clean_input($_POST["name"]).'" ');
+    }
+    print('is toegevoegd</div>');
 }
 ?>
 <div class="container">
@@ -56,6 +63,7 @@ if($deleted){
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
             <form method="post" style="text-align: center">
+                <input type="hidden" name="product" value="<?=$_POST["product"]?>">
                 <button type="submit" name="action" value="editDone" class="btn custom-button-primary">Opslaan</button>
             </form>
         </div>
