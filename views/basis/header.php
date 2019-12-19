@@ -51,7 +51,10 @@
             <a class="nav-link text-center" href="selecteer_lijst.php"><i class="fa fa-heart navbarIcon fa-2x"></i></a>
             <a id="cart-button" class="nav-link" href="winkelwagen.php">
                 <i class="fa fa-shopping-cart navbarIcon fa-2x"></i>
-                <?php if(isset($_SESSION["winkelWagen"]) && !$_SESSION["winkelWagen"] == 0){print("<div class='badge rounded-circle shopping-badge'>".array_sum($_SESSION['winkelWagen'])."</div>");}?>
+                <?php if(isset($_SESSION["winkelWagen"]) && !$_SESSION["winkelWagen"] == 0){
+                    validate_cart(); //correct shopppingcart amounts
+                    print("<div class='badge rounded-circle shopping-badge'>".array_sum($_SESSION['winkelWagen'])."</div>");
+                }?>
             </a>
         </div>
 

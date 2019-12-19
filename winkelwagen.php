@@ -29,10 +29,10 @@ function shoppingCartExists(){
 }
 
 function printShoppingCart(){
+
     global $products_db;
 
     $prijsTot = 0; // zet start bedrag in voor bestelling
-
     //calculate and format prices
     $prijsVerzend = $prijsTot + 5;
     $prijsTot = number_format($prijsTot, 2, ",", ".");

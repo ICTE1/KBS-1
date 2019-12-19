@@ -24,3 +24,18 @@ function clean_input($data) {
     $data = htmlspecialchars($data);
     return $data;
 }
+
+function validate_cart(){
+    $cart = $_SESSION["winkelWagen"];
+    foreach($cart as $product => $aantal){
+        if($aantal > 1000){
+            $_SESSION["winkelWagen"][$product] = 1000;
+        }
+        elseif($aantal < 0){
+            $_SESSION["winkelWagen"][$product] = 0;
+        }
+        elseif($aantal == NULL){
+            $_SESSION["winkelWagen"][$product] = 0;
+        }
+    }
+}
