@@ -4,24 +4,36 @@
     }
 </script>
 <?php
+//var_dump($products);
 //if allowed to display: print html
 if($display) {
     //print shared alert
-    if($message == "shared"){
+    if($notification == "shared"){
         print(
-            '<div class="alert alert-primary" role="alert"> Verlanglijst is gedeeld!</div>'
+            '<div class="alert calert-primary" role="alert"> Verlanglijst is gedeeld!</div>'
         );
     }
-    elseif($message == "unshared"){
+    elseif($notification == "unshared"){
         print(
         '<div class="alert calert-primary" role="alert"> Verlanglijst is niet meer gedeeld!</div>'
         );
     }
-    elseif($message == "deleted"){
+    elseif($notification == "deleted"){
         print(
         '<div class="alert calert-primary" role="alert"> Product is verwijderd uit je verlanglijst!</div>'
         );
     }
+    elseif($notification == "addAll"){
+        print(
+        '<div class="alert calert-primary" role="alert"> Verlanglijst is aan winkelwagen toegevoegd!</div>'
+        );
+    }
+    elseif($notification == "added"){
+        print(
+        '<div class="alert calert-primary" role="alert"> Product is aan winkelwagen toegevoegd!</div>'
+        );
+    }
+
     //print title
     print('
         <div class="container product_card" style="margin-top: 10px">
@@ -71,7 +83,7 @@ if($display) {
         print('<div>
             Je verlanglijst is gedeeld
         <form action="verlanglijst.php?w='.$w.'" method="post" style="display: inline;" id="share">
-                      <input type="hidden" name="share" value=0>
+                      <input type="hidden" name="message" value="unshared">
                       <div class="btn custom-button-primary" onclick="submitOnClick(\'share\')"><i class="fa fa-times"></i> Niet meer delen</div>
                  </form>
             </div>');
@@ -81,7 +93,7 @@ if($display) {
             <div>
                  Je verlanglijst staat op privé 
                  <form action="verlanglijst.php?w='.$w.'" method="post" style="display: inline;" id="share">
-                      <input type="hidden" name="share" value=1>
+                      <input type="hidden" name="message" value="shared">
                       <div class="btn custom-button-primary" onclick="submitOnClick(\'share\')"><i class="fa fa-share-square-o"></i> delen</div>
                  </form>
             </div>');

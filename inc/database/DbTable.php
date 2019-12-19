@@ -87,7 +87,6 @@ abstract class dbTable {
 
         $result = mysqli_fetch_all($a, MYSQLI_ASSOC);
 
-
         return $result;
     }
     

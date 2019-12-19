@@ -1,4 +1,15 @@
-
+<?php
+    if($notification == "add") {
+        print(
+        '<div class="alert calert-primary" role="alert"> Product is toegevoegd aan winkelwagen!</div>'
+        );
+    }
+?>
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
 <main>
     <section>
         <div class="container">

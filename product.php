@@ -21,14 +21,11 @@ $similar = $products_db->get_similar_products($id);
 
 $reviews = $products_db->get_product_reviews($id);
 
+$notification = "";
 if(isset($_POST["message"])) {
     if ($_POST["message"] == "Nu kopen") {
         addToCart($_POST["Product"], $_POST["aantal"]);
-    } elseif ($_POST["message"] == "verlanglijst") {
-        $user_id = $_SESSION["user_id"];
-        $wishlist_id = $wishlist_db->userWishlists($user_id);
-
-        $wishlist_db->wishlistAdd($wishlist_id, $_POST['Product']);
+        $notification = "add";
     }
 }
 
