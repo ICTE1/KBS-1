@@ -53,11 +53,12 @@ function printShoppingCart(){
     print (startRow($product));
   
     showProduct($data, $product, $foto_url, $prijs, $aantal );
-
+    // end row started at line :53
+    print ( '</div>');
    
     }
-     // end row started at line :53
-     print ( '</div>');
+
+
 
     showPricesAndPayButton($prijsTot, $prijsVerzend); 
 }
