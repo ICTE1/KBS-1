@@ -31,11 +31,11 @@ function validate_cart(){
         if($aantal > 1000){
             $_SESSION["winkelWagen"][$product] = 1000;
         }
-        elseif($aantal < 0){
-            $_SESSION["winkelWagen"][$product] = 0;
+        elseif($aantal < 1){
+            $_SESSION["winkelWagen"][$product] = 1;
         }
         elseif($aantal == NULL){
-            $_SESSION["winkelWagen"][$product] = 0;
+            $_SESSION["winkelWagen"][$product] = 1;
         }
     }
 }
