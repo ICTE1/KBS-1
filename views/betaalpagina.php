@@ -7,9 +7,9 @@
                 <?php if (!isset($_SESSION['loggedin'])) { ?>
                 Volledige naam:
                 <input type="text" name="Name" pattern="^[a-zA-Z]{2,}[[:blank:]][a-zA-Z]{2,}$"  required>
-                <?php } ?>
                 E-mail adres:
                 <input type="email" name="Mail" required>
+                <?php } ?>
                 Telefoon nummer:
                 <input type="text" name="Phone-number" pattern="^[0-9]{10}$" required>
                 Postcode:
