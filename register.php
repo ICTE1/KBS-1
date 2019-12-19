@@ -1,4 +1,5 @@
 <?php
+
 require_once "inc/package.php";
 
 $view = "views/register.php";
@@ -13,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Clear error session variables
     $_SESSION["username_err_r"] = NULL;
     $_SESSION["password_err_r"] = NULL;
+    $_SESSION["email_err_r"] = NULL;
     $_SESSION["confirm_password_err_r"] = NULL;
     $_SESSION["username_r"] = NULL;
 
@@ -39,6 +41,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         }
     }
+
+    //validate email
+
+    if (empty(trim($_POST["email"]))) {
+        $_SESSION["email_err_r"] = "Vul een email in";
+    } else {
+        $email = trim($_POST["email"]);
+    }
+
     // Validate password
     if (empty(trim($_POST["password"]))) {
         $_SESSION["password_err_r"] = "Vul een wachtwoord in";
@@ -60,13 +71,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Check input errors before inserting in database
-    if (empty($_SESSION["username_err_r"]) && empty($_SESSION["password_err_r"]) && empty($_SESSION["confirm_password_err_r"])) {
+    if (empty($_SESSION["username_err_r"]) && empty($_SESSION["password_err_r"]) && empty($_SESSION["confirm_password_err_r"]) && empty($_SESSION["email_err_r"])) {
         $password = clean_input($password);
         $param_username = clean_input($username);
         $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
 
         // Create the user using the db object
-        $user->create_user($param_username, $param_password);
+        $user->create_user($param_username, $email, $param_password);
+
+        $user->insert_discount_code($param_username, 10, $email);
 
         header("location: ./login.php");
     }

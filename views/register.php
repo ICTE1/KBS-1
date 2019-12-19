@@ -12,6 +12,11 @@
                             <span class="help-block"><?php if(isset($_SESSION['username_err_r'])) { echo $_SESSION['username_err_r']; } ?></span>
                         </div>
                         <div class="form-group">
+                            <label>E-mail</label>
+                            <input type="email" name="email" class="form-control <?php echo (isset($_SESSION['email_r'])) ? 'is-invalid' : ''; ?>">
+                            <span class="help-block"><?php if(isset($_SESSION['email_r'])) { echo $_SESSION['email_r']; } ?></span>
+                        </div>
+                        <div class="form-group">
                             <label>Wachtwoord</label>
                             <input type="password" name="password" class="form-control <?php echo (isset($_SESSION['password_err_r'])) ? 'is-invalid' : ''; ?>">
                             <span class="help-block"><?php if(isset($_SESSION['password_err_r'])) { echo $_SESSION['password_err_r']; } ?></span>

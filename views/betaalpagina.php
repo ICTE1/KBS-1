@@ -67,8 +67,14 @@
                             foreach ( $shopping_cart_content as $itemId => $amount) {
                             $db = new Products();
                             $productInfo = $db->productInfo($itemId)[0];
-                          
+
                             $total_price +=  ($productInfo['RecommendedRetailPrice'] * $amount);
+
+
+                            if (isset($_SESSION["discounted_price"])) {
+                                $total_price = $_SESSION["discounted_price"] - 5;
+                            }
+
                             print("
                             
                             

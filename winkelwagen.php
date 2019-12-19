@@ -1,6 +1,8 @@
 <?php
 require_once "inc/package.php";
 
+// Create a database object
+$user = new User();
 
 $products_db = new Products();
 $notification = "";
@@ -15,6 +17,12 @@ if(isset($_POST["hiddenToevoegen"])){ // voeg toe aan winkelwagen
 
 if(isset($_POST["hiddenUpdate"])){ //zet aantal in de sessie
     $_SESSION["winkelWagen"][$_POST["hiddenUpdate"]] = $_POST["aantal"];
+}
+if(isset($_POST["hiddenKorting"])){
+    $_SESSION["discount"] = $user->apply_discount($_POST["kortingsCode"]);
+
+//    var_dump($discount);
+//    die();
 }
 
 
@@ -60,27 +68,58 @@ function printShoppingCart(){
 
 
 
-    showPricesAndPayButton($prijsTot, $prijsVerzend); 
+    showPricesAndPayButton($prijsTot, $prijsVerzend);
 }
 
-function showPricesAndPayButton ($prijsTot, $prijsVerzend){
-   
+function showPricesAndPayButton ($prijsTot, $prijsVerzend)
+{
     $prijs_inclusief_verzendkosten = floatval($prijsTot) + floatval($prijsVerzend);
+    $prijs_inclusief_verzendkosten_korting = round($prijs_inclusief_verzendkosten / 100 * (100 - $_SESSION["discount"]), 2);
 
-    print("
+    if ($_SESSION["discount"] != NULL) {
+        print("
     <div class='card' style='background-color: #353535'>
         <div class='card-body text-right'>
-            Prijs artikelen: €".$prijsTot."
+            Prijs artikelen: €" . $prijsTot . "
             <br>
             verzendkosten: €5,-
         </div>
         <div class='card-footer text-right'>
             <form> 
-            <h4>Totaal: €".$prijs_inclusief_verzendkosten."   <a  class='btn custom-button-primary'  href='betaalpagina.php'>Betalen</a></h4>
+            <h4>Totaal: €" . $prijs_inclusief_verzendkosten . " <br> Met korting: €" . $prijs_inclusief_verzendkosten_korting . "<br>  <a  class='btn custom-button-primary'  href='betaalpagina.php'>Betalen</a></h4>
+            </form>
+            <form method=\"post\" class=\"form-inline\" style=\"display: inline-block\">
+                    <input type=\"hidden\" name=\"hiddenKorting\">
+                    <input type=\"text\" class=\"form-control\" name=\"kortingsCode\" id=\"kortingsCode\" aria-describedby=\"kortingsCode\" placeholder=\"Kortings code\" required>
+                    <button type=\"submit\" class=\"btn custom-button-primary\">Toevoegen</button>
             </form>
         </div>
     </div>
     ");
+    $_SESSION["discount"] = NULL;
+    $_SESSION["discounted_price"] = $prijs_inclusief_verzendkosten_korting;
+    } else {
+        print("
+        <div class='card' style='background-color: #353535'>
+            <div class='card-body text-right'>
+                Prijs artikelen: €" . $prijsTot . "
+                <br>
+                verzendkosten: €5,-
+            </div>
+            <div class='card-footer text-right'>
+                <form> 
+                <h4>Totaal: €" . $prijs_inclusief_verzendkosten . " <a  class='btn custom-button-primary'  href='betaalpagina.php'>Betalen</a></h4>
+                </form>
+                <form method=\"post\" class=\"form-inline\" style=\"display: inline-block\">
+                        <input type=\"hidden\" name=\"hiddenKorting\">
+                        <input type=\"text\" class=\"form-control\" name=\"kortingsCode\" id=\"kortingsCode\" aria-describedby=\"kortingsCode\" placeholder=\"Kortings code\" required>
+                        <button type=\"submit\" class=\"btn custom-button-primary\">Toevoegen</button>
+                </form>
+            </div>
+        </div>
+    ");
+    }
+    $_SESSION["discount"] = NULL;
 }
 
 function showProduct ($data, $product, $foto_url, $prijs, $aantal){
