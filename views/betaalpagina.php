@@ -87,7 +87,24 @@
                             </tr>
                             
                             ");
+
+
+
+
                         }
+
+
+
+                        if (isset($_SESSION['discount'])){
+                            
+                            print ("<tr>
+                                    <th scope='row'>Korting</th>
+                                    <th>{$_SESSION['discount']}%</th>
+                                    <th></th>
+                                    </tr>") ;
+                        }
+
+
 
                         print ("
                         <tr>
@@ -95,13 +112,13 @@
                             <th>€ 5,00 </th>
                             <th></th>
                         </tr>
+                        
                         <tr >
                             <th scope='row'> Totaal </th>
                             <th>€ ".($total_price + 5)."</th>
                             <th></th>
-                            
-                
                         </tr>
+
                         </tbody>
                         </table>
                         ");

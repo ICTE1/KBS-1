@@ -1,5 +1,9 @@
 <div>
-    <?php $_SESSION["winkelWagen"] = NULL;?>
+    <?php 
+        $_SESSION["winkelWagen"] = NULL; 
+        $_SESSION['discount'] = NULL;
+        $_SESSION['discounted_price'] = NULL;
+    ?>
     <div class="row">
         <div class="col-12 text-center">
             <h1>U heeft betaald</h1>

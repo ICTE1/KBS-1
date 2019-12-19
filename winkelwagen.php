@@ -74,9 +74,10 @@ function printShoppingCart(){
 function showPricesAndPayButton ($prijsTot, $prijsVerzend)
 {
     $prijs_inclusief_verzendkosten = floatval($prijsTot) + floatval($prijsVerzend);
-    $prijs_inclusief_verzendkosten_korting = round($prijs_inclusief_verzendkosten / 100 * (100 - $_SESSION["discount"]), 2);
 
-    if ($_SESSION["discount"] != NULL) {
+    if ( isset($_SESSION['discount']) ) {
+        $prijs_inclusief_verzendkosten_korting = round($prijs_inclusief_verzendkosten / 100 * (100 - $_SESSION["discount"]), 2);
+
         print("
     <div class='card' style='background-color: #353535'>
         <div class='card-body text-right'>
@@ -96,7 +97,7 @@ function showPricesAndPayButton ($prijsTot, $prijsVerzend)
         </div>
     </div>
     ");
-    $_SESSION["discount"] = NULL;
+   // $_SESSION["discount"] = NULL;
     $_SESSION["discounted_price"] = $prijs_inclusief_verzendkosten_korting;
     } else {
         print("
@@ -119,7 +120,7 @@ function showPricesAndPayButton ($prijsTot, $prijsVerzend)
         </div>
     ");
     }
-    $_SESSION["discount"] = NULL;
+  //  $_SESSION["discount"] = NULL;
 }
 
 function showProduct ($data, $product, $foto_url, $prijs, $aantal){
